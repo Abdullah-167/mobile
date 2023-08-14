@@ -16,7 +16,7 @@ const HeroSlide = () => {
 
     return (
         <section className=''>
-            <div className='relative pb-[420px]'>
+            <div className='relative pb-[390px]'>
                 {data.map((item, index) => {
                     return (
                         <h2 key={index}

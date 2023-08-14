@@ -3,6 +3,7 @@ import SideBar from './SideBar'
 import HeroSlide from './HeroSlide'
 import Container from '../../Layout/Container'
 import Ads from '@/Components/Common/Ads'
+import Pricing from './Pricing'
 
 const Home = () => {
     return (
@@ -17,6 +18,7 @@ const Home = () => {
                         <div className=''>
                             <Ads />
                         </div>
+                        <Pricing />
                     </Container>
                 </div>
             </div>
