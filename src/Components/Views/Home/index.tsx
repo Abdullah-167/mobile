@@ -14,6 +14,8 @@ import Under20 from './Under20'
 import Under15 from './Under15'
 import Under10 from './Under10'
 import FeaturedBrand from './FeaturedBrand'
+import LatestNews from './LatestNews'
+import MobileCompa from './MobileCompa'
 
 const Home = () => {
     return (
@@ -41,8 +43,9 @@ const Home = () => {
                     </Container>
                 </div>
             </div>
-             <FeaturedBrand />
-
+            <FeaturedBrand />
+            <LatestNews />
+            <MobileCompa />
         </main>
     )
 }

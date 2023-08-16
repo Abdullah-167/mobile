@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from './Navbar'
 import MiniNav from './SubNav'
+import Footer from './Footer'
 
 const Layout = ({ children }: any) => {
     return (
@@ -8,6 +9,7 @@ const Layout = ({ children }: any) => {
             <Navbar />
             <MiniNav />
             {children}
+            <Footer />
         </main>
     )
 }
