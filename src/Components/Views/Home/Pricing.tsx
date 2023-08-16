@@ -63,7 +63,8 @@ const MobilePricingSlider = () => {
           <div className='flex gap-3 text-sm font-semibold'>
             {prices.map((item, index) => {
               return (
-                <p key={index}>{item.price}</p>
+                <p className=' cursor-pointer' 
+                key={index}>{item.price}</p>
               )
             })}
           </div>
