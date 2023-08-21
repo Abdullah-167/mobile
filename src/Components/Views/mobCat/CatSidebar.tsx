@@ -8,12 +8,26 @@ const CatSideBar = () => {
 
     const [pricingRange, setPricingRange] = useState([0, 100000]);
     const { checkedIndices, handleDivClick } = useCheckboxList();
+    const [searchBrand, setSearchBrand] = useState('');
+
     const refineCheckboxList = useCheckboxList();
     const featuredCheckboxList = useCheckboxList();
+    const mobbrands = useCheckboxList();
+    const markStatus = useCheckboxList();
+    const launchedStatus = useCheckboxList();
+    const ramStatus = useCheckboxList();
+    const internal = useCheckboxList();
+    const external = useCheckboxList();
+
 
 
     const handlePriceChange = (values: any) => {
         setPricingRange(values);
+    };
+
+    const handleSearchChange = (event: any) => {
+        const query = event.target.value.toLowerCase();
+        setSearchBrand(query);
     };
 
     const handleInputChange = (index: any, value: any) => {
@@ -22,6 +36,9 @@ const CatSideBar = () => {
         setPricingRange(newPricingRange);
     };
 
+    const filteredBrands = mobileBrands.filter((brand) =>
+        brand.brand.toLowerCase().includes(searchBrand)
+    );
 
 
     return (
@@ -70,20 +87,158 @@ const CatSideBar = () => {
                         )
                     })}
                 </div>
-                <div>
-                    <div className='flex gap-2 items-center bg-[#EAEAEA] px-4 py-1'>
+                <div className='pb-5'>
+                    <div className='flex gap-2 items-center bg-[#EAEAEA] px-4 py-1 mb-4'>
                         <Image src={'/sign.svg'} alt='sign-img' width={20} height={20} />
                         <span>Featured Searches</span>
                     </div>
                     {featured.map((item, index) => {
                         return (
-                            <div className='flex gap-3 items-center text-xs pb-[6px] cursor-pointer'
+                            <div className='flex gap-3 items-center text-xs pb-[6px] cursor-pointer px-4'
                                 key={index} onClick={() => featuredCheckboxList.handleDivClick(index)}>
                                 <input type={item.type} checked={featuredCheckboxList.checkedIndices.includes(index)} />
                                 <p>{item.text}</p>
                             </div>
                         )
                     })}
+                </div>
+                <div className='pb-5'>
+                    <div className='flex gap-2 items-center bg-[#EAEAEA] px-4 py-1 mb-5'>
+                        <Image src={'/sign.svg'} alt='sign-img' width={20} height={20} />
+                        <span>Brands</span>
+                    </div>
+                    <div className='px-4'>
+                        <input
+                            className='w-full mb-4 outline-none outline-gray-200 focus:outline-gray-400 transition-all duration-500'
+                            placeholder='Search Brand e.g Apple'
+                            type='text'
+                            value={searchBrand}
+                            onChange={handleSearchChange}
+                        />
+                        <div className='max-h-[200px] min-h-[200px] overflow-auto'>
+                            {filteredBrands.map((item, index) => (
+                                <div
+                                    className='flex gap-3 items-center text-xs pb-[6px] cursor-pointer px-4'
+                                    key={index}
+                                    onClick={() => mobbrands.handleDivClick(index)}
+                                >
+                                    <input
+                                        type='checkbox'
+                                        checked={mobbrands.checkedIndices.includes(index)}
+                                    // Add checkbox logic here
+                                    />
+                                    <p>{item.brand}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+                <div className='pb-5'>
+                    <div className='flex gap-2 items-center bg-[#EAEAEA] px-4 py-1 mb-3'>
+                        <Image src={'/sign.svg'} alt='sign-img' width={20} height={20} />
+                        <span>Market Status</span>
+                    </div>
+                    <div className='px-4'>
+                        <div className='overflow-auto'>
+                            {marketStatus.map((item, index) => (
+                                <div
+                                    className='flex gap-3 items-center text-xs pb-[6px] cursor-pointer px-4'
+                                    key={index}
+                                    onClick={() => markStatus.handleDivClick(index)}
+                                >
+                                    <input
+                                        type='checkbox'
+                                        checked={markStatus.checkedIndices.includes(index)}
+                                    />
+                                    <p>{item.text}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+                <div className='pb-5'>
+                    <div className='flex gap-2 items-center bg-[#EAEAEA] px-4 py-1 mb-3'>
+                        <Image src={'/sign.svg'} alt='sign-img' width={20} height={20} />
+                        <span>Launched within</span>
+                    </div>
+                    <div className='px-4'>
+                        <div className='overflow-auto'>
+                            {launched.map((item, index) => (
+                                <div
+                                    className='flex gap-3 items-center text-xs pb-[6px] cursor-pointer px-4'
+                                    key={index}
+                                    onClick={() => launchedStatus.handleDivClick(index)}
+                                >
+                                    <input
+                                        type='checkbox'
+                                        checked={launchedStatus.checkedIndices.includes(index)}
+                                    />
+                                    <p>{item.text}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+                <div className='pb-5'>
+                    <div className='flex gap-2 items-center bg-[#EAEAEA] px-4 py-1 mb-3'>
+                        <Image src={'/sign.svg'} alt='sign-img' width={20} height={20} />
+                        <span>Ram</span>
+                    </div>
+                    <div className='px-4'>
+                        <div className='overflow-auto'>
+                            {ram.map((item, index) => (
+                                <div
+                                    className='flex gap-3 items-center text-xs pb-[6px] cursor-pointer px-4'
+                                    key={index}
+                                    onClick={() => ramStatus.handleDivClick(index)}
+                                >
+                                    <input
+                                        type='checkbox'
+                                        checked={ramStatus.checkedIndices.includes(index)}
+                                    />
+                                    <p>{item.text}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+                <div className='pb-5'>
+                    <div className='flex gap-2 items-center bg-[#EAEAEA] px-4 py-1 mb-3'>
+                        <Image src={'/sign.svg'} alt='sign-img' width={20} height={20} />
+                        <span>Ram</span>
+                    </div>
+                    <div className='px-4'>
+                        <div className='overflow-auto'>
+                            {memory.map((item, brandIndex) => (
+                                <div key={brandIndex}>
+                                    <p className='font-bold pb-2'>{item.memStatus}</p>
+                                    {item.dataType.map((model, modelIndex) => (
+                                        <div
+                                            className='flex gap-3 items-center text-xs pb-[6px] cursor-pointer px-4'
+                                            key={modelIndex}
+                                            onClick={() => {
+                                                if (item.memStatus === 'Internal Memory') {
+                                                    internal.handleDivClick(modelIndex);
+                                                } else if (item.memStatus === 'External Memory') {
+                                                    external.handleDivClick(modelIndex);
+                                                }
+                                            }}
+                                        >
+                                            <input
+                                                type='checkbox'
+                                                checked={
+                                                    item.memStatus === 'Internal Memory'
+                                                        ? internal.checkedIndices.includes(modelIndex)
+                                                        : external.checkedIndices.includes(modelIndex)
+                                                }
+                                            />
+                                            <p>{model.text}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </div>
         </aside>
@@ -176,3 +331,126 @@ const featured = [
         text: 'Dual SIM (664) '
     },
 ]
+
+
+const mobileBrands = [
+    { "brand": "Apple", "type": "checkbox" },
+    { "brand": "Samsung", "type": "checkbox" },
+    { "brand": "Huawei", "type": "checkbox" },
+    { "brand": "Xiaomi", "type": "checkbox" },
+    { "brand": "Oppo", "type": "checkbox" },
+    { "brand": "Vivo", "type": "checkbox" },
+    { "brand": "OnePlus", "type": "checkbox" },
+    { "brand": "Google", "type": "checkbox" },
+    { "brand": "Sony", "type": "checkbox" },
+    { "brand": "LG", "type": "checkbox" },
+    { "brand": "Motorola", "type": "checkbox" },
+    { "brand": "Nokia", "type": "checkbox" },
+    { "brand": "HTC", "type": "checkbox" },
+    { "brand": "Lenovo", "type": "checkbox" },
+    { "brand": "ASUS", "type": "checkbox" },
+    { "brand": "BlackBerry", "type": "checkbox" },
+    { "brand": "Alcatel", "type": "checkbox" },
+    { "brand": "ZTE", "type": "checkbox" },
+    { "brand": "Honor", "type": "checkbox" },
+    { "brand": "Realme", "type": "checkbox" },
+    { "brand": "Infinix", "type": "checkbox" },
+    { "brand": "TCL", "type": "checkbox" },
+    { "brand": "Meizu", "type": "checkbox" },
+    { "brand": "LeEco", "type": "checkbox" },
+    { "brand": "Micromax", "type": "checkbox" },
+    { "brand": "Panasonic", "type": "checkbox" },
+    { "brand": "Gionee", "type": "checkbox" },
+    { "brand": "Coolpad", "type": "checkbox" },
+    { "brand": "Lava", "type": "checkbox" },
+    { "brand": "Sharp", "type": "checkbox" },
+    { "brand": "Nubia", "type": "checkbox" },
+    { "brand": "Essential", "type": "checkbox" },
+    { "brand": "CAT", "type": "checkbox" },
+    { "brand": "Wiko", "type": "checkbox" },
+    { "brand": "Kyocera", "type": "checkbox" },
+    { "brand": "BLU", "type": "checkbox" },
+    { "brand": "YotaPhone", "type": "checkbox" },
+    { "brand": "Palm", "type": "checkbox" },
+    { "brand": "ZUK", "type": "checkbox" },
+    { "brand": "Razer", "type": "checkbox" },
+    { "brand": "Tecno", "type": "checkbox" },
+    { "brand": "Vertu", "type": "checkbox" }
+]
+
+
+const marketStatus = [
+    {
+        type: 'checkbox',
+        text: 'Available In Stores (2093)'
+    },
+    {
+        type: 'checkbox',
+        text: 'Upcoming (159)'
+    },
+    {
+        type: 'checkbox',
+        text: 'Out of Stock (2858)'
+    },
+    {
+        type: 'checkbox',
+        text: 'Rumoured (529)'
+    },
+]
+
+
+const launched = [
+    {
+        type: 'checkbox',
+        text: 'Last 3 months (284)'
+    },
+    {
+        type: 'checkbox',
+        text: 'Last 6 months (579)'
+    },
+    {
+        type: 'checkbox',
+        text: 'Last 1 year (1035)'
+    },
+]
+
+const ram = [
+    {
+        type: 'checkbox',
+        text: '4 GB RAM (4167)'
+    },
+    {
+        type: 'checkbox',
+        text: '6 GB RAM (2692)'
+    },
+    {
+        type: 'checkbox',
+        text: '8 GB RAM (748)'
+    },
+    {
+        type: 'checkbox',
+        text: '12 GB RAM & above (112)'
+    },
+]
+
+
+const memory = [
+    {
+        memStatus: 'Internal Memory',
+        dataType: [
+            { text: '8 GB (2676)', type: 'checkbox' },
+            { text: '32 GB RAM (3689)', type: 'checkbox' },
+            { text: '64 GB RAM (4675)', type: 'checkbox' },
+            { text: '128 GB RAM (2692)', type: 'checkbox' },
+            { text: '256 GB RAM (748)', type: 'checkbox' },
+            { text: '512 GB RAM & above (112)', type: 'checkbox' },
+        ],
+    },
+    {
+        memStatus: 'External Memory',
+        dataType: [
+            { text: 'USB OTG (3676)', type: 'checkbox' },
+            { text: 'Memory Card Slot (30689)', type: 'checkbox' },
+        ],
+    },
+];
