@@ -18,6 +18,11 @@ const CatSideBar = () => {
     const ramStatus = useCheckboxList();
     const internal = useCheckboxList();
     const external = useCheckboxList();
+    const screenSize = useCheckboxList();
+    const pixelDensity = useCheckboxList();
+    const screenFeatures = useCheckboxList();
+    const refreshRate = useCheckboxList();
+    const screenResolution = useCheckboxList();
 
 
 
@@ -43,7 +48,7 @@ const CatSideBar = () => {
 
     return (
         <aside>
-            <div className='bg-[#FFF] max-w-[220px] border h-full py-5 hidden lg:block'>
+            <div className='bg-[#FFF] max-w-[260px] border h-full py-5 hidden lg:block'>
                 <div className='pb-5 px-4  '>
                     <div className='flex justify-around pb-4'>
                         <span>Refine results</span>
@@ -79,7 +84,7 @@ const CatSideBar = () => {
                     </div>
                     {priceRange.map((item, index) => {
                         return (
-                            <div className='flex gap-3 items-center text-xs pb-[6px] cursor-pointer'
+                            <div className='flex gap-3 items-center text-xs pb-[6px] cursor-pointer px-4'
                                 key={index} onClick={() => refineCheckboxList.handleDivClick(index)}>
                                 <input type={item.type} checked={refineCheckboxList.checkedIndices.includes(index)} />
                                 <p>{item.range}</p>
@@ -94,7 +99,7 @@ const CatSideBar = () => {
                     </div>
                     {featured.map((item, index) => {
                         return (
-                            <div className='flex gap-3 items-center text-xs pb-[6px] cursor-pointer px-4'
+                            <div className='flex gap-3 items-center text-xs pb-[6px] cursor-pointer px-8'
                                 key={index} onClick={() => featuredCheckboxList.handleDivClick(index)}>
                                 <input type={item.type} checked={featuredCheckboxList.checkedIndices.includes(index)} />
                                 <p>{item.text}</p>
@@ -233,6 +238,61 @@ const CatSideBar = () => {
                                                 }
                                             />
                                             <p>{model.text}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+                <div className='pb-5'>
+                    <div className='flex gap-2 items-center bg-[#EAEAEA] px-4 py-1 mb-3'>
+                        <Image src={'/sign.svg'} alt='sign-img' width={20} height={20} />
+                        <span>Ram</span>
+                    </div>
+                    <div className='px-4'>
+                        <div className='overflow-auto'>
+                            {display.map((item, brandIndex) => (
+                                <div key={brandIndex}>
+                                    <p className='font-bold pb-2'>{item.screenSize}</p>
+                                    {item.screen.map((model, modelIndex) => (
+                                        <div
+                                            className='flex gap-3 items-center text-xs pb-[6px] cursor-pointer px-4'
+                                            key={modelIndex}
+                                            onClick={() => {
+                                                if (item.screenSize === 'Screen Size') {
+                                                    screenSize.handleDivClick(modelIndex);
+                                                } else if (item.screenSize === 'Pixel Density (Sharpness)') {
+                                                    pixelDensity.handleDivClick(modelIndex);
+                                                }
+                                                else if (item.screenSize === 'Screen Features') {
+                                                    screenFeatures.handleDivClick(modelIndex);
+                                                }
+                                                else if (item.screenSize === 'Refresh Rate') {
+                                                    refreshRate.handleDivClick(modelIndex);
+                                                }
+                                                else if (item.screenSize === 'Screen Resolution') {
+                                                    screenResolution.handleDivClick(modelIndex);
+                                                }
+                                            }}
+                                        >
+                                            <input
+                                                type='checkbox'
+                                                checked={
+                                                    item.screenSize === 'Screen Size'
+                                                        ? screenSize.checkedIndices.includes(modelIndex)
+                                                        : item.screenSize === 'Pixel Density (Sharpness)'
+                                                            ? pixelDensity.checkedIndices.includes(modelIndex)
+                                                            : item.screenSize === 'Screen Features'
+                                                                ? screenFeatures.checkedIndices.includes(modelIndex)
+                                                                : item.screenSize === 'Refresh Rate'
+                                                                    ? refreshRate.checkedIndices.includes(modelIndex)
+                                                                    : item.screenSize === 'Screen Resolution'
+                                                                        ? screenResolution.checkedIndices.includes(modelIndex)
+                                                                        : false
+                                                }
+                                            />
+                                            <p>{model.size}</p>
                                         </div>
                                     ))}
                                 </div>
@@ -454,3 +514,50 @@ const memory = [
         ],
     },
 ];
+
+
+const display = [
+    {
+        screenSize: 'Screen Size',
+        screen: [
+            { type: "checkbox", size: 'Below 3 inch (1233)' },
+            { type: "checkbox", size: '3.0 inch - 4.0 inch (689)' },
+            { type: "checkbox", size: '4.1 inch - 4.9 inch (675)' },
+            { type: "checkbox", size: '5.0 inch - 5.9 inch (692)' },
+            { type: "checkbox", size: '6.0 inch - 6.9 inch (748)' },
+            { type: "checkbox", size: '7.0 inch - 8.9 inch (112)' },
+        ]
+    },
+    {
+        screenSize: 'Pixel Density (Sharpness)',
+        screen: [
+            { type: "checkbox", size: '400 ppi & above (376)' },
+            { type: "checkbox", size: '500 ppi & above (80)' },
+
+        ]
+    },
+    {
+        screenSize: 'Screen Features',
+        screen: [
+            { type: "checkbox", size: 'Gorilla Glass (269)  [+]' },
+            { type: "checkbox", size: 'AMOLED (161)' },
+            { type: "checkbox", size: 'Super AMOLED (401)' },
+
+        ]
+    },
+    {
+        screenSize: 'Refresh Rate',
+        screen: [
+            { type: "checkbox", size: '90 Hz (46)' },
+            { type: "checkbox", size: '120 Hz (97)' },
+        ]
+    },
+    {
+        screenSize: 'Screen Resolution',
+        screen: [
+            { type: "checkbox", size: 'Full HD Screen (65)' },
+            { type: "checkbox", size: '2K (QHD) (28)' },
+            { type: "checkbox", size: '4K (UHD) (1)' },
+        ]
+    },
+]
