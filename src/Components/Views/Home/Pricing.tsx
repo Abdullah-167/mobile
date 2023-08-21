@@ -5,6 +5,7 @@ import { GoArrowRight } from 'react-icons/go';
 import Link from 'next/link';
 
 const MobilePricingSlider = () => {
+  
   const [pricingRange, setPricingRange] = useState([0, 100000]);
 
   const handlePriceChange = (values: any) => {
@@ -53,8 +54,7 @@ const MobilePricingSlider = () => {
           <Link href={''}>
             <button className="relative max-w-[309px] inline-flex items-center justify-center p-4 px-6 py-1.5 overflow-hidden font-medium text-primary transition duration-300 ease-out border-2 border-primary w-full group mb-5">
               <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-500 -translate-x-full bg-primary group-hover:translate-x-0 ease">
-                <svg className=" 
-w-4 h-4 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                <svg className="w-4 h-4 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
               </span>
               <span className="absolute flex items-center justify-center font-semibold w-full h-full text-primary transition-all duration-500 transform group-hover:translate-x-full ease">Find Mobile</span>
               <p className="relative invisible font-semibold">Find Mobiles</p>

@@ -1,0 +1,178 @@
+import Slider from 'rc-slider'
+import React, { useState } from 'react'
+import 'rc-slider/assets/index.css';
+import useCheckboxList from '@/Components/hooks/useCheckboxList';
+import Image from 'next/image';
+
+const CatSideBar = () => {
+
+    const [pricingRange, setPricingRange] = useState([0, 100000]);
+    const { checkedIndices, handleDivClick } = useCheckboxList();
+    const refineCheckboxList = useCheckboxList();
+    const featuredCheckboxList = useCheckboxList();
+
+
+    const handlePriceChange = (values: any) => {
+        setPricingRange(values);
+    };
+
+    const handleInputChange = (index: any, value: any) => {
+        const newPricingRange = [...pricingRange];
+        newPricingRange[index] = value;
+        setPricingRange(newPricingRange);
+    };
+
+
+
+    return (
+        <aside>
+            <div className='bg-[#FFF] max-w-[220px] border h-full py-5 hidden lg:block'>
+                <div className='pb-5 px-4  '>
+                    <div className='flex justify-around pb-4'>
+                        <span>Refine results</span>
+                        <span className=' cursor-pointer border-b'>Clear All</span>
+                    </div>
+                    <input className='px-2 w-full mx-1 mb-4 outline-none outline-gray-200 focus:outline-gray-400 transition-all duration-500' type="text" />
+                    <div className="px-2">
+                        <Slider
+                            min={0}
+                            max={100000}
+                            range
+                            value={pricingRange}
+                            onChange={handlePriceChange}
+                            trackStyle={[{ backgroundColor: '#38a169', height: '6px', top: "7px" }]}
+                            railStyle={{ backgroundColor: '#718096', top: "7px" }}
+                            handleStyle={[{ backgroundColor: '#38a169', borderColor: '#38a169', width: '20px', height: '20px' }, { backgroundColor: '#38a169', borderColor: '#38a169', width: '20px', height: '20px' }]} // Customize handle color
+                        />
+                        <div className="flex gap-4 mt-4 mb-7">
+                            <input
+                                type="text"
+                                className='border border-gray-300 px-2 py-1 w-1/2 outline-none active:outline-black transition-all duration-500'
+                                value={pricingRange[0]}
+                                onChange={(e) => handleInputChange(0, e.target.value)}
+                            />
+                            <span className="text-gray-500">To</span>
+                            <input
+                                type="text"
+                                className='border border-gray-300 px-2 py-1 w-1/2 outline-none active:outline-black transition-all duration-500'
+                                value={pricingRange[1]}
+                                onChange={(e) => handleInputChange(1, e.target.value)}
+                            />
+                        </div>
+                    </div>
+                    {priceRange.map((item, index) => {
+                        return (
+                            <div className='flex gap-3 items-center text-xs pb-[6px] cursor-pointer'
+                                key={index} onClick={() => refineCheckboxList.handleDivClick(index)}>
+                                <input type={item.type} checked={refineCheckboxList.checkedIndices.includes(index)} />
+                                <p>{item.range}</p>
+                            </div>
+                        )
+                    })}
+                </div>
+                <div>
+                    <div className='flex gap-2 items-center bg-[#EAEAEA] px-4 py-1'>
+                        <Image src={'/sign.svg'} alt='sign-img' width={20} height={20} />
+                        <span>Featured Searches</span>
+                    </div>
+                    {featured.map((item, index) => {
+                        return (
+                            <div className='flex gap-3 items-center text-xs pb-[6px] cursor-pointer'
+                                key={index} onClick={() => featuredCheckboxList.handleDivClick(index)}>
+                                <input type={item.type} checked={featuredCheckboxList.checkedIndices.includes(index)} />
+                                <p>{item.text}</p>
+                            </div>
+                        )
+                    })}
+                </div>
+            </div>
+        </aside>
+    )
+}
+
+export default CatSideBar;
+
+
+
+
+const priceRange = [
+    {
+        type: 'radio',
+        range: 'Rs. 5,000 and below (200)'
+    },
+    {
+        type: 'radio',
+        range: 'Rs. 5,000 - Rs. 10,000 (213)'
+    },
+    {
+        type: 'radio',
+        range: 'Rs. 10,000 - Rs. 15,000 (102)'
+    },
+    {
+        type: 'radio',
+        range: 'Rs. 15,000 - Rs. 20,000 (204)'
+    },
+    {
+        type: 'radio',
+        range: 'Rs. 20,000 - Rs. 25,000 (216)'
+    },
+    {
+        type: 'radio',
+        range: 'Rs. 25,000 - Rs. 30,000 (218)'
+    },
+    {
+        type: 'radio',
+        range: 'Rs. 30,000 - Rs. 35,000 (180)'
+    },
+    {
+        type: 'radio',
+        range: 'Rs. 35,000 - Rs. 40,000 (190)'
+    },
+    {
+        type: 'radio',
+        range: 'Rs. 40,000 - Rs. 45,000 (199)'
+    },
+    {
+        type: 'radio',
+        range: 'Rs. 45,000 - Rs. 50,000 (120)'
+    },
+    {
+        type: 'radio',
+        range: 'Rs. 50,000 and above (112)'
+    },
+]
+
+const featured = [
+    {
+        type: 'checkbox',
+        text: '4 GB & above RAM (172) '
+    },
+    {
+        type: 'checkbox',
+        text: '128 GB & above Memory (172)  '
+    },
+    {
+        type: 'checkbox',
+        text: '5000 mAh & above (234) '
+    },
+    {
+        type: 'checkbox',
+        text: '64 MP & above Camera (119) '
+    },
+    {
+        type: 'checkbox',
+        text: '5G (176)'
+    },
+    {
+        type: 'checkbox',
+        text: 'Dual VoLTE (42) '
+    },
+    {
+        type: 'checkbox',
+        text: 'Quick Charging (419)  [+] '
+    },
+    {
+        type: 'checkbox',
+        text: 'Dual SIM (664) '
+    },
+]
