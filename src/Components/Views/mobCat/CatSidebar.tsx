@@ -9,7 +9,6 @@ const CatSideBar = () => {
     const [pricingRange, setPricingRange] = useState([0, 100000]);
     const { checkedIndices, handleDivClick } = useCheckboxList();
     const [searchBrand, setSearchBrand] = useState('');
-
     const refineCheckboxList = useCheckboxList();
     const featuredCheckboxList = useCheckboxList();
     const mobbrands = useCheckboxList();
