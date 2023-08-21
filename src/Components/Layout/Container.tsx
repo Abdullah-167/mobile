@@ -2,7 +2,7 @@ import React from 'react'
 
 const Container = ({ children }: any) => {
     return (
-        <section className='max-w-[1180px] mx-auto'>
+        <section className='max-w-[1180px] lg:max-w-[1400px]  mx-auto px-5  max-2xl:px-10'>
             {children}
         </section>
     )

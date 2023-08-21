@@ -20,11 +20,11 @@ import MobileCompa from './MobileCompa'
 const Home = () => {
     return (
         <main>
-            <div className='flex w-full gap-6'>
+            <div className='md:flex w-full gap-6 max-w-[1400px] mx-auto'>
                 <div>
                     <SideBar />
                 </div>
-                <div className='max-w-[757px] w-full'>
+                <div className='max-w-[900px] lg:max-w-[757px] mx-auto lg:mx-0 w-full'>
                     <Container>
                         <HeroSlide />
                         <div className=''>

@@ -11,19 +11,18 @@ const Under50 = () => {
     const [loaded, setLoaded] = useState(false)
     const [sliderRef, instanceRef] = useKeenSlider({
 
-        // breakpoints: {
-        //     "(min-width: 1024px)": {
-        //         slides: 4,
-        //     },
-        //     "(min-width: 480px)": {
-        //         slides: 2,
-        //     },
-        // },
 
+        breakpoints: {
+            "(min-width: 640px)": {
+                slides: { perView: 3, spacing: 5 },
+            },
+            "(min-width: 1024px)": {
+                slides: { perView: 4, spacing: 10 },
+            },
+        },
         slides: {
-            perView: 4,
+            perView: 1,
             spacing: 10,
-
         },
         slideChanged(slider) {
             setCurrentSlide(slider.track.details.rel)
@@ -37,18 +36,19 @@ const Under50 = () => {
     return (
         <section className="relative py-8">
             <div className="flex justify-between items-center pb-5">
-                <h2 className='text-xl font-extrabold pb-5 text-[#787878]'>Mobiles Under 50,000 Rs.</h2>
-                <p className="flex gap-3 items-center cursor-pointer">View All
+                <h2 className='text-sm md:text-xl font-extrabold md:pb-5 text-[#787878]'>Mobiles Under 50,000 Rs.</h2>
+                <p className="flex gap-3  
+text-sm md:text-base items-center cursor-pointer">View All
                     <span className="">
-                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        <svg className=" 
+w-4 h-4 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                     </span>
                 </p>
             </div>
             <div ref={sliderRef} className="keen-slider">
                 {data.map((item, index) => {
                     return (
-                        <div key={index} className=" 
-shadow-md keen-slider__slide cursor-pointer rounded-md max-h-[200px]">
+                        <div key={index} className="shadow-md keen-slider__slide cursor-pointer rounded-md max-h-[200px]">
                             <Image className=" flex justify-center mx-auto pb-1" src={item.img} alt={"slider-images"} width={100} height={100} />
                             <p className="text-center font-medium ">{item.model}</p>
                             <div className="flex gap-1 justify-center items-center pb-4">

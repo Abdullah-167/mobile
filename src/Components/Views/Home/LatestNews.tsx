@@ -40,14 +40,14 @@ const LatestNews = () => {
                     <h2 className='text-xl font-extrabold'>Latest News</h2>
                     <p className="flex gap-3 items-center cursor-pointer">Read More
                         <span className="">
-                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            <svg className=" w-4 h-4 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                         </span>
                     </p>
                 </div>
                 <div ref={sliderRef} className="keen-slider">
                     {data.map((item, index) => {
                         return (
-                            <div key={index} className="latest-newsCards keen-slider__slide cursor-pointer border border-[#949191] p-1">
+                            <div key={index} className="latest-newsCards max-h-[220px]  keen-slider__slide cursor-pointer border border-[#949191] p-1">
                                 <Image className=" flex justify-center mx-auto pb-2" src={item.img} alt={"slider-images"} width={1000} height={1000} />
                                 <p className="text-xs text-[#707070] pb-1">{item.author}</p>
                                 <p className="text-[13px] leading-[16px] pb-0.5">{item.description}</p>

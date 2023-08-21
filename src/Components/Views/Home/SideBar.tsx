@@ -3,7 +3,7 @@ import React from 'react'
 const SideBar = () => {
     return (
         <aside>
-            <div className='bg-[#008339] max-w-[220px] h-full px-4 text-white py-5 '>
+            <div className='bg-[#008339] max-w-[220px] h-full px-4 text-white py-5 hidden lg:block'>
                 <div className='pb-3'>
                     <h1 className='text-xl font-bold pb-3 cursor-pointer text-center'>News</h1>
                     <p className='text-[15px] text-center mb-2.5 cursor-pointer border border-transparent hover:border-white'>Latest News</p>

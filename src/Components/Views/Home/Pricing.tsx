@@ -19,10 +19,10 @@ const MobilePricingSlider = () => {
 
   return (
     <section className='shadow-md py-5 px-5 my-10'>
-      <h2 className='text-3xl font-bold pb-3'>Let's Find a Mobile For You!</h2>
-      <div className='flex justify-between '>
+      <h2 className='text-xl sm:text-3xl font-bold pb-3'>Let's Find a Mobile For You!</h2>
+      <div className='flex justify-between md:flex-nowrap flex-wrap '>
         <div>
-          <p className='text-xl font-semibold pb-5'>By Price</p>
+          <p className='text-lg sm:text-xl font-semibold pb-5'>By Price</p>
           <div className="max-w-[309px] px-2">
             <Slider
               min={0}
@@ -53,24 +53,25 @@ const MobilePricingSlider = () => {
           <Link href={''}>
             <button className="relative max-w-[309px] inline-flex items-center justify-center p-4 px-6 py-1.5 overflow-hidden font-medium text-primary transition duration-300 ease-out border-2 border-primary w-full group mb-5">
               <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-500 -translate-x-full bg-primary group-hover:translate-x-0 ease">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                <svg className=" 
+w-4 h-4 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
               </span>
               <span className="absolute flex items-center justify-center font-semibold w-full h-full text-primary transition-all duration-500 transform group-hover:translate-x-full ease">Find Mobile</span>
               <p className="relative invisible font-semibold">Find Mobiles</p>
             </button>
           </Link>
           <p className='text-xl font-semibold pb-5'>Price Around</p>
-          <div className='flex gap-3 text-sm font-semibold'>
+          <div className='flex flex-wrap sm:flex-nowrap gap-3 text-sm font-semibold'>
             {prices.map((item, index) => {
               return (
-                <p className=' cursor-pointer' 
-                key={index}>{item.price}</p>
+                <p className=' cursor-pointer'
+                  key={index}>{item.price}</p>
               )
             })}
           </div>
         </div>
 
-        <div className=' border-x-[2px] border-x-[#AFACAC] px-6'>
+        <div className=' md:border-x-[2px] border-x-[#AFACAC] px-6 pt-10 md:pt-0'>
           <p className='text-xl font-semibold pb-5'>Price Around</p>
           <div className='text-sm '>
             {byBrand.map((item, index) => {
@@ -82,7 +83,7 @@ const MobilePricingSlider = () => {
           </div>
         </div>
 
-        <div>
+        <div className='pt-10 md:pt-0  md:pl-3'>
           <p className='text-xl font-semibold pb-5'>Price Around</p>
           <div className='text-sm '>
             {prices.map((item, index) => {
@@ -91,8 +92,6 @@ const MobilePricingSlider = () => {
                   key={index}>{item.price}</p>
               )
             })}
-          </div>
-          <div>
           </div>
         </div>
       </div>

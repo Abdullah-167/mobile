@@ -53,7 +53,7 @@ const MobileCompa = () => {
                                 <button className="relative left-[85px] sm:left-12 md:left-14 flex items-center justify-center px-5 py-[1px] overflow-hidden font-bold group mb-1">
                                     <span className="absolute top-0 left-0 w-48 h-48 -mt-1 transition-all duration-500 ease-in-out rotate-45 -translate-x-56 -translate-y-24 bg-primary opacity-100 group-hover:-translate-x-8"></span>
                                     <span className="relative w-full text-center mx-auto flex justify-center text-primary transition-colors duration-200 ease-in-out group-hover:text-white">{item.compBtn}</span>
-                                    <span className="absolute inset-0 border-2 border-primary"></span>
+                                    <span className="absolute inset-0 border-[1.5px] border-primary"></span>
                                 </button>
                             </div>
                         )
