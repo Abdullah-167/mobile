@@ -38,10 +38,9 @@ const CatSideBar = () => {
     const networkType = useCheckboxList();
     const simSupport = useCheckboxList();
     const connectivityMore = useCheckboxList();
-
-
-
-
+    const operatingSystemFun = useCheckboxList();
+    const designFun = useCheckboxList();
+    const unknownfun = useCheckboxList();
 
 
     const handlePriceChange = (values: any) => {
@@ -228,7 +227,7 @@ const CatSideBar = () => {
                 <div className='pb-5'>
                     <div className='flex gap-2 items-center bg-[#EAEAEA] px-4 py-1 mb-3'>
                         <Image src={'/sign.svg'} alt='sign-img' width={20} height={20} />
-                        <span>Ram</span>
+                        <span>Memory</span>
                     </div>
                     <div className='px-4'>
                         <div className='overflow-auto'>
@@ -477,7 +476,7 @@ const CatSideBar = () => {
                     </div>
                     <div className='px-4'>
                         <div className='overflow-auto'>
-                            {connectivity.map((item, brandIndex) => (
+                            {networkTechnology.map((item, brandIndex) => (
                                 <div key={brandIndex}>
                                     <p className='font-bold mb-2 border-b-2'>{item.memStatus}</p>
                                     {item.dataType.map((model, modelIndex) => (
@@ -535,6 +534,135 @@ const CatSideBar = () => {
                                         </div>
                                     ))}
                                 </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+                <div className='pb-5'>
+                    <div className='flex gap-2 items-center bg-[#EAEAEA] px-4 py-1 mb-3'>
+                        <Image src={'/sign.svg'} alt='sign-img' width={20} height={20} />
+                        <span>Operating System</span>
+                    </div>
+                    <div className='px-4'>
+                        <div className='overflow-auto'>
+                            {operatingSystem.map((item, brandIndex) => (
+                                <div key={brandIndex}>
+                                    {item.dataType.map((model, modelIndex) => (
+                                        <div
+                                            className='flex gap-3 items-center text-xs pb-[6px] cursor-pointer px-4'
+                                            key={modelIndex}
+                                            onClick={() => {
+                                                operatingSystemFun.handleDivClick(modelIndex);
+                                            }}
+                                        >
+                                            <input
+                                                type='checkbox'
+                                                checked={
+                                                    operatingSystemFun.checkedIndices.includes(modelIndex)
+                                                }
+                                            />
+                                            <p>{model.text}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+                <div className='pb-5'>
+                    <div className='flex gap-2 items-center bg-[#EAEAEA] px-4 py-1 mb-3'>
+                        <Image src={'/sign.svg'} alt='sign-img' width={20} height={20} />
+                        <span>Design</span>
+                    </div>
+                    <div className='px-4'>
+                        <div className='overflow-auto'>
+                            {design.map((item, brandIndex) => (
+                                <div key={brandIndex}>
+                                    <p className={` ${brandIndex > 0 ? 'font-bold mb-2 border-b-2' : 'hidden'}`}>{item.memStatus}</p>
+                                    {item.dataType.map((model, modelIndex) => (
+                                        <div
+                                            className='flex gap-3 items-center text-xs pb-[6px] cursor-pointer px-4'
+                                            key={modelIndex}
+                                            onClick={() => {
+                                                if (item.memStatus === 'unknown') {
+                                                    designFun.handleDivClick(modelIndex);
+                                                } else if (item.memStatus === 'Notch') {
+                                                    unknownfun.handleDivClick(modelIndex);
+                                                }
+                                            }}
+                                        >
+                                            <input
+                                                type='checkbox'
+                                                checked={
+                                                    item.memStatus === 'unknown'
+                                                        ? designFun.checkedIndices.includes(modelIndex)
+                                                        : unknownfun.checkedIndices.includes(modelIndex)
+                                                }
+                                            />
+                                            <p>{model.text}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+                <div className='pb-5'>
+                    <div className='flex gap-2 items-center bg-[#EAEAEA] px-4 py-1 mb-3'>
+                        <Image src={'/sign.svg'} alt='sign-img' width={20} height={20} />
+                        <span>5G Mobile Price List</span>
+                    </div>
+                    <div className='px-4'>
+                        <div className='overflow-auto'>
+                            {fiveGMoboile.map((item, index) => (
+                                <p className='text-xs pb-[6px] px-4 text-[#0165BC] cursor-pointer'
+                                    key={index}
+                                >{item.text}</p>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+                <div className='pb-5'>
+                    <div className='flex gap-2 items-center bg-[#EAEAEA] px-4 py-1 mb-3'>
+                        <Image src={'/sign.svg'} alt='sign-img' width={20} height={20} />
+                        <span>By Feature</span>
+                    </div>
+                    <div className='px-4'>
+                        <div className='overflow-auto'>
+                            {byFeature.map((item, index) => (
+                                <p className='text-xs pb-[6px] px-4 text-[#0165BC] cursor-pointer'
+                                    key={index}
+                                >{item.text}</p>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+                <div className='pb-5'>
+                    <div className='flex gap-2 items-center bg-[#EAEAEA] px-4 py-1 mb-3'>
+                        <Image src={'/sign.svg'} alt='sign-img' width={20} height={20} />
+                        <span>By Brand</span>
+                    </div>
+                    <div className='px-4'>
+                        <div className='overflow-auto'>
+                            {byBrand.map((item, index) => (
+                                <p className='text-xs pb-[6px] px-4 text-[#0165BC] cursor-pointer'
+                                    key={index}
+                                >{item.text}</p>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+                <div className='pb-5'>
+                    <div className='flex gap-2 items-center bg-[#EAEAEA] px-4 py-1 mb-3'>
+                        <Image src={'/sign.svg'} alt='sign-img' width={20} height={20} />
+                        <span>By Mobile Price</span>
+                    </div>
+                    <div className='px-4'>
+                        <div className='overflow-auto'>
+                            {byMobilePrice.map((item, index) => (
+                                <p className='text-xs pb-[6px] px-4 text-[#0165BC] cursor-pointer'
+                                    key={index}
+                                >{item.text}</p>
                             ))}
                         </div>
                     </div>
@@ -634,8 +762,6 @@ const camera = [
         ]
     },
 ]
-
-
 
 const priceRange = [
     {
@@ -962,4 +1088,154 @@ const connectivity = [
     },
 
 ];
+
+const operatingSystem = [
+    {
+        memStatus: '',
+        dataType: [
+            { text: 'Android (843) [+]', type: 'checkbox' },
+            { text: 'Feature Phones (233) [+]', type: 'checkbox' },
+            { text: 'In-display fingerprint scanner (153)', type: 'checkbox' },
+            { text: 'Windows (42 ) [+]', type: 'checkbox' },
+            { text: 'iOS (0) [+] ', type: 'checkbox' },
+        ],
+    },
+
+];
+
+const design = [
+    {
+        memStatus: 'unknown',
+        dataType: [
+            { text: 'Slim (<8.5 mm) (283)', type: 'checkbox' },
+            { text: 'Waterproof (143)', type: 'checkbox' },
+            { text: 'Punch-hole (207)', type: 'checkbox' },
+        ],
+    },
+    {
+        memStatus: 'Notch',
+        dataType: [
+            { text: 'Notch (179)', type: 'checkbox' },
+            { text: 'Water drop notch (61)', type: 'checkbox' },
+        ],
+    },
+
+];
+
+
+const fiveGMoboile = [
+    {
+        text: 'Vivo 5G Mobile Phones'
+    },
+    {
+        text: 'Oppo 5G Mobile Phones'
+    },
+    {
+        text: 'Samsung 5G Mobile Phones'
+    },
+    {
+        text: 'Infinix 5G Mobile Phones'
+    },
+    {
+        text: 'Realme 5G Mobile Phones'
+    },
+    {
+        text: 'LG 5G Mobile Phones'
+    },
+    {
+        text: 'Huawei 5G Mobile Phones'
+    },
+    {
+        text: 'Nokia 5G Mobile Phones'
+    },
+    {
+        text: 'China 5G Mobile Phones'
+    },
+]
+
+const byFeature = [
+    {
+        text: 'New 5G Mobiles In Pakistan'
+    },
+]
+
+const byBrand = [
+    {
+        text: 'Poco Mobile Price In Pakistan'
+    },
+    {
+        text: 'Samsung Mobile Price In Pakistan'
+    },
+    {
+        text: 'Vivo Mobile Price In Pakistan'
+    },
+    {
+        text: 'Oppo mobile price in pakistan'
+    },
+    {
+        text: 'Infinix mobile price in pakistan'
+    },
+    {
+        text: 'Huawei mobile price in pakistan'
+    },
+    {
+        text: 'Realme mobile price in pakistan'
+    },
+    {
+        text: 'Xiaomi mobile price in pakistan'
+    },
+    {
+        text: 'Tecno mobile price in pakistan'
+    },
+    {
+        text: 'Redmi mobile price in pakistan'
+    },
+    {
+        text: 'Itel mobile price in pakistan'
+    },
+    {
+        text: 'Nokia mobile price in pakistan'
+    },
+    {
+        text: 'All mobile price in pakistans'
+    },
+    {
+        text: 'Qmobile mobile price in pakistan'
+    },
+    {
+        text: 'Digit mobile price in pakistan'
+    },
+]
+
+
+const byMobilePrice = [
+    {
+        text: 'Best mobile phones under 50000'
+    },
+    {
+        text: 'Best mobile phones under 40000'
+    },
+    {
+        text: 'Best mobile phones under 35000'
+    },
+    {
+        text: 'Best mobile phones under 30000'
+    },
+    {
+        text: 'Best mobile phones under 25000'
+    },
+    {
+        text: 'Best mobile phones under 20000'
+    },
+    {
+        text: 'Best mobile phones under 15000'
+    },
+    {
+        text: 'Best mobile phones under 10000'
+    },
+    {
+        text: 'Best mobile phones under 5000'
+    },
+
+]
 
