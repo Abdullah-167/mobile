@@ -667,6 +667,51 @@ const CatSideBar = () => {
                         </div>
                     </div>
                 </div>
+                <div className='pb-5'>
+                    <div className='flex gap-2 items-center bg-[#EAEAEA] px-4 py-1 mb-3'>
+                        <Image src={'/sign.svg'} alt='sign-img' width={20} height={20} />
+                        <span>Popular Upcoming List</span>
+                    </div>
+                    <div className='px-4'>
+                        <div className='overflow-auto'>
+                            {upcomingMob.map((item, index) => (
+                                <p className='text-xs pb-[6px] px-4 text-[#0165BC] cursor-pointer'
+                                    key={index}
+                                >{item.text}</p>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+                <div className='pb-5'>
+                    <div className='flex gap-2 items-center bg-[#EAEAEA] px-4 py-1 mb-3'>
+                        <Image src={'/sign.svg'} alt='sign-img' width={20} height={20} />
+                        <span>Related Links</span>
+                    </div>
+                    <div className='px-4'>
+                        <div className='overflow-auto'>
+                            {relatedLinks.map((item, index) => (
+                                <p className='text-xs pb-[6px] px-4 text-[#0165BC] cursor-pointer'
+                                    key={index}
+                                >{item.text}</p>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+                <div className='pb-5'>
+                    <div className='flex gap-2 items-center bg-[#EAEAEA] px-4 py-1 mb-3'>
+                        <Image src={'/sign.svg'} alt='sign-img' width={20} height={20} />
+                        <span>Featured Links</span>
+                    </div>
+                    <div className='px-4'>
+                        <div className='overflow-auto'>
+                            {featuredLinks.map((item, index) => (
+                                <p className='text-xs pb-[6px] px-4 text-[#0165BC] cursor-pointer'
+                                    key={index}
+                                >{item.text}</p>
+                            ))}
+                        </div>
+                    </div>
+                </div>
             </div>
         </aside >
     )
@@ -1237,5 +1282,83 @@ const byMobilePrice = [
         text: 'Best mobile phones under 5000'
     },
 
+]
+
+const upcomingMob = [
+    {
+        text: 'Upcoming 5G Mobiles'
+    },
+    {
+        text: 'Upcoming Xiaomi Mobiles'
+    },
+    {
+        text: 'Upcoming Samsung Mobiles'
+    },
+    {
+        text: 'Upcoming OnePlus Mobiles'
+    },
+    {
+        text: 'Vivo Upcoming Mobiles'
+    },
+    {
+        text: 'Infinix Upcoming Mobiles'
+    },
+    {
+        text: 'Oppo Upcoming Mobiles'
+    },
+    {
+        text: 'Nokia Upcoming Mobiles'
+    },
+]
+
+const relatedLinks = [
+    {
+        text: 'Samsung Phones Under 50000'
+    },
+    {
+        text: 'Samsung Phones Under 30000'
+    },
+    {
+        text: 'Samsung Phones Under 20000'
+    },
+    {
+        text: 'Samsung Phones Under 15000'
+    },
+    {
+        text: 'Best Samsung Mobiles Under 5,000'
+    },
+    {
+        text: 'Best Samsung Mobiles Under 10,000'
+    },
+    {
+        text: 'Best Samsung Galaxy Series Mobiles'
+    },
+]
+
+const featuredLinks = [
+    {
+        text: 'Samsung Phones Under 50000'
+    },
+    {
+        text: 'Samsung Phones Under 30000'
+    },
+    {
+        text: 'Samsung Phones Under 20000'
+    },
+    {
+        text: 'Samsung Phones Under 15000'
+    },
+    {
+        text: 'Best Samsung Mobiles Under 5,000'
+    },
+    {
+        text: 'Best Samsung Mobiles Under 10,000'
+    },
+    {
+        text: 'Best Samsung Galaxy Series Mobiles'
+    },
+    {
+        text: 'Samsung Phones Under 50000'
+    },
 ]
 
