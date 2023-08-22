@@ -22,6 +22,25 @@ const CatSideBar = () => {
     const screenFeatures = useCheckboxList();
     const refreshRate = useCheckboxList();
     const screenResolution = useCheckboxList();
+    const processorSpeed = useCheckboxList();
+    const systemOnChip = useCheckboxList();
+    const numberOfRearCameras = useCheckboxList();
+    const mainCamera = useCheckboxList();
+    const numberOfFront = useCheckboxList();
+    const frontCamera = useCheckboxList();
+    const mainCameraSensor = useCheckboxList();
+    const mainCameraFeatures = useCheckboxList();
+    const frontCameraFeatures = useCheckboxList();
+    const frontCameraSensorBrand = useCheckboxList();
+    const videoRecordingFeatures = useCheckboxList();
+    const batteryCapacity = useCheckboxList();
+    const batteryOther = useCheckboxList();
+    const networkType = useCheckboxList();
+    const simSupport = useCheckboxList();
+    const connectivityMore = useCheckboxList();
+
+
+
 
 
 
@@ -253,7 +272,7 @@ const CatSideBar = () => {
                         <div className='overflow-auto'>
                             {display.map((item, brandIndex) => (
                                 <div key={brandIndex}>
-                                    <p className='font-bold pb-2'>{item.screenSize}</p>
+                                    <p className='font-bold mb-2 border-b-2'>{item.screenSize}</p>
                                     {item.screen.map((model, modelIndex) => (
                                         <div
                                             className='flex gap-3 items-center text-xs pb-[6px] cursor-pointer px-4'
@@ -299,13 +318,322 @@ const CatSideBar = () => {
                         </div>
                     </div>
                 </div>
+                <div className='pb-5'>
+                    <div className='flex gap-2 items-center bg-[#EAEAEA] px-4 py-1 mb-3'>
+                        <Image src={'/sign.svg'} alt='sign-img' width={20} height={20} />
+                        <span>Processor</span>
+                    </div>
+                    <div className='px-4'>
+                        <div className='overflow-auto'>
+                            {processor.map((item, brandIndex) => (
+                                <div key={brandIndex}>
+                                    <p className='font-bold pb-2'>{item.memStatus}</p>
+                                    {item.dataType.map((model, modelIndex) => (
+                                        <div
+                                            className='flex gap-3 items-center text-xs pb-[6px] cursor-pointer px-4'
+                                            key={modelIndex}
+                                            onClick={() => {
+                                                if (item.memStatus === 'Processor Speed') {
+                                                    processorSpeed.handleDivClick(modelIndex);
+                                                } else if (item.memStatus === 'System on Chip') {
+                                                    systemOnChip.handleDivClick(modelIndex);
+                                                }
+                                            }}
+                                        >
+                                            <input
+                                                type='checkbox'
+                                                checked={
+                                                    item.memStatus === 'Processor Speed'
+                                                        ? processorSpeed.checkedIndices.includes(modelIndex)
+                                                        : systemOnChip.checkedIndices.includes(modelIndex)
+                                                }
+                                            />
+                                            <p>{model.text}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+                <div className='pb-5'>
+                    <div className='flex gap-2 items-center bg-[#EAEAEA] px-4 py-1 mb-3'>
+                        <Image src={'/sign.svg'} alt='sign-img' width={20} height={20} />
+                        <span>Camera</span>
+                    </div>
+                    <div className='px-4'>
+                        <div className='overflow-auto'>
+                            {camera.map((item, brandIndex) => (
+                                <div key={brandIndex}>
+                                    <p className='font-bold mb-2 border-b-2'>{item.screenSize}</p>
+                                    {item.screen.map((model, modelIndex) => (
+                                        <div
+                                            className='flex gap-3 items-center text-xs pb-[6px] cursor-pointer px-4'
+                                            key={modelIndex}
+                                            onClick={() => {
+                                                if (item.screenSize === 'Number of Rear Cameras') {
+                                                    numberOfRearCameras.handleDivClick(modelIndex);
+                                                } else if (item.screenSize === 'Main Camera Resolution') {
+                                                    mainCamera.handleDivClick(modelIndex);
+                                                }
+                                                else if (item.screenSize === 'Number of Front Cameras') {
+                                                    numberOfFront.handleDivClick(modelIndex);
+                                                }
+                                                else if (item.screenSize === 'Front Camera Resolution') {
+                                                    frontCamera.handleDivClick(modelIndex);
+                                                }
+                                                else if (item.screenSize === 'Main Camera Sensor Brand') {
+                                                    mainCameraSensor.handleDivClick(modelIndex);
+                                                }
+                                                else if (item.screenSize === 'Main Camera Features') {
+                                                    mainCameraFeatures.handleDivClick(modelIndex);
+                                                }
+                                                else if (item.screenSize === 'Front Camera Features') {
+                                                    frontCameraFeatures.handleDivClick(modelIndex);
+                                                }
+                                                else if (item.screenSize === 'Front Camera Sensor Brand') {
+                                                    frontCameraSensorBrand.handleDivClick(modelIndex);
+                                                }
+                                                else if (item.screenSize === 'Video Recording Features') {
+                                                    videoRecordingFeatures.handleDivClick(modelIndex);
+                                                }
+                                            }}
+                                        >
+                                            <input
+                                                type='checkbox'
+                                                checked={
+                                                    item.screenSize === 'Number of Rear Cameras'
+                                                        ? numberOfRearCameras.checkedIndices.includes(modelIndex)
+                                                        : item.screenSize === 'Main Camera Resolution'
+                                                            ? mainCamera.checkedIndices.includes(modelIndex)
+                                                            : item.screenSize === 'Number of Front Cameras'
+                                                                ? numberOfFront.checkedIndices.includes(modelIndex)
+                                                                : item.screenSize === 'Front Camera Resolution'
+                                                                    ? frontCamera.checkedIndices.includes(modelIndex)
+                                                                    : item.screenSize === 'Main Camera Sensor Brand'
+                                                                        ? mainCameraSensor.checkedIndices.includes(modelIndex)
+                                                                        : item.screenSize === 'Main Camera Features'
+                                                                            ? mainCameraFeatures.checkedIndices.includes(modelIndex)
+                                                                            : item.screenSize === 'Front Camera Features'
+                                                                                ? frontCameraFeatures.checkedIndices.includes(modelIndex)
+                                                                                : item.screenSize === 'Front Camera Sensor Brand'
+                                                                                    ? frontCameraSensorBrand.checkedIndices.includes(modelIndex)
+                                                                                    : item.screenSize === 'Video Recording Features'
+                                                                                        ? videoRecordingFeatures.checkedIndices.includes(modelIndex)
+                                                                                        : false
+                                                }
+                                            />
+                                            <p>{model.size}</p>
+                                        </div>
+                                    ))}
+                                </div>
+
+                            ))}
+                        </div>
+                    </div>
+                </div>
+                <div className='pb-5'>
+                    <div className='flex gap-2 items-center bg-[#EAEAEA] px-4 py-1 mb-3'>
+                        <Image src={'/sign.svg'} alt='sign-img' width={20} height={20} />
+                        <span>Battery</span>
+                    </div>
+                    <div className='px-4'>
+                        <div className='overflow-auto'>
+                            {battery.map((item, brandIndex) => (
+                                <div key={brandIndex}>
+                                    <p className='font-bold mb-2 border-b-2'>{item.memStatus}</p>
+                                    {item.dataType.map((model, modelIndex) => (
+                                        <div
+                                            className='flex gap-3 items-center text-xs pb-[6px] cursor-pointer px-4'
+                                            key={modelIndex}
+                                            onClick={() => {
+                                                if (item.memStatus === 'Battery Capacity') {
+                                                    batteryCapacity.handleDivClick(modelIndex);
+                                                } else if (item.memStatus === 'Other') {
+                                                    batteryOther.handleDivClick(modelIndex);
+                                                }
+                                            }}
+                                        >
+                                            <input
+                                                type='checkbox'
+                                                checked={
+                                                    item.memStatus === 'Battery Capacity'
+                                                        ? batteryCapacity.checkedIndices.includes(modelIndex)
+                                                        : batteryOther.checkedIndices.includes(modelIndex)
+                                                }
+                                            />
+                                            <p>{model.text}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+                <div className='pb-5'>
+                    <div className='flex gap-2 items-center bg-[#EAEAEA] px-4 py-1 mb-3'>
+                        <Image src={'/sign.svg'} alt='sign-img' width={20} height={20} />
+                        <span>Network Technology</span>
+                    </div>
+                    <div className='px-4'>
+                        <div className='overflow-auto'>
+                            {connectivity.map((item, brandIndex) => (
+                                <div key={brandIndex}>
+                                    <p className='font-bold mb-2 border-b-2'>{item.memStatus}</p>
+                                    {item.dataType.map((model, modelIndex) => (
+                                        <div
+                                            className='flex gap-3 items-center text-xs pb-[6px] cursor-pointer px-4'
+                                            key={modelIndex}
+                                            onClick={() => {
+                                                if (item.memStatus === 'Network Type') {
+                                                    networkType.handleDivClick(modelIndex);
+                                                } else if (item.memStatus === 'SIM Support') {
+                                                    simSupport.handleDivClick(modelIndex);
+                                                }
+                                            }}
+                                        >
+                                            <input
+                                                type='checkbox'
+                                                checked={
+                                                    item.memStatus === 'Network Type'
+                                                        ? networkType.checkedIndices.includes(modelIndex)
+                                                        : simSupport.checkedIndices.includes(modelIndex)
+                                                }
+                                            />
+                                            <p>{model.text}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+                <div className='pb-5'>
+                    <div className='flex gap-2 items-center bg-[#EAEAEA] px-4 py-1 mb-3'>
+                        <Image src={'/sign.svg'} alt='sign-img' width={20} height={20} />
+                        <span>Connectivity & More</span>
+                    </div>
+                    <div className='px-4'>
+                        <div className='overflow-auto'>
+                            {connectivity.map((item, brandIndex) => (
+                                <div key={brandIndex}>
+                                    {item.dataType.map((model, modelIndex) => (
+                                        <div
+                                            className='flex gap-3 items-center text-xs pb-[6px] cursor-pointer px-4'
+                                            key={modelIndex}
+                                            onClick={() => {
+                                                connectivityMore.handleDivClick(modelIndex);
+                                            }}
+                                        >
+                                            <input
+                                                type='checkbox'
+                                                checked={
+                                                    connectivityMore.checkedIndices.includes(modelIndex)
+                                                }
+                                            />
+                                            <p>{model.text}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
             </div>
-        </aside>
+        </aside >
     )
 }
 
 export default CatSideBar;
 
+
+const camera = [
+    {
+        screenSize: 'Number of Rear Cameras',
+        screen: [
+            { type: "checkbox", size: 'Cameras' },
+            { type: "checkbox", size: 'Quad Cameras (134)' },
+        ]
+    },
+    {
+        screenSize: 'Main Camera Resolution',
+        screen: [
+            { type: "checkbox", size: '108 MP Mobiles & above (34)' },
+            { type: "checkbox", size: '64 MP Mobiles & above (119)' },
+            { type: "checkbox", size: '48 MP Mobiles & above (255)' },
+            { type: "checkbox", size: '20 MP Mobiles & above (275)' },
+            { type: "checkbox", size: '13 MP Mobiles & above (100)' },
+            { type: "checkbox", size: '8 MP Mobiles & above (198)' },
+            { type: "checkbox", size: '5 MP Mobiles & above (212)' },
+            { type: "checkbox", size: '3 MP Mobiles & above (201)' },
+            { type: "checkbox", size: '2 MP Mobiles & above (198)' },
+            { type: "checkbox", size: '1 MP Mobiles & above (198)' },
+            { type: "checkbox", size: 'Without Camera & above (19)' },
+        ]
+    },
+    {
+        screenSize: 'Number of Front Cameras',
+        screen: [
+            { type: "checkbox", size: 'Dual Camera (20)' },
+        ]
+    },
+    {
+        screenSize: 'Front Camera Resolution',
+        screen: [
+            { type: "checkbox", size: '12 MP & above (274)' },
+            { type: "checkbox", size: '16 MP & above (205)' },
+            { type: "checkbox", size: '32 MP & above (121)' },
+            { type: "checkbox", size: '44 MP & above (10)' },
+        ]
+    },
+    {
+        screenSize: 'Main Camera Sensor Brand',
+        screen: [
+            { type: "checkbox", size: 'Sony (40)' },
+            { type: "checkbox", size: 'Samsung (82)' },
+            { type: "checkbox", size: 'Omni Vision (0)' },
+        ]
+    },
+    {
+        screenSize: 'Main Camera Features',
+        screen: [
+            { type: "checkbox", size: 'Optical Image Stabilization (172)' },
+            { type: "checkbox", size: 'Wide-angle (293)' },
+            { type: "checkbox", size: 'Macro (145)' },
+            { type: "checkbox", size: 'Depth Sensor (200)' },
+            { type: "checkbox", size: 'Fast Auto Focus (880)' },
+            { type: "checkbox", size: 'Flash (881)' },
+            { type: "checkbox", size: 'Portrait mode (67)' },
+            { type: "checkbox", size: 'Optical Zoom (Telephoto lens) (97)' },
+        ]
+    },
+    {
+        screenSize: 'Front Camera Features',
+        screen: [
+            { type: "checkbox", size: 'Front Flash (63)' },
+            { type: "checkbox", size: 'Front Auto Focus (60)' },
+            { type: "checkbox", size: 'Pop-up Camera (1)' },
+            { type: "checkbox", size: 'Portrait (9)' },
+            { type: "checkbox", size: 'Wide-angle (196)' },
+        ]
+    },
+    {
+        screenSize: 'Front Camera Sensor Brand',
+        screen: [
+            { type: "checkbox", size: 'Samsung (24)' },
+            { type: "checkbox", size: 'Sony (26)' },
+        ]
+    },
+    {
+        screenSize: 'Video Recording Features',
+        screen: [
+            { type: "checkbox", size: 'Full-HD Resolution (333)' },
+            { type: "checkbox", size: '4K Resolution (179)' },
+            { type: "checkbox", size: 'Slow motion (40)' },
+            { type: "checkbox", size: 'Super slow motion (48)' },
+        ]
+    },
+]
 
 
 
@@ -560,3 +888,78 @@ const display = [
         ]
     },
 ]
+
+
+const processor = [
+    {
+        memStatus: 'Processor Speed',
+        dataType: [
+            { text: '2.3 Hz & above (287)', type: 'checkbox' },
+            { text: '3 Hz & above (40)', type: 'checkbox' },
+        ],
+    },
+    {
+        memStatus: 'System on Chip',
+        dataType: [
+            { text: 'Snapdragon (312) [+]', type: 'checkbox' },
+            { text: 'Mediatek (78) [+]', type: 'checkbox' },
+            { text: 'Exynos (317)', type: 'checkbox' },
+        ],
+    },
+];
+
+
+const battery = [
+    {
+        memStatus: 'Battery Capacity',
+        dataType: [
+            { text: '4000 mAh - 5000 mAh (212)', type: 'checkbox' },
+            { text: '5000 mAh - 6000 mAh (145)', type: 'checkbox' },
+            { text: '6000 mAh - 7000 mAh (100)', type: 'checkbox' },
+            { text: '7000 mAh & above (12)', type: 'checkbox' },
+        ],
+    },
+    {
+        memStatus: 'Other',
+        dataType: [
+            { text: 'Quick Charging (419) [+]', type: 'checkbox' },
+            { text: 'USB Type-C (419)', type: 'checkbox' },
+            { text: 'Wireless Charging (130)', type: 'checkbox' },
+        ],
+    },
+];
+
+
+const networkTechnology = [
+    {
+        memStatus: 'Network Type',
+        dataType: [
+            { text: '5G (176)', type: 'checkbox' },
+            { text: '4G (453)', type: 'checkbox' },
+            { text: 'VoLTE (469)', type: 'checkbox' },
+        ],
+    },
+    {
+        memStatus: 'SIM Support',
+        dataType: [
+            { text: 'Dual SIM (664)', type: 'checkbox' },
+            { text: '4G + 4G (385)', type: 'checkbox' },
+            { text: 'Dual VoLTE (42)', type: 'checkbox' },
+        ],
+    },
+];
+
+const connectivity = [
+    {
+        memStatus: '',
+        dataType: [
+            { text: 'NFC (307)', type: 'checkbox' },
+            { text: 'Fingerprint scanner (485)', type: 'checkbox' },
+            { text: 'In-display fingerprint scanner (153)', type: 'checkbox' },
+            { text: 'Face unlock (410)', type: 'checkbox' },
+            { text: 'Side-mounted fingerprint scanner (152)', type: 'checkbox' },
+        ],
+    },
+
+];
+
