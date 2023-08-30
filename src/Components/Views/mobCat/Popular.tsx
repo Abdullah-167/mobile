@@ -5,11 +5,12 @@ import Image from "next/image"
 import { useState } from "react"
 import { AiFillAndroid } from 'react-icons/ai';
 
-const Under10 = () => {
+const Popular = () => {
 
     const [currentSlide, setCurrentSlide] = useState(0)
     const [loaded, setLoaded] = useState(false)
     const [sliderRef, instanceRef] = useKeenSlider({
+
         breakpoints: {
             "(min-width: 640px)": {
                 slides: { perView: 3, spacing: 5 },
@@ -32,25 +33,26 @@ const Under10 = () => {
     })
 
     return (
-        <section className="relative py-8">
-            <div className="flex justify-between items-center pb-5">
-                <h2 className='text-sm md:text-xl font-extrabold md:pb-5 text-[#787878]'>Mobiles Under 10,000 Rs.</h2>
-                <p className="flex gap-3  
-text-sm md:text-base items-center cursor-pointer">View All
-                    <span className="">
-                        <svg className=" 
-w-4 h-4 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                    </span>
-                </p>
+        <section className=" relative py-10 px-10">
+            <div className='flex pb-10 justify-around items-center gap-3'>
+                <div>
+                    <Image className='pb-1 max-h-[9px] min-h-[9px]' src={'/line1.png'} alt={''} width={100} height={100} />
+                    <Image className='min-h-[10px]' src={'/line1.png'} alt={''} width={100} height={100} />
+                </div>
+                <p className='text-xl font-semibold whitespace-nowrap'>Popular Mobile Phones</p>
+                <div>
+                    <Image className='pb-1 max-h-[9px]' src={'/line1.png'} alt={''} width={1000} height={1000} />
+                    <Image className='min-h-[10px]' src={'/line1.png'} alt={''} width={1000} height={1000} />
+                </div>
             </div>
-            <div ref={sliderRef} className="keen-slider ">
+            <div ref={sliderRef} className="keen-slider max-w-[900px] mx-auto">
                 {data.map((item, index) => {
                     return (
-                        <div key={index} className="shadow-md keen-slider__slide cursor-pointer rounded-md my-1 pt-2 border border-transparent hover:border-primary duration-100">
-                            <Image className=" flex justify-center mx-auto pb-2" src={item.img} alt={"slider-images"} width={70} height={70} />
-                            <p className=" text-sm text-center  pb-1">{item.model}</p>
-                            <div className="text-xs flex gap-1 justify-center items-center ">
-                                <span className=" text-primary font-semibold  pb-1.5">{item.price}</span>
+                        <div key={index} className="shadow-md keen-slider__slide  max-w-[200px] cursor-pointer rounded-md max-h-[200px] my-3 py-2 bg-white border- border-transparent hover:border-primary ">
+                            <Image className=" flex justify-center mx-auto pb-1" src={item.img} alt={"slider-images"} width={100} height={100} />
+                            <p className="text-center font-medium pb-1">{item.model}</p>
+                            <div className=" text-xs flex gap-1 justify-center items-center pb-4 px-2">
+                                <span className=" text-primary font-semibold">{item.price}</span>
                                 <span className="pl-2">{item.androidIcon}</span>
                             </div>
                             <button className="bg-[#E9E9E9] text-sm py-1.5 text-center w-full">
@@ -88,7 +90,7 @@ w-4 h-4 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xml
     )
 }
 
-export default Under10;
+export default Popular;
 
 
 
@@ -174,7 +176,7 @@ function Arrow(props: any) {
     return (
         <svg
             onClick={props.onClick}
-            className={`max-w-[40px] bg-gray-500 bg-opacity-50 rounded-full p-3 cursor-pointer absolute ${props.left ? "arrow--left top-[170px] -left-4 z-[1000]" : "arrow--right top-[170px] -right-4 z-[1000]"
+            className={`max-w-[40px] bg-gray-500 bg-opacity-50 rounded-full p-3 cursor-pointer absolute ${props.left ? "arrow--left top-[195px] left-8 z-[1000]" : "arrow--right top-[195px] right-8 z-[1000]"
                 } ${disabeld}`}
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"

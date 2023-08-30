@@ -48,12 +48,12 @@ w-4 h-4 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xml
                 {data.map((item, index) => {
                     return (
                         <div key={index} className=" 
-shadow-md keen-slider__slide cursor-pointer rounded-md max-h-[200px]">
+shadow-md keen-slider__slide cursor-pointer rounded-md max-h-[200px] my-3">
                             <Image className=" flex justify-center mx-auto pb-1" src={item.img} alt={"slider-images"} width={100} height={100} />
-                            <p className="text-center font-medium ">{item.model}</p>
-                            <div className="flex gap-1 justify-center items-center pb-4">
-                                <span className=" text-primary font-semibold text-sm">{item.price}</span>
-                                <span className="text-xs">{item.expected}</span>
+                            <p className="text-center font-medium pb-1">{item.model}</p>
+                            <div className=" text-xs flex gap-1 justify-center items-center pb-4 px-2">
+                                <span className=" text-primary font-semibold">{item.price}</span>
+                                <span className="">{item.expected}</span>
                                 <span className="pl-2">{item.androidIcon}</span>
                             </div>
                             <button className="bg-[#E9E9E9] text-sm py-1.5 text-center w-full">

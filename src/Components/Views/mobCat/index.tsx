@@ -7,6 +7,10 @@ import LatestNews from '@/Components/Views/Home/LatestNews'
 import MobileCompa from '@/Components/Views/Home/MobileCompa'
 import Container from '@/Components/Layout/Container'
 import MobSummary from './MobSummary'
+import Mobile from './Mobile'
+import Soon from './Soon'
+import Popular from './Popular'
+import WhichMobExpan from './WhichMobExpan'
 
 
 const MobCat = () => {
@@ -16,13 +20,15 @@ const MobCat = () => {
                 <Ads />
                 <MobSummary />
             </Container>
-            <div className='md:flex w-full gap-6 max-w-[1400px] mx-auto'>
+            <div className='md:flex w-full max-w-[1400px] mx-auto'>
                 <div>
                     <CatSideBar />
                 </div>
-                <div className='max-w-[900px] lg:max-w-[757px] mx-auto lg:mx-0 w-full'>
-                    <Container>
-                    </Container>
+                <div className=' lg:mx-0 w-full bg-[#FFFBFB] '>
+                    <Mobile />
+                    <Soon />
+                    <Popular />
+                    <WhichMobExpan />
                 </div>
             </div>
         </main>

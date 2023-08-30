@@ -77,7 +77,7 @@ const MiniNav = () => {
                             <div
                                 className="relative"
                                 // @ts-ignore
-                                onMouseLeave={() => setDropDown(false)}
+                              
                             >
                                 <Link
                                     href={
@@ -85,7 +85,7 @@ const MiniNav = () => {
                                     }
                                 >
                                     <button
-                                        onMouseOver={() => setDropDown(true)}
+                                      
                                         className="flex gap-x-1 text-sm justify-center items-center    "
                                     >
                                         <span>Search By Brand</span>

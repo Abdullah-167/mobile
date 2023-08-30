@@ -5,13 +5,11 @@ import Image from "next/image"
 import { useState } from "react"
 import { AiFillAndroid } from 'react-icons/ai';
 
-const Under50 = () => {
+const Under10 = () => {
 
     const [currentSlide, setCurrentSlide] = useState(0)
     const [loaded, setLoaded] = useState(false)
     const [sliderRef, instanceRef] = useKeenSlider({
-
-
         breakpoints: {
             "(min-width: 640px)": {
                 slides: { perView: 3, spacing: 5 },
@@ -45,15 +43,14 @@ w-4 h-4 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xml
                     </span>
                 </p>
             </div>
-            <div ref={sliderRef} className="keen-slider">
+            <div ref={sliderRef} className="keen-slider ">
                 {data.map((item, index) => {
                     return (
-                        <div key={index} className="shadow-md keen-slider__slide cursor-pointer rounded-md max-h-[200px]">
-                            <Image className=" flex justify-center mx-auto pb-1" src={item.img} alt={"slider-images"} width={100} height={100} />
-                            <p className="text-center font-medium ">{item.model}</p>
-                            <div className="flex gap-1 justify-center items-center pb-4">
-                                <span className=" text-primary font-semibold text-sm">{item.price}</span>
-                                <span className="text-xs">{item.expected}</span>
+                        <div key={index} className="shadow-md keen-slider__slide cursor-pointer rounded-md my-1 pt-2 border border-transparent hover:border-primary duration-100">
+                            <Image className=" flex justify-center mx-auto pb-2" src={item.img} alt={"slider-images"} width={70} height={70} />
+                            <p className=" text-sm text-center  pb-1">{item.model}</p>
+                            <div className="text-xs flex gap-1 justify-center items-center ">
+                                <span className=" text-primary font-semibold  pb-1.5">{item.price}</span>
                                 <span className="pl-2">{item.androidIcon}</span>
                             </div>
                             <button className="bg-[#E9E9E9] text-sm py-1.5 text-center w-full">
@@ -91,7 +88,7 @@ w-4 h-4 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xml
     )
 }
 
-export default Under50;
+export default Under10;
 
 
 

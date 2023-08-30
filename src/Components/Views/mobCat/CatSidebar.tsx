@@ -65,7 +65,7 @@ const CatSideBar = () => {
 
     return (
         <aside>
-            <div className='bg-[#FFF] max-w-[260px] border h-full py-5 hidden lg:block'>
+            <div className='bg-[#FFF] max-w-[260px] min-w-[260px] border h-full py-5 hidden lg:block'>
                 <div className='pb-5 px-4  '>
                     <div className='flex justify-around pb-4'>
                         <span>Refine results</span>
