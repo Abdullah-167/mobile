@@ -101,7 +101,7 @@ const CatSideBar = () => {
                     </div>
                     {priceRange.map((item, index) => {
                         return (
-                            <div className='flex gap-3 items-center text-xs pb-[6px] cursor-pointer px-4'
+                            <div className='flex gap-3 items-center text-[13px] pb-[6px] cursor-pointer px-4'
                                 key={index} onClick={() => refineCheckboxList.handleDivClick(index)}>
                                 <input type={item.type} checked={refineCheckboxList.checkedIndices.includes(index)} />
                                 <p>{item.range}</p>
@@ -116,7 +116,7 @@ const CatSideBar = () => {
                     </div>
                     {featured.map((item, index) => {
                         return (
-                            <div className='flex gap-3 items-center text-xs pb-[6px] cursor-pointer px-8'
+                            <div className='flex gap-3 items-center text-[13px] pb-[6px] cursor-pointer px-8'
                                 key={index} onClick={() => featuredCheckboxList.handleDivClick(index)}>
                                 <input type={item.type} checked={featuredCheckboxList.checkedIndices.includes(index)} />
                                 <p>{item.text}</p>
@@ -140,7 +140,7 @@ const CatSideBar = () => {
                         <div className='max-h-[200px] min-h-[200px] overflow-auto'>
                             {filteredBrands.map((item, index) => (
                                 <div
-                                    className='flex gap-3 items-center text-xs pb-[6px] cursor-pointer px-4'
+                                    className='flex gap-3 items-center text-[13px] pb-[6px] cursor-pointer px-4'
                                     key={index}
                                     onClick={() => mobbrands.handleDivClick(index)}
                                 >
@@ -164,7 +164,7 @@ const CatSideBar = () => {
                         <div className='overflow-auto'>
                             {marketStatus.map((item, index) => (
                                 <div
-                                    className='flex gap-3 items-center text-xs pb-[6px] cursor-pointer px-4'
+                                    className='flex gap-3 items-center text-[13px] pb-[6px] cursor-pointer px-4'
                                     key={index}
                                     onClick={() => markStatus.handleDivClick(index)}
                                 >
@@ -187,7 +187,7 @@ const CatSideBar = () => {
                         <div className='overflow-auto'>
                             {launched.map((item, index) => (
                                 <div
-                                    className='flex gap-3 items-center text-xs pb-[6px] cursor-pointer px-4'
+                                    className='flex gap-3 items-center text-[13px] pb-[6px] cursor-pointer px-4'
                                     key={index}
                                     onClick={() => launchedStatus.handleDivClick(index)}
                                 >
@@ -210,7 +210,7 @@ const CatSideBar = () => {
                         <div className='overflow-auto'>
                             {ram.map((item, index) => (
                                 <div
-                                    className='flex gap-3 items-center text-xs pb-[6px] cursor-pointer px-4'
+                                    className='flex gap-3 items-center text-[13px] pb-[6px] cursor-pointer px-4'
                                     key={index}
                                     onClick={() => ramStatus.handleDivClick(index)}
                                 >
@@ -236,7 +236,7 @@ const CatSideBar = () => {
                                     <p className='font-bold pb-2'>{item.memStatus}</p>
                                     {item.dataType.map((model, modelIndex) => (
                                         <div
-                                            className='flex gap-3 items-center text-xs pb-[6px] cursor-pointer px-4'
+                                            className='flex gap-3 items-center text-[13px] pb-[6px] cursor-pointer px-4'
                                             key={modelIndex}
                                             onClick={() => {
                                                 if (item.memStatus === 'Internal Memory') {
@@ -274,7 +274,7 @@ const CatSideBar = () => {
                                     <p className='font-bold mb-2 border-b-2'>{item.screenSize}</p>
                                     {item.screen.map((model, modelIndex) => (
                                         <div
-                                            className='flex gap-3 items-center text-xs pb-[6px] cursor-pointer px-4'
+                                            className='flex gap-3 items-center text-[13px] pb-[6px] cursor-pointer px-4'
                                             key={modelIndex}
                                             onClick={() => {
                                                 if (item.screenSize === 'Screen Size') {
@@ -329,7 +329,7 @@ const CatSideBar = () => {
                                     <p className='font-bold pb-2'>{item.memStatus}</p>
                                     {item.dataType.map((model, modelIndex) => (
                                         <div
-                                            className='flex gap-3 items-center text-xs pb-[6px] cursor-pointer px-4'
+                                            className='flex gap-3 items-center text-[13px] pb-[6px] cursor-pointer px-4'
                                             key={modelIndex}
                                             onClick={() => {
                                                 if (item.memStatus === 'Processor Speed') {
@@ -367,7 +367,7 @@ const CatSideBar = () => {
                                     <p className='font-bold mb-2 border-b-2'>{item.screenSize}</p>
                                     {item.screen.map((model, modelIndex) => (
                                         <div
-                                            className='flex gap-3 items-center text-xs pb-[6px] cursor-pointer px-4'
+                                            className='flex gap-3 items-center text-[13px] pb-[6px] cursor-pointer px-4'
                                             key={modelIndex}
                                             onClick={() => {
                                                 if (item.screenSize === 'Number of Rear Cameras') {
@@ -443,7 +443,7 @@ const CatSideBar = () => {
                                     <p className='font-bold mb-2 border-b-2'>{item.memStatus}</p>
                                     {item.dataType.map((model, modelIndex) => (
                                         <div
-                                            className='flex gap-3 items-center text-xs pb-[6px] cursor-pointer px-4'
+                                            className='flex gap-3 items-center text-[13px] pb-[6px] cursor-pointer px-4'
                                             key={modelIndex}
                                             onClick={() => {
                                                 if (item.memStatus === 'Battery Capacity') {
@@ -481,7 +481,7 @@ const CatSideBar = () => {
                                     <p className='font-bold mb-2 border-b-2'>{item.memStatus}</p>
                                     {item.dataType.map((model, modelIndex) => (
                                         <div
-                                            className='flex gap-3 items-center text-xs pb-[6px] cursor-pointer px-4'
+                                            className='flex gap-3 items-center text-[13px] pb-[6px] cursor-pointer px-4'
                                             key={modelIndex}
                                             onClick={() => {
                                                 if (item.memStatus === 'Network Type') {
@@ -518,7 +518,7 @@ const CatSideBar = () => {
                                 <div key={brandIndex}>
                                     {item.dataType.map((model, modelIndex) => (
                                         <div
-                                            className='flex gap-3 items-center text-xs pb-[6px] cursor-pointer px-4'
+                                            className='flex gap-3 items-center text-[13px] pb-[6px] cursor-pointer px-4'
                                             key={modelIndex}
                                             onClick={() => {
                                                 connectivityMore.handleDivClick(modelIndex);
@@ -549,7 +549,7 @@ const CatSideBar = () => {
                                 <div key={brandIndex}>
                                     {item.dataType.map((model, modelIndex) => (
                                         <div
-                                            className='flex gap-3 items-center text-xs pb-[6px] cursor-pointer px-4'
+                                            className='flex gap-3 items-center text-[13px] pb-[6px] cursor-pointer px-4'
                                             key={modelIndex}
                                             onClick={() => {
                                                 operatingSystemFun.handleDivClick(modelIndex);
@@ -581,7 +581,7 @@ const CatSideBar = () => {
                                     <p className={` ${brandIndex > 0 ? 'font-bold mb-2 border-b-2' : 'hidden'}`}>{item.memStatus}</p>
                                     {item.dataType.map((model, modelIndex) => (
                                         <div
-                                            className='flex gap-3 items-center text-xs pb-[6px] cursor-pointer px-4'
+                                            className='flex gap-3 items-center text-[13px] pb-[6px] cursor-pointer px-4'
                                             key={modelIndex}
                                             onClick={() => {
                                                 if (item.memStatus === 'unknown') {
@@ -615,7 +615,7 @@ const CatSideBar = () => {
                     <div className='px-4'>
                         <div className='overflow-auto'>
                             {fiveGMoboile.map((item, index) => (
-                                <p className='text-xs pb-[6px] px-4 text-[#0165BC] cursor-pointer'
+                                <p className='text-[13px] pb-[6px] px-4 text-[#0165BC] cursor-pointer'
                                     key={index}
                                 >{item.text}</p>
                             ))}
@@ -630,7 +630,7 @@ const CatSideBar = () => {
                     <div className='px-4'>
                         <div className='overflow-auto'>
                             {byFeature.map((item, index) => (
-                                <p className='text-xs pb-[6px] px-4 text-[#0165BC] cursor-pointer'
+                                <p className='text-[13px] pb-[6px] px-4 text-[#0165BC] cursor-pointer'
                                     key={index}
                                 >{item.text}</p>
                             ))}
@@ -645,7 +645,7 @@ const CatSideBar = () => {
                     <div className='px-4'>
                         <div className='overflow-auto'>
                             {byBrand.map((item, index) => (
-                                <p className='text-xs pb-[6px] px-4 text-[#0165BC] cursor-pointer'
+                                <p className='text-[13px] pb-[6px] px-4 text-[#0165BC] cursor-pointer'
                                     key={index}
                                 >{item.text}</p>
                             ))}
@@ -660,7 +660,7 @@ const CatSideBar = () => {
                     <div className='px-4'>
                         <div className='overflow-auto'>
                             {byMobilePrice.map((item, index) => (
-                                <p className='text-xs pb-[6px] px-4 text-[#0165BC] cursor-pointer'
+                                <p className='text-[13px] pb-[6px] px-4 text-[#0165BC] cursor-pointer'
                                     key={index}
                                 >{item.text}</p>
                             ))}
@@ -675,7 +675,7 @@ const CatSideBar = () => {
                     <div className='px-4'>
                         <div className='overflow-auto'>
                             {upcomingMob.map((item, index) => (
-                                <p className='text-xs pb-[6px] px-4 text-[#0165BC] cursor-pointer'
+                                <p className='text-[13px] pb-[6px] px-4 text-[#0165BC] cursor-pointer'
                                     key={index}
                                 >{item.text}</p>
                             ))}
@@ -690,7 +690,7 @@ const CatSideBar = () => {
                     <div className='px-4'>
                         <div className='overflow-auto'>
                             {relatedLinks.map((item, index) => (
-                                <p className='text-xs pb-[6px] px-4 text-[#0165BC] cursor-pointer'
+                                <p className='text-[13px] pb-[6px] px-4 text-[#0165BC] cursor-pointer'
                                     key={index}
                                 >{item.text}</p>
                             ))}
@@ -705,7 +705,7 @@ const CatSideBar = () => {
                     <div className='px-4'>
                         <div className='overflow-auto'>
                             {featuredLinks.map((item, index) => (
-                                <p className='text-xs pb-[6px] px-4 text-[#0165BC] cursor-pointer'
+                                <p className='text-[13px] pb-[6px] px-4 text-[#0165BC] cursor-pointer'
                                     key={index}
                                 >{item.text}</p>
                             ))}

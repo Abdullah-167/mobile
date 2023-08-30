@@ -24,11 +24,14 @@ const MobCat = () => {
                 <div>
                     <CatSideBar />
                 </div>
-                <div className=' lg:mx-0 w-full bg-[#FFFBFB] '>
+                <div className=' lg:mx-0 w-full  py-5'>
                     <Mobile />
                     <Soon />
                     <Popular />
                     <WhichMobExpan />
+                    <div className='px-10'>
+                        <FeaturedBrand />
+                    </div>
                 </div>
             </div>
         </main>

@@ -16,7 +16,7 @@ const Soon = () => {
                 slides: { perView: 3, spacing: 5 },
             },
             "(min-width: 1024px)": {
-                slides: { perView: 4, spacing: 10 },
+                slides: { perView: 5, spacing: 10 },
             },
         },
         slides: {
@@ -34,7 +34,7 @@ const Soon = () => {
 
     return (
         <section className=" relative py-10 px-10">
-            <div className='flex pb-10 justify-around items-center gap-3'>
+            <div className='flex pb-5 justify-around items-center gap-3'>
                 <div>
                     <Image className='pb-1 max-h-[9px] min-h-[9px]' src={'/line1.png'} alt={''} width={100} height={100} />
                     <Image className='min-h-[10px]' src={'/line1.png'} alt={''} width={100} height={100} />
@@ -45,20 +45,16 @@ const Soon = () => {
                     <Image className='min-h-[10px]' src={'/line1.png'} alt={''} width={1000} height={1000} />
                 </div>
             </div>
-            <div ref={sliderRef} className="keen-slider max-w-[900px] mx-auto">
+            <div ref={sliderRef} className="keen-slider max-w-[900px] mx-auto min-h-[220px]">
                 {data.map((item, index) => {
                     return (
-                        <div key={index} className="shadow-md keen-slider__slide  max-w-[200px] cursor-pointer rounded-md max-h-[200px] my-3 py-2 bg-white border- border-transparent hover:border-primary ">
-                            <Image className=" flex justify-center mx-auto pb-1" src={item.img} alt={"slider-images"} width={100} height={100} />
-                            <p className="text-center font-medium pb-1">{item.model}</p>
-                            <div className=" text-xs flex gap-1 justify-center items-center pb-4 px-2">
-                                <span className=" text-primary font-semibold">{item.price}</span>
-                                <span className="">{item.expected}</span>
-                                <span className="pl-2">{item.androidIcon}</span>
+                        <div key={index} className="keen-slider__slide relative  bg-white cursor-pointer rounded py-3 border hover:border-primary">
+                            <Image className="flex justify-center mx-auto pb-1" src={item.img} alt={"slider-images"} width={100} height={100} />
+                            <p className="text-center font-medium leading-5">{item.model}</p>
+                            <div className="flex px-3 justify-between items-center absolute bottom-2 inset-x-0">
+                                <span className="text-primary text-sm">{item.price}</span>
+                                <span className="pl-2"><AiFillAndroid /></span>
                             </div>
-                            <button className="bg-[#E9E9E9] text-sm py-1.5 text-center w-full">
-                                {item.btn}
-                            </button>
                         </div>
                     )
                 })}
@@ -177,7 +173,7 @@ function Arrow(props: any) {
     return (
         <svg
             onClick={props.onClick}
-            className={`max-w-[40px] bg-gray-500 bg-opacity-50 rounded-full p-3 cursor-pointer absolute ${props.left ? "arrow--left top-[195px] left-8 z-[1000]" : "arrow--right top-[195px] right-8 z-[1000]"
+            className={`max-w-[40px] bg-gray-500 bg-opacity-50 rounded-full p-3 cursor-pointer absolute ${props.left ? "arrow--left top-[175px] left-8 z-[1000]" : "arrow--right top-[175px] right-8 z-[1000]"
                 } ${disabeld}`}
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"

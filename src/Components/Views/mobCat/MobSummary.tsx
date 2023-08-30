@@ -21,7 +21,7 @@ const MobSummary = () => {
                     </span>
                 </div>
             </div>
-            <div className='bg-[#FFFBFB] py-6 px-7'>
+            <div className='bg-gray-100 py-6 px-7'>
                 <h1 className=' text-primary text-3xl font-semibold pb-4'>
                     Samsung Mobile Phones - Samsung Mobile Phone Prices
                 </h1>

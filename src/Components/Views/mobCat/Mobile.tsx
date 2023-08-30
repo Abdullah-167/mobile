@@ -37,11 +37,11 @@ const Mobile = () => {
                 {rows.map((row, rowIndex) => (
                     <React.Fragment key={rowIndex}>
                         {row.map((item, itemIndex) => (
-                            <div key={itemIndex} className="shadow-md bg-white cursor-pointer rounded-md py-5 border hover:border-primary transition-all duration-500">
+                            <div key={itemIndex} className=" relative  bg-white cursor-pointer rounded py-3 border hover:border-primary transition-all duration-500 min-h-[220px]">
                                 <Image className="flex justify-center mx-auto pb-1" src={item.img} alt={"slider-images"} width={100} height={100} />
-                                <p className="text-center font-medium ">{item.model}</p>
-                                <div className="flex gap-6 justify-center items-center">
-                                    <span className="text-primary font-semibold text-sm">{item.price}</span>
+                                <p className="text-center font-medium leading-5">{item.model}</p>
+                                <div className="flex px-3 justify-between items-center absolute bottom-2 inset-x-0">
+                                    <span className="text-primary text-sm">{item.price}</span>
                                     <span className="pl-2"><AiFillAndroid /></span>
                                 </div>
                             </div>
@@ -64,7 +64,7 @@ export default Mobile;
 const data = [
     {
         img: '/mobile1.png',
-        model: 'Samsung',
+        model: 'Samsung Samsung Samsung',
         androidIcon: <AiFillAndroid />,
         price: 'Rs. 72,500',
         btn: 'View Details',
