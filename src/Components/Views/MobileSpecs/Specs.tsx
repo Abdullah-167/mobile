@@ -7,7 +7,7 @@ const Specs = () => {
     return (
         <section>
             <div className=''>
-                <div className='flex  gap-2 items-center bg-white border border-[#C1C1C1] py-2 px-20 justify-between rounded'>
+                <div className='flex  gap-2 items-center bg-white border border-[#C1C1C1] py-2 px-3 lg:px-20 justify-between rounded'>
                     {data.map((item, index) => {
                         return (
                             <div className='flex gap-2 items-center cursor-pointer'
@@ -68,37 +68,40 @@ const Specs = () => {
                         <Image className='min-h-[10px]' src={'/line1.png'} alt={''} width={1000} height={1000} />
                     </div>
                 </div>
-                {specs.map((spec, index) => (
-                    <div key={index} className=" rounded flex bg-[#E5F9DB] ">
-                        <div className='px-2 min-w-[230px] specs-heading-bg'>
-                            <h2 className="text-xl font-semibold pt-2">{spec.mainheading}</h2>
-                            {spec.screenShot && (
-                                <div className="">
-                                    <span className='text-sm cursor-pointer'>{spec.screenShot[0].text}</span>
-                                    <div className="flex gap-2">
-                                        {spec.screenShot[0].Images.map((image, imageIndex) => (
-                                            <Image key={imageIndex} src={image} alt="screenshot" width={50} height={50} />
-                                        ))}
+                <div className=' hidden lg:block'>
+                    {specs.map((spec, index) => (
+                        <div key={index} className=" rounded flex bg-[#E5F9DB] ">
+                            <div className='px-2 min-w-[230px] specs-heading-bg'>
+                                <h2 className="text-xl font-semibold pt-2">{spec.mainheading}</h2>
+                                {spec.screenShot && (
+                                    <div className="">
+                                        <span className='text-sm cursor-pointer'>{spec.screenShot[0].text}</span>
+                                        <div className="flex gap-2">
+                                            {spec.screenShot[0].Images.map((image, imageIndex) => (
+                                                <Image key={imageIndex} src={image} alt="screenshot" width={50} height={50} />
+                                            ))}
+                                        </div>
                                     </div>
-                                </div>
-                            )}
+                                )}
+                            </div>
+                            <div>
+                                {spec.specs.map((specItem, specIndex) => (
+                                    <div key={specIndex} className="flex items-center ">
+                                        <p className="font-semibold text-[#676767] min-w-[160px] border py-1 px-2 border-primary">{specItem}</p>
+                                        <p className='border py-1 px-2'>{spec.specsAns[specIndex]}</p>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                        <div>
-                            {spec.specs.map((specItem, specIndex) => (
-                                <div key={specIndex} className="flex items-center ">
-                                    <p className="font-semibold text-[#676767] min-w-[160px] border py-1 px-2 border-primary">{specItem}</p>
-                                    <p className='border py-1 px-2'>{spec.specsAns[specIndex]}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
+
             </div>
         </section>
     )
 }
 
-export default Specs
+export default Specs;
 
 const data = [
     {
