@@ -7,7 +7,7 @@ const Specs = () => {
     return (
         <section>
             <div className=''>
-                <div className='flex gap-2 items-center bg-white border border-[#C1C1C1] py-2 px-20 justify-between rounded'>
+                <div className='flex  gap-2 items-center bg-white border border-[#C1C1C1] py-2 px-20 justify-between rounded'>
                     {data.map((item, index) => {
                         return (
                             <div className='flex gap-2 items-center cursor-pointer'

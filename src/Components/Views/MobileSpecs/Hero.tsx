@@ -80,16 +80,16 @@ export default function App() {
                 </div>
             </div>
             <h1 className='text-primary text-3xl font-semibold'>Samsung Galaxy Z Fold 3</h1>
-            <div className="flex pt-8 pb-14">
+            <div className="flex flex-wrap lg:flex-nowrap pt-8 pb-14">
                 <div>
-                    <div ref={sliderRef} className="keen-slider max-w-[600px] mx-auto">
+                    <div ref={sliderRef} className="keen-slider max-w-[300px] lg:max-w-[600px] mx-auto">
                         {imageArray.map((imageUrl, index) => (
                             <div key={index} className="keen-slider__slide flex justify-center">
                                 <Image width={300} height={300} src={imageUrl} alt={`Image ${index}`} />
                             </div>
                         ))}
                     </div>
-                    <div ref={thumbnailRef} className="keen-slider thumbnail max-w-[400px] justify-center mx-auto">
+                    <div ref={thumbnailRef} className="keen-slider thumbnail max-w-[300px] lg:max-w-[400px] justify-center mx-auto">
                         {imageArray.map((imageUrl, index) => (
                             <div key={index} className="keen-slider__slide ">
                                 <Image className=" object-contain flex justify-center mx-auto items-center pt-1" src={imageUrl} width={30} height={30} alt={`Image ${index}`} />
@@ -98,7 +98,7 @@ export default function App() {
                     </div>
                 </div>
                 <div>
-                    <div className=" border border-primary max-w-[470px] px-4 py-4 mb-10">
+                    <div className=" hidden lg:block border border-primary max-w-[470px] px-4 py-4 mb-10">
                         <Image src={"/mainlogo.svg"} alt={"logo"} width={300} height={300} />
                         <p className="pb-20 text-[#676767] pl-2">1,059,108 Followers</p>
                         <div className="flex gap-3">
@@ -120,7 +120,7 @@ export default function App() {
                             })}
                         </div>
                     </div>
-                    <div className="text-[#676767]">
+                    <div className="text-[#676767] pt-10 lg:pt-0">
                         <Image className=" cursor-pointer pb-3" src={"/rating.svg"} alt={"logo"} width={100} height={100} />
                         <p className=" text-lg font-semibold">Price</p>
                         <p>USD $1098</p>
