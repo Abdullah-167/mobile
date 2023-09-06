@@ -47,18 +47,17 @@ const Similar = () => {
                 </div>
             </div>
             <div className=" relative">
-                <div ref={sliderRef} className="keen-slider max-w-[1000px] mx-auto">
+                <div ref={sliderRef} className="keen-slider max-w-[1000px] mx-auto"> 
                     {data.map((item, index) => {
                         return (
-                            <div key={index} className=" keen-slider__slide cursor-pointer border rounded-md max-h-[200px] my-3">
-                                <Image className=" flex justify-center mx-auto pb-1" src={item.img} alt={"slider-images"} width={100} height={100} />
-                                <p className="text-center font-medium pb-1">{item.model}</p>
-                                <div className=" text-xs flex gap-1 justify-center items-center pb-4 px-2">
-                                    <span className=" text-primary font-semibold">{item.price}</span>
-                                    <span className="">{item.expected}</span>
-                                    <span className="pl-2">{item.androidIcon}</span>
-                                </div>
+                            <div key={index} className="keen-slider__slide relative  bg-white cursor-pointer rounded pt-3 pb-[50px] border hover:border-primary min-h-[220px]">
+                            <Image className="flex justify-center mx-auto pb-1" src={item.img} alt={"slider-images"} width={100} height={100} />
+                            <p className="text-center font-medium leading-5">{item.model}</p>
+                            <div className="flex px-3 justify-between items-center absolute bottom-2 inset-x-0">
+                                <span className="text-primary text-sm">{item.price}</span>
+                                <span className="pl-2"><AiFillAndroid /></span>
                             </div>
+                        </div>
                         )
                     })}
 

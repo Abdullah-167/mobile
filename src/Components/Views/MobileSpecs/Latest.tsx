@@ -21,15 +21,15 @@ const Latest = () => {
                     <Image className='min-h-[10px]' src={'/line1.png'} alt={''} width={1000} height={1000} />
                 </div>
             </div>
-            <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 relative">
+            <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 max-w-[1000px] mx-auto relative">
                 {data.map((item, index) => {
                     return (
-                        <div key={index} className=" keen-slider__slide cursor-pointer border rounded-md max-h-[200px] my-3">
-                            <Image className=" flex justify-center mx-auto pb-1" src={item.img} alt={"slider-images"} width={100} height={100} />
-                            <p className="text-center font-medium pb-1">{item.model}</p>
-                            <div className=" text-xs flex gap-1 px-4 justify-between items-center pb-4">
-                                <span className=" text-primary font-semibold">{item.price}</span>
-                                <span className="pl-2">{item.androidIcon}</span>
+                        <div key={index} className=" relative  bg-white cursor-pointer rounded py-3 border hover:border-primary transition-all duration-500 min-h-[220px]">
+                            <Image className="flex justify-center mx-auto pb-1" src={item.img} alt={"slider-images"} width={100} height={100} />
+                            <p className="text-center font-medium leading-5">{item.model}</p>
+                            <div className="flex px-3 justify-between items-center absolute bottom-2 inset-x-0">
+                                <span className="text-primary text-sm">{item.price}</span>
+                                <span className="pl-2"><AiFillAndroid /></span>
                             </div>
                         </div>
                     )
