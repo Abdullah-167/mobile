@@ -26,21 +26,21 @@ const Opinion = () => {
         <div className="mb-6">
           <select
             id="opinions"
-            className="bg-gray-50 max-w-[120px]  border-gray-300 text-sm rounded-full block w-full px-2 py-2 border dark:placeholder-gray-400 text-black "
+            className=" cursor-pointer bg-gray-50 max-w-[120px]  border-gray-300 text-sm rounded-full block w-full px-2 py-2 border dark:placeholder-gray-400 text-black "
           >
             {data.map((item, index) => (
-              <option value="" onClick={() => setActiveTab(item.id)}>{item.mostRecent}</option>
+              <option key={index} className=' cursor-pointer' value="" onClick={() => setActiveTab(item.id)}>{item.mostRecent}</option>
             ))}
           </select>
         </div>
-        <div className="">
+        <div className="pb-8">
           {data.map((item, index) => {
             return (
               <div className={`transition-all duration-500 ${activeTab === item.id ? 'opacity-100' : 'opacity-0'}`}
                 key={index} >
                 {item.recent.map((newItem, idx) => {
                   return (
-                    <div>
+                    <div key={idx}>
                       {activeTab === item.id && (
                         <div className='mb-5 pb-2 border-b-2'>
                           <div className=' flex justify-between items-center pb-2'>
