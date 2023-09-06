@@ -1,12 +1,80 @@
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 import { HiOutlineHandThumbDown, HiOutlineHandThumbUp } from 'react-icons/hi2';
+import { RxCross2 } from 'react-icons/rx';
+import {
+    useKeenSlider,
+    KeenSliderPlugin,
+    KeenSliderInstance,
+} from "keen-slider/react"
+import "keen-slider/keen-slider.min.css"
+import Link from 'next/link';
+
+
+
+
+function ThumbnailPlugin(
+    mainRef: MutableRefObject<KeenSliderInstance | null>
+): KeenSliderPlugin {
+    return (slider) => {
+        function removeActive() {
+            slider.slides.forEach((slide) => {
+                slide.classList.remove("active")
+            })
+        }
+        function addActive(idx: number) {
+            slider.slides[idx].classList.add("active")
+        }
+
+        function addClickEvents() {
+            slider.slides.forEach((slide, idx) => {
+                slide.addEventListener("click", () => {
+                    if (mainRef.current) mainRef.current.moveToIdx(idx)
+                })
+            })
+        }
+
+        slider.on("created", () => {
+            if (!mainRef.current) return
+            addActive(slider.track.details.rel)
+            addClickEvents()
+            mainRef.current.on("animationStarted", (main) => {
+                removeActive()
+                const next = main.animator.targetIdx || 0
+                addActive(main.track.absToRel(next))
+                slider.moveToIdx(Math.min(slider.track.details.maxIdx, next))
+            })
+        })
+    }
+}
+
 
 const Specs = () => {
 
+    const [tab, settab] = useState(false);
+
+    const handleModale = () => {
+        settab(!tab)
+    }
+
+    const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
+        initial: 0,
+    })
+    const [thumbnailRef] = useKeenSlider<HTMLDivElement>(
+        {
+            initial: 0,
+            slides: {
+                perView: 5,
+                spacing: 5,
+            },
+        },
+        [ThumbnailPlugin(instanceRef)]
+    )
+
+
     return (
         <section>
-            <div className=''>
+            <div className=' '>
                 <div className='flex  gap-2 items-center bg-white border border-[#C1C1C1] py-2 px-3 lg:px-20 justify-between rounded'>
                     {data.map((item, index) => {
                         return (
@@ -68,34 +136,60 @@ const Specs = () => {
                         <Image className='min-h-[10px]' src={'/line1.png'} alt={''} width={1000} height={1000} />
                     </div>
                 </div>
-                <div className=' hidden lg:block'>
-                    {specs.map((spec, index) => (
-                        <div key={index} className=" rounded flex bg-[#E5F9DB] ">
-                            <div className='px-2 min-w-[230px] specs-heading-bg'>
-                                <h2 className="text-xl font-semibold pt-2">{spec.mainheading}</h2>
-                                {spec.screenShot && (
-                                    <div className="">
-                                        <span className='text-sm cursor-pointer'>{spec.screenShot[0].text}</span>
-                                        <div className="flex gap-2">
-                                            {spec.screenShot[0].Images.map((image, imageIndex) => (
-                                                <Image key={imageIndex} src={image} alt="screenshot" width={50} height={50} />
-                                            ))}
+                <div className=' relative'>
+                    <div className=' hidden lg:block'>
+                        {specs.map((spec, index) => (
+                            <div key={index} className=" rounded flex bg-[#E5F9DB] ">
+                                <div className='px-2 min-w-[230px] specs-heading-bg'>
+                                    <h2 className="text-xl font-semibold pt-2">{spec.mainheading}</h2>
+                                    {spec.screenShot && (
+                                        <div className=""
+                                            onClick={handleModale}
+                                        >
+                                            <span className='text-sm cursor-pointer'>{spec.screenShot[0].text}</span>
+                                            <div className="flex gap-2">
+                                                {spec.screenShot[0].Images.map((image, imageIndex) => (
+                                                    <Image key={imageIndex} src={image} alt="screenshot" width={50} height={50} />
+                                                ))}
+                                            </div>
                                         </div>
-                                    </div>
-                                )}
+                                    )}
+                                </div>
+                                <div>
+                                    {spec.specs.map((specItem, specIndex) => (
+                                        <div key={specIndex} className="flex items-center ">
+                                            <p className="font-semibold text-[#676767] min-w-[160px] border py-1 px-2 border-primary">{specItem}</p>
+                                            <p className='border py-1 px-2'>{spec.specsAns[specIndex]}</p>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
+                        ))}
+                    </div>
+                    {tab && (
+                        <div className="flex flex-wrap lg:flex-nowrap pt-8 pb-14 justify-center items-center absolute inset-0 bg-white max-w-[800px] max-h-[500px] mx-auto top-32">
                             <div>
-                                {spec.specs.map((specItem, specIndex) => (
-                                    <div key={specIndex} className="flex items-center ">
-                                        <p className="font-semibold text-[#676767] min-w-[160px] border py-1 px-2 border-primary">{specItem}</p>
-                                        <p className='border py-1 px-2'>{spec.specsAns[specIndex]}</p>
-                                    </div>
-                                ))}
+                                <div ref={sliderRef} className="keen-slider max-w-[300px] lg:max-w-[600px] mx-auto">
+                                    {imageArray.map((imageUrl, index) => (
+                                        <div key={index} className="keen-slider__slide flex justify-center">
+                                            <Image width={300} height={300} src={imageUrl} alt={`Image ${index}`} />
+                                        </div>
+                                    ))}
+                                </div>
+                                <div ref={thumbnailRef} className="keen-slider thumbnail max-w-[300px] lg:max-w-[400px] justify-center mx-auto">
+                                    {imageArray.map((imageUrl, index) => (
+                                        <div key={index} className="keen-slider__slide ">
+                                            <Image className=" object-contain flex justify-center mx-auto items-center pt-1" src={imageUrl} width={30} height={30} alt={`Image ${index}`} />
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
+                            <span className='text-4xl cursor-pointer p-3 absolute top-0 right-0'
+                                onClick={handleModale}
+                            ><RxCross2 /></span>
                         </div>
-                    ))}
+                    )}
                 </div>
-
             </div>
         </section>
     )
@@ -256,3 +350,16 @@ const specs = [
         ]
     },
 ]
+
+
+const imageArray = [
+    '/samsungfold.svg',
+    '/samsungfold.svg',
+    '/samsungfold.svg',
+    '/samsungfold.svg',
+    '/samsungfold.svg',
+    '/samsungfold.svg',
+    '/samsungfold.svg',
+    '/samsungfold.svg',
+    '/samsungfold.svg',
+];
