@@ -51,3 +51,33 @@ body {
 .specs-heading-bg {
   background-color: rgba(168, 216, 160, 0.97);
 }
+
+.blog-heading p {
+  position: relative;
+  margin-right: 10px;
+  text-decoration: none;
+  padding-bottom: 5px;
+  cursor: pointer;
+}
+
+.blog-heading:hover p {
+  color: #008339;
+
+}
+
+.blog-heading p::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #008339;
+  transition: .3s;
+
+}
+
+.blog-heading:hover p::before {
+  width: 100%;
+  color: #008339;
+}
