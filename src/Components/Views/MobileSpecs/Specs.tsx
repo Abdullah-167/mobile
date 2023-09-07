@@ -1,5 +1,5 @@
-import Image from 'next/image'
-import React, { useState } from 'react'
+import Image from 'next/image';
+import React, { useState, MutableRefObject } from 'react';
 import { HiOutlineHandThumbDown, HiOutlineHandThumbUp } from 'react-icons/hi2';
 import { RxCross2 } from 'react-icons/rx';
 import {
@@ -10,8 +10,187 @@ import {
 import "keen-slider/keen-slider.min.css"
 import Link from 'next/link';
 
+interface DataItem {
+    img: string;
+    text: string;
+}
 
+interface ProsConsData {
+    icon: JSX.Element;
+    heading: string;
+    text: string[];
+}
 
+interface SpecsData {
+    mainheading: string;
+    screenShot?: {
+        text: string;
+        Images: string[];
+    }[];
+    specs: string[];
+    specsAns: string[];
+}
+
+const data: DataItem[] = [
+    {
+        img: '/opinion.svg',
+        text: 'OPINIONS',
+    },
+    {
+        img: '/compare.svg',
+        text: 'Compare',
+    },
+    {
+        img: '/picture.svg',
+        text: 'Picture',
+    },
+]
+
+const prosData: ProsConsData[] = [
+    {
+        icon: <HiOutlineHandThumbUp />,
+        heading: 'Pros',
+        text: [
+            'Sturdy and water-resistant build',
+            'Smooth performance and good cameras',
+            'Under-display camera makes viewing immersive',
+            'Useful software features'
+        ]
+    }
+];
+
+const consData: ProsConsData[] = [
+    {
+        icon: <HiOutlineHandThumbDown />,
+        heading: 'Cons',
+        text: [
+            'Heavy and bulky',
+            'Cover screen feels cramped',
+            'Still needs to be handled carefully',
+            'Pricey'
+        ]
+    }
+];
+
+const specs: SpecsData[] = [
+    {
+        mainheading: 'General',
+        screenShot: [
+            {
+                text: 'Screen Shot',
+                Images: [
+                    '/samsungfold.svg',
+                    '/samsungfold.svg',
+                    '/samsungfold.svg',
+                ]
+            }
+        ],
+        specs: [
+            'Launch Date',
+            'OS',
+            'UI',
+        ],
+        specsAns: [
+            'August 24, 2021 (Official Date)',
+            'Android v11OS',
+            'Samsung One UI 3.5'
+        ]
+    },
+    {
+        mainheading: 'Key Specifications',
+        specs: [
+            'RAM',
+            'Processor',
+            'Back Camera',
+            'Display',
+        ],
+        specsAns: [
+            'Octa core (2.84 GHz, Single core, Kryo 680 + 2.42 GHz, Tri core, Kryo 680 + 1.8 GHz, Quad core, Kryo 680)',
+            '12 MP + 12 MP + 12 MP',
+            '7.6 inches (19.3 cm)'
+        ]
+    },
+    {
+        mainheading: 'Display',
+        specs: [
+            'Display Type',
+            'Screen Size',
+            'Resolution',
+            'Aspect Ratio',
+        ],
+        specsAns: [
+            'Dynamic AMOLED',
+            '7.6 inches (19.3 cm)',
+            '1768 x 2208 pixels',
+            '22.5:18'
+        ]
+    },
+    {
+        mainheading: 'Design',
+        specs: [
+            'Height',
+            'Width',
+            'Weight',
+            'Thickness',
+        ],
+        specsAns: [
+            '158.2 mm',
+            '128.1 mm',
+            '271 grams',
+            '6.4 mm'
+        ]
+    },
+    {
+        mainheading: 'Camera',
+        screenShot: [
+            {
+                text: 'View All Screen Shots',
+                Images: [
+                    '/samsungfold.svg',
+                    '/samsungfold.svg',
+                    '/samsungfold.svg',
+                ]
+            }
+        ],
+        specs: [
+            'Camera Setup',
+            'Touch Screen',
+            'HDR+ support'
+        ],
+        specsAns: [
+            'Yes',
+            'Yes, Capacitive Touchscreen, Multi-touch',
+            '1200 nits'
+        ]
+    },
+    {
+        mainheading: 'Battery',
+        specs: [
+            'Height',
+            'Width',
+            'Weight',
+            'Thickness',
+        ],
+        specsAns: [
+            '158.2 mm',
+            '128.1 mm',
+            '271 grams',
+            '6.4 mm'
+        ]
+    },
+]
+
+const imageArray: string[] = [
+    '/samsungfold.svg',
+    '/samsungfold.svg',
+    '/samsungfold.svg',
+    '/samsungfold.svg',
+    '/samsungfold.svg',
+    '/samsungfold.svg',
+    '/samsungfold.svg',
+    '/samsungfold.svg',
+    '/samsungfold.svg',
+];
 
 function ThumbnailPlugin(
     mainRef: MutableRefObject<KeenSliderInstance | null>
@@ -48,13 +227,12 @@ function ThumbnailPlugin(
     }
 }
 
+const Specs: React.FC = () => {
 
-const Specs = () => {
-
-    const [tab, settab] = useState(false);
+    const [tab, setTab] = useState(false);
 
     const handleModale = () => {
-        settab(!tab)
+        setTab(!tab)
     }
 
     const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
@@ -70,7 +248,6 @@ const Specs = () => {
         },
         [ThumbnailPlugin(instanceRef)]
     )
-
 
     return (
         <section>
@@ -197,169 +374,3 @@ const Specs = () => {
 
 export default Specs;
 
-const data = [
-    {
-        img: '/opinion.svg',
-        text: 'OPINIONS',
-    },
-    {
-        img: '/compare.svg',
-        text: 'Compare',
-    },
-    {
-        img: '/picture.svg',
-        text: 'Picture',
-    },
-]
-
-
-const prosData = [
-    {
-        icon: <HiOutlineHandThumbUp />,
-        heading: 'Pros',
-        text: [
-            'Sturdy and water-resistant build',
-            'Smooth performance and good cameras',
-            'Under-display camera makes viewing immersive',
-            'Useful software features'
-        ]
-    }
-];
-
-
-const consData = [
-    {
-        icon: <HiOutlineHandThumbDown />,
-        heading: 'Cons',
-        text: [
-            'Heavy and bulky',
-            'Cover screen feels cramped',
-            'Still needs to handled carefully',
-            'Pricey'
-        ]
-    }
-];
-
-
-
-const specs = [
-    {
-        mainheading: 'General',
-        screenShot: [
-            {
-                text: 'Screen Shot',
-                Images: [
-                    '/samsungfold.svg',
-                    '/samsungfold.svg',
-                    '/samsungfold.svg',
-                ]
-            }
-        ],
-        specs: [
-            'Launch Date',
-            'OS',
-            'UI',
-
-        ],
-        specsAns: [
-            'August 24, 2021 (Official Date)',
-            'Android v11OS',
-            'Samsung One UI 3.5'
-        ]
-    },
-    {
-        mainheading: 'Key Specifications',
-        specs: [
-            'RAM',
-            'Processor',
-            'Back Camera',
-            'Display',
-        ],
-        specsAns: [
-            'Octa core (2.84 GHz, Single core, Kryo 680 + 2.42 GHz, Tri core, Kryo 680 + 1.8 GHz, Quad core, Kryo 680)',
-            '12 MP + 12 MP + 12 MP',
-            '7.6 inches (19.3 cm)'
-        ]
-    },
-    {
-        mainheading: 'Display',
-        specs: [
-            'Display Type',
-            'Screen Size',
-            'Resolution',
-            'Aspect Ratio',
-        ],
-        specsAns: [
-            'Dynamic AMOLED',
-            '7.6 inches (19.3 cm)',
-            '1768 x 2208 pixels',
-            '22.5:18'
-        ]
-    },
-    {
-        mainheading: 'Design',
-        specs: [
-            'Height',
-            'Width',
-            'Weight',
-            'Thickness',
-        ],
-        specsAns: [
-            '158.2 mm',
-            '128.1 mm',
-            '271 grams',
-            '6.4 mm'
-        ]
-    },
-    {
-        mainheading: 'Camera',
-        screenShot: [
-            {
-                text: 'View All Screen Shots',
-                Images: [
-                    '/samsungfold.svg',
-                    '/samsungfold.svg',
-                    '/samsungfold.svg',
-                ]
-            }
-        ],
-        specs: [
-            'Camera Setup',
-            'Touch Screen',
-            'HDR+ support'
-        ],
-        specsAns: [
-            'Yes',
-            'Yes, Capacitive Touchscreen, Multi-touch',
-            '1200 nits'
-        ]
-    },
-    {
-        mainheading: 'Battery',
-        specs: [
-            'Height',
-            'Width',
-            'Weight',
-            'Thickness',
-        ],
-        specsAns: [
-            '158.2 mm',
-            '128.1 mm',
-            '271 grams',
-            '6.4 mm'
-        ]
-    },
-]
-
-
-const imageArray = [
-    '/samsungfold.svg',
-    '/samsungfold.svg',
-    '/samsungfold.svg',
-    '/samsungfold.svg',
-    '/samsungfold.svg',
-    '/samsungfold.svg',
-    '/samsungfold.svg',
-    '/samsungfold.svg',
-    '/samsungfold.svg',
-];

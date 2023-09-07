@@ -16,7 +16,7 @@ const MobileSpecs = () => {
         <Hero />
         <Specs />
         <ResSpecs specs={specs} />
-        <p className=' font-semibold text-sm px-3'>Disclaimer: <span className=' font-normal'>Samsung Galaxy Z Fold 3 price in Pakistan is updated daily from the price list provided by local shops and dealers but we can not  guarantee that the information / price / Galaxy Z Fold 3 Prices on this page is 100% correct (Human error is possible), always visit your local shop for exact cell phone cost & rate. Samsung Galaxy Z Fold 3 price Pakistan.</span></p>
+        <p className=' font-semibold text-sm pt-4 px-3'>Disclaimer: <span className=' font-normal'>Samsung Galaxy Z Fold 3 price in Pakistan is updated daily from the price list provided by local shops and dealers but we can not  guarantee that the information / price / Galaxy Z Fold 3 Prices on this page is 100% correct (Human error is possible), always visit your local shop for exact cell phone cost & rate. Samsung Galaxy Z Fold 3 price Pakistan.</span></p>
         <Ads />
         <Opinion />
         <Similar />

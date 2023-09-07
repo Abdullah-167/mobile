@@ -8,11 +8,48 @@ const Opinion = () => {
 
   const [activeTab, setActiveTab] = useState(data[0].id);
   const [openedTab, setOpenedTab] = useState(null);
+  const [showCommentBox, setShowCommentBox] = useState(false);
+  const [adminReply, setAdminReply] = useState(''); // Step 1: Admin's reply state
+  const [comments, setComments] = useState([
+    {
+      id: 1,
+      img: '/newprofile.svg',
+      userName: 'Abdullah Padhana',
+      reply: 'Reply',
+      clockIcon: <BsClock />,
+      date: getCurrentDate(),
+      comment: 'The Wifi has stopped working after the latest update. beware before updating. The screen has had bubbles with minimal use. Highly disappointed!'
+    }
+  ]);
 
-  const handleReply = (tabId : any) => {
-    setOpenedTab(tabId);
+  const handleReply = (id: any) => {
+    setOpenedTab(id);
   }
 
+  const toggleCommentBox = () => {
+    setShowCommentBox(!showCommentBox);
+  }
+
+  // Function to add a new comment
+  const addComment = () => {
+    const newCommentId = comments.length + 1;
+    const newComment = {
+      id: newCommentId,
+      img: '/newprofile.svg',
+      userName: 'New User',
+      reply: 'Reply',
+      clockIcon: <BsClock />,
+      date: 'New Date',
+      comment: 'New Comment Text'
+    };
+    setComments([...comments, newComment]);
+  }
+  
+  function getCurrentDate(): string {
+    const currentDate: Date = new Date();
+    const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+    return currentDate.toLocaleDateString(undefined, options);
+  }
 
   return (
     <section>
@@ -59,9 +96,9 @@ const Opinion = () => {
                             </div>
                             <p className='pl-10 pb-2'>{newItem.comment}</p>
                             <span className='ml-10 py-1 px-3 font-semibold text-sm cursor-pointer bg-opacity-30 bg-[#A9D9A2] rounded-full text-black'
-                              onClick={() => handleReply(item.id)}
+                              onClick={() => handleReply(newItem.id)}
                             >{newItem.reply}</span>
-                            {openedTab === item.id && (
+                            {openedTab === newItem.id && (
                               <div>
                                 <input className='block border-2 border-gray-200 outline-none px-3 py-1 w-full ml-10 mt-5 max-w-[1030px] ' placeholder='Enter Reply Here' type="text" />
                               </div>
@@ -74,13 +111,39 @@ const Opinion = () => {
                 </div>
               );
             })}
+            {comments.map((newItem, idx) => (
+              <div key={idx} className='mb-5 pb-2 border-b-[3px]'>
+                <div className='flex justify-between items-center pb-2'>
+                  <div className='flex items-center gap-3'>
+                    <Image className='min-h-[10px]' src={newItem.img} alt={'user-img'} width={30} height={30} />
+                    <span>{newItem.userName}</span>
+                  </div>
+                  <p className='flex gap-2 items-center'>{newItem.clockIcon}{newItem.date}</p>
+                </div>
+                <p className='pl-10 pb-2'>{newItem.comment}</p>
+                <span className='ml-10 py-1 px-3 font-semibold text-sm cursor-pointer bg-opacity-30 bg-[#A9D9A2] rounded-full text-black'
+                  onClick={() => handleReply(newItem.id)}
+                >
+                  {newItem.reply}
+                </span>
+                {openedTab === newItem.id && (
+                  <div>
+                    <input className='block border-2 border-gray-200 outline-none px-3 py-1 w-full ml-10 mt-5 max-w-[1030px] ' placeholder='Enter Reply Here' type="text" />
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
         <div className='flex justify-between items-center bg-gray-200 pb-3 pt-6 px-3'>
           <div className='flex gap-2 '>
             <span className='border-2 border-gray-300 bg-white cursor-pointer text-sm rounded px-4 py-1 font-semibold'>Read All Opinons</span>
-            <span className='border-2 border-gray-300 bg-white cursor-pointer text-sm rounded px-4 py-1 font-semibold'>Post Your opinion</span>
-          </div>
+            <button
+              className='border-2 border-gray-300 bg-white cursor-pointer text-sm rounded px-4 py-1 font-semibold'
+              onClick={addComment}
+            >
+              Post Your Opinion
+            </button>          </div>
           <p>Total User Opinions: <span className=' font-bold pl-3'>367</span></p>
         </div>
       </Container>
@@ -97,6 +160,7 @@ const data = [
     mostRecent: 'Most Relevant',
     recent: [
       {
+        id: 1,
         img: '/newprofile.svg',
         userName: 'Abdullah Padhana',
         reply: 'Reply',
@@ -105,6 +169,7 @@ const data = [
         comment: 'The Wifi has stopped working after the latest update. beware before updating. The screen has had bubbles with minimal use. Highly disappointed!'
       },
       {
+        id: 2,
         img: '/newprofile.svg',
         userName: 'Abdullah Padhana',
         reply: 'Reply',
@@ -113,6 +178,7 @@ const data = [
         comment: 'The Wifi has stopped working after the latest update. beware before updating. The screen has had bubbles with minimal use. Highly disappointed!'
       },
       {
+        id: 3,
         img: '/newprofile.svg',
         userName: 'Abdullah Padhana',
         reply: 'Reply',
@@ -121,6 +187,7 @@ const data = [
         comment: 'The Wifi has stopped working after the latest update. beware before updating. The screen has had bubbles with minimal use. Highly disappointed!'
       },
       {
+        id: 4,
         img: '/newprofile.svg',
         userName: 'Abdullah Padhana',
         reply: 'Reply',
@@ -135,6 +202,7 @@ const data = [
     mostRecent: 'Most Recent',
     recent: [
       {
+        id: 1,
         img: '/newprofile.svg',
         userName: 'Abdullah Padhana',
         reply: 'Reply',
@@ -143,6 +211,7 @@ const data = [
         comment: 'The Wifi has stopped working after the latest update. beware before updating. The screen has had bubbles with minimal use. Highly disappointed!'
       },
       {
+        id: 2,
         img: '/newprofile.svg',
         userName: 'Abdullah Padhana',
         reply: 'Reply',
@@ -151,6 +220,7 @@ const data = [
         comment: 'The Wifi has stopped working after the latest update. beware before updating. The screen has had bubbles with minimal use. Highly disappointed!'
       },
       {
+        id: 3,
         img: '/newprofile.svg',
         userName: 'Abdullah Padhana',
         reply: 'Reply',
@@ -159,6 +229,7 @@ const data = [
         comment: 'The Wifi has stopped working after the latest update. beware before updating. The screen has had bubbles with minimal use. Highly disappointed!'
       },
       {
+        id: 4,
         img: '/newprofile.svg',
         userName: 'Abdullah Padhana',
         reply: 'Reply',
