@@ -16,11 +16,12 @@ import Under10 from './Under10'
 import FeaturedBrand from './FeaturedBrand'
 import LatestNews from './LatestNews'
 import MobileCompa from './MobileCompa'
+import RightSide from './RightSide'
 
 const Home = () => {
     return (
         <main>
-            <div className='md:flex w-full gap-6 max-w-[1400px] mx-auto'>
+            <div className='md:flex w-full justify-between gap-6 max-w-[1400px] mx-auto'>
                 <div>
                     <SideBar />
                 </div>
@@ -42,6 +43,7 @@ const Home = () => {
                         <Under10 />
                     </Container>
                 </div>
+                <RightSide />
             </div>
             <FeaturedBrand />
             <LatestNews />

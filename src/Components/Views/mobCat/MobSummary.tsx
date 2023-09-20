@@ -1,7 +1,7 @@
 import React from 'react'
 import { FiLink2 } from 'react-icons/fi';
 import { AiFillFacebook } from 'react-icons/ai';
-import { FaTwitterSquare } from 'react-icons/fa';
+import { FaTwitterSquare, FaWhatsapp } from 'react-icons/fa';
 
 const MobSummary = () => {
     return (
@@ -16,8 +16,8 @@ const MobSummary = () => {
                     <span className='text-blue-500 cursor-pointer'>
                         <AiFillFacebook />
                     </span>
-                    <span className='text-blue-500 cursor-pointer'>
-                        <FaTwitterSquare />
+                    <span className='text-green-500 cursor-pointer'>
+                        <FaWhatsapp />
                     </span>
                 </div>
             </div>

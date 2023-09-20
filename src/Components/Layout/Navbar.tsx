@@ -3,6 +3,7 @@ import Container from './Container'
 import { TfiMenu } from 'react-icons/tfi';
 import Image from 'next/image';
 import { Input } from 'postcss';
+import Link from 'next/link';
 
 const Navbar = () => {
 
@@ -25,7 +26,7 @@ const Navbar = () => {
                         <Image className='cursor-pointer' src={'/profile.svg'} alt={''} width={30} height={30} />
                     </div>
                     <div className='pr-32'>
-                        <Image className='cursor-pointer' src={'/logo.svg'} alt={''} width={200} height={200} />
+                        <Link href={'/'}>  <Image className='cursor-pointer' src={'/logo.svg'} alt={''} width={200} height={200} /> </Link>
                     </div>
                     <div className='flex gap-4'>
                         <div

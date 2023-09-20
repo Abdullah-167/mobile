@@ -73,10 +73,12 @@ const links = [
 
 const secLinks = [
     {
-        link: 'About us'
+        link: 'About us',
+        url:'aboutus'
     },
     {
-        link: 'Term & Condition'
+        link: 'Term & Condition',
+        url:'terms-conditions'
     },
     {
         link: 'Product Request'
@@ -88,7 +90,8 @@ const secLinks = [
         link: 'Advertise'
     },
     {
-        link: 'Privacy Policy'
+        link: 'Privacy Policy',
+        url:'privacy-policy'
     },
     {
         link: 'Cookies'

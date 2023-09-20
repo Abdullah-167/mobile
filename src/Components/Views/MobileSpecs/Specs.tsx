@@ -317,7 +317,7 @@ const Specs: React.FC = () => {
                     <div className=' hidden lg:block'>
                         {specs.map((spec, index) => (
                             <div key={index} className=" rounded flex bg-[#E5F9DB] ">
-                                <div className='px-2 min-w-[230px] specs-heading-bg'>
+                                <div className='px-2 min-w-[230px] specs-heading-bg border-b border-b-[#019943] pb-2'>
                                     <h2 className="text-xl font-semibold pt-2">{spec.mainheading}</h2>
                                     {spec.screenShot && (
                                         <div className=""
