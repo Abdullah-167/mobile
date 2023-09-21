@@ -1,12 +1,12 @@
-import Home from '@/Components/Views/Home'
+import NewPage from '@/Components/Views/NewPage/index';
 import React from 'react'
 
 const index = () => {
   return (
-    <div>
-      <Home />
-    </div>
+    <main>
+      <NewPage />
+    </main>
   )
 }
 
-export default index
+export default index;
