@@ -4,9 +4,9 @@ import { MdMail } from 'react-icons/md'
 const Form = () => {
     return (
         <section>
-            <h1 className='px-10 pt-12 text-3xl font-semibold text-gray-600 pb-12'>Contact BuyMobile<span className='text-base'>.com.pk </span></h1>
+            <h1 className='sm:px-10 pt-12 text-2xl sm:text-3xl font-semibold text-gray-600 pb-7 sm:pb-12'>Contact BuyMobile<span className='text-base'>.com.pk </span></h1>
             <div className=' max-w-[600px] mx-auto'>
-                <div className='flex justify-center gap-10'>
+                <div className='flex md:flex-nowrap flex-wrap md:justify-center gap-10'>
                     <div>
                         {address.map((item, index) => {
                             return (
@@ -48,7 +48,7 @@ const Form = () => {
                     <div>
                         {formData.map((item, index) => {
                             return (
-                                <div className={`flex  pb-3 ${index > 2 ? '' : 'items-center'}`}
+                                <div className={`flex sm:flex-nowrap flex-wrap pb-3 ${index > 2 ? '' : 'items-center'}`}
                                     key={index}
                                 >
                                     <label className='min-w-[100px]'>{item.text}</label>

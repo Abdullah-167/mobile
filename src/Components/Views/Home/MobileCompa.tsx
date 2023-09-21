@@ -17,7 +17,7 @@ const MobileCompa = () => {
                 slides: { perView: 3, spacing: 5 },
             },
             "(min-width: 1024px)": {
-                slides: { perView: 4, spacing: 10 },
+                slides: { perView: 4, spacing: 15 },
             },
         },
         slides: {

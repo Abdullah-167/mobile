@@ -4,6 +4,7 @@ import SideBar from '../Home/SideBar'
 import RightSide from '../Home/RightSide'
 import Faq from '@/Components/Common/Faq'
 import Ads from '@/Components/Common/Ads'
+import Container from '@/Components/Layout/Container'
 
 const Contact = () => {
 
@@ -11,14 +12,16 @@ const Contact = () => {
         <div className='flex justify-between w-full'>
             <div className='flex w-full'>
                 <SideBar />
-                <div className='flex-grow'>
-                    <Form />
-                    <div className='max-w-[600px] mx-auto'>
-                        <Faq faq={faq} />
+                <Container>
+                    <div className='flex-grow'>
+                        <Form />
+                        <div className='max-w-[600px] mx-auto'>
+                            <Faq faq={faq} />
+                        </div>
                     </div>
-                </div>
+                </Container>
             </div>
-            <div>
+            <div className='lg:block hidden'>
                 <RightSide />
                 <Ads />
                 <Ads />

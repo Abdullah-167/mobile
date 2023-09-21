@@ -27,14 +27,14 @@ const Faq = ({ faq }: any) => {
                                 className={`team-shadow flex items-center gap-3 cursor-pointer  px-4  transition duration-300 ease-in-out ${expandedIndex === index ? ' ' : ''}`}
                                 onClick={() => handleToggle(index)}
                             >
-                                <h3 className='text-xl font-semibold'>{item.question}</h3>
-                                <span className="ml-auto">{expandedIndex === index ? '-' : '+'}</span>
+                                <h3 className='text-base sm:text-xl font-semibold'>{item.question}</h3>
+                                <span className=" ml-auto">{expandedIndex === index ? '-' : '+'}</span>
                             </div>
                             <div
-                                className={`team-shadow overflow-hidden transition-all duration-300 ease-in max-w-[568px] mx-auto ${expandedIndex === index ? ' h-auto opacity-100 pb-3' : 'h-0 opacity-50 '
+                                className={`team-shadow overflow-hidden sm:pl-0 pl-4 transition-all duration-300 ease-in max-w-[568px] mx-auto ${expandedIndex === index ? ' h-auto opacity-100 pb-3' : 'h-0 opacity-50 '
                                     }`}
                             >
-                                <p className='text-lg mt-4'>{item.answer}</p>
+                                <p className='text-xs sm:text-lg mt-4'>{item.answer}</p>
                             </div>
                         </div>
                     ))}

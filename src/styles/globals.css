@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Asap:wght@100;200;300;400;500;600;700;800;900&display=swap'); */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
@@ -6,57 +6,97 @@
 @tailwind components;
 @tailwind utilities;
 
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-
-.font-poppins {
+body {
+  /* font-family: 'Asap', sans-serif; */
   font-family: 'Poppins', sans-serif;
 }
 
-body {
-  overflow-x: hidden;
-  font-family: 'Sora', sans-serif;
-}
-
-.home-bgMain {
-  background: linear-gradient(to right, #8443F7, #834CFA, #9C71F9);
+.mob-shadow {
+  box-shadow: 1px 0px 8px 0px rgba(0, 0, 0, 0.75);
 }
 
 
-.container {
-  max-width: 1270px;
-  margin: auto;
-  padding: 0 15px;
+.latest-newsCards {
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 
-.header {
-  display: flex;
+.shadow-mob {
+  box-shadow: 0px 0px 6px 2px rgba(212, 212, 212, 0.75);
+  -webkit-box-shadow: 0px 0px 6px 2px rgba(212, 212, 212, 0.75);
+  -moz-box-shadow: 0px 0px 6px 2px rgba(212, 212, 212, 0.75);
 }
 
 
-@media screen and (max-width: 1180px) {
-  .header {
-    display: block;
-  }
+.thumbnail .keen-slider__slide {
+  font-size: 30px;
+  margin-top: 10px;
+  height: 50px;
+}
 
+.thumbnail .keen-slider__slide {
+  cursor: pointer;
+}
+
+.thumbnail .keen-slider__slide.active {
+  border: 2px solid black;
+  width: 100px;
 }
 
 
 
-@media screen and (max-width: 1280px) {
-  .container {
-    max-width: 1140px;
-    padding: 0 15px;
-  }
+.specs-heading-bg {
+  background-color: rgba(168, 216, 160, 0.97);
+}
+
+.blog-heading p {
+  position: relative;
+  margin-right: 10px;
+  text-decoration: none;
+  padding-bottom: 5px;
+  cursor: pointer;
+}
+
+.blog-heading:hover p {
+  color: #008339;
+
+}
+
+.blog-heading p::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #008339;
+  transition: .3s;
+
+}
+
+.blog-heading:hover p::before {
+  width: 100%;
+  color: #008339;
 }
 
 
-.card-shadow {
-  box-shadow: 0 1px 6px 0 hsl(0 0% 89% / 50%);
+
+.modal-open {
+  overflow: hidden;
+}
+
+
+.dropdown--show {
+  height: auto;
+}
+
+.dropdown--hide {
+  height: 0;
+  transform: scaleY(0);
 }

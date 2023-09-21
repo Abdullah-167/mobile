@@ -16,11 +16,14 @@ const FeaturedBrand = () => {
                         <Image src={'/line2.png'} alt={''} width={1000} height={1000} />
                     </div>
                 </div>
-                <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 place-items-center max-w-[1000px] mx-auto'>
+                <div className='grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-4 place-items-center max-w-[1000px] mx-auto'>
                     {brands.map((item, index) => {
                         return (
-                            <div className='border-[1.2px] border-[#C1C1C1] hover:border-[#004F22] transition-all duration-500 cursor-pointer px-20 py-5 min-h-[200px] max-h-[200px] flex justify-center items-center'>
-                                <Image key={index} className='pb-1 ' src={item.img} alt={'mobile-brnads'} width={200} height={200} />
+                            <div className=' flex justify-center items-center' key={index}>
+                                <div className='border-[1.2px] border-[#C1C1C1] rounded hover:border-[#004F22] min-h-[200px] max-h-[200px]  px-16 py-5  transition-all duration-500 cursor-pointer'>
+                                    <Image className='min-w-[100px] min-h-[140px]' src={item.img} alt={''} width={100} height={100} />
+                                    <p className='text-center'>{item.text}</p>
+                                </div>
                             </div>
                         )
                     })}
@@ -35,40 +38,52 @@ export default FeaturedBrand;
 
 const brands = [
     {
-        img: '/apple.svg'
+        img: '/apple.svg',
+        text: 'Apple'
     },
     {
-        img: '/google.svg'
+        img: '/google.svg',
+        text: 'Google'
     },
     {
-        img: '/samsung.svg'
+        img: '/samsung.svg',
+        text: 'Samsung'
     },
     {
-        img: '/huwaie.svg'
+        img: '/huawie.svg',
+        text: 'Huawei'
     },
     {
-        img: '/oppo.svg'
+        img: '/oppo.svg',
+        text: 'Oppo'
     },
     {
-        img: '/vivo.svg'
+        img: '/vivo.svg',
+        text: 'Vivo'
     },
     {
-        img: '/oneplus.svg'
+        img: '/oneplus.svg',
+        text: 'One Plus'
     },
     {
-        img: '/mi.svg'
+        img: '/mi.svg',
+        text: 'Xiaomi'
     },
     {
-        img: '/lenovo.svg'
+        img: '/lenovo.svg',
+        text: 'Lenovo'
     },
     {
-        img: '/nokia.svg'
+        img: '/nokia.svg',
+        text: 'Nokia'
     },
     {
-        img: '/microsoft.svg'
+        img: '/microsoft.svg',
+        text: 'Microsoft'
     },
     {
-        img: '/motorola.svg'
+        img: '/motorola.svg',
+        text: 'Motorola'
     },
 ]
 

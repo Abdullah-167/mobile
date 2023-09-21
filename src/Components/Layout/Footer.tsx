@@ -8,7 +8,7 @@ const Footer = () => {
         <footer className='py-10'>
             <Container>
                 <Image className='pb-6' src={'/footerlogo.svg'} alt={''} width={300} height={300} />
-                <div className='flex gap-8 mx-5 border-b-[0.985px] pb-9 border-b-[#C1C1C1] mb-9'>
+                <div className='flex flex-wrap gap-8 mx-5 border-b-[0.985px] pb-9 border-b-[#C1C1C1] mb-9'>
                     {links.map((item, index) => {
                         return (
                             <p className=' text-primary font-normal cursor-pointer'

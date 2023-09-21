@@ -7,24 +7,33 @@ const SideBar = () => {
 
     let maxSidebarHeight = 'max-h-full';
 
-   
     if (router.pathname === '/contact') {
-        maxSidebarHeight = 'max-h-[1670px] overflow-y-scroll'; 
+        maxSidebarHeight = 'max-h-[1670px] overflow-y-scroll';
     } else if (router.pathname === '/aboutus') {
-        maxSidebarHeight = 'max-h-[1200px] overflow-y-scroll'; 
+        maxSidebarHeight = 'max-h-[1200px] overflow-y-scroll';
     }
-     else if (router.pathname === '/privacy-policy') {
-        maxSidebarHeight = 'max-h-[1500px] overflow-y-scroll'; 
+    else if (router.pathname === '/privacy-policy') {
+        maxSidebarHeight = 'max-h-[1500px] overflow-y-scroll';
     }
-     else if (router.pathname === '/terms-conditions') {
-        maxSidebarHeight = 'max-h-[1500px] overflow-y-scroll'; 
+    else if (router.pathname === '/terms-conditions') {
+        maxSidebarHeight = 'max-h-[1500px] overflow-y-scroll';
+    }
+    else if (router.pathname === '/disclaimer') {
+        maxSidebarHeight = 'max-h-[1300px] overflow-y-scroll';
+    }
+    else if (router.pathname === '/advertise-with-us') {
+        maxSidebarHeight = 'max-h-[1200px] overflow-y-scroll';
+    }
+    else if (router.pathname === '/feedback') {
+        maxSidebarHeight = 'max-h-[1400px] overflow-y-scroll';
     }
 
     return (
         <aside>
             <div
-                className={`bg-[#008339] max-w-[220px] h-full px-4 mt-2 text-white py-5 hidden lg:block ${maxSidebarHeight}`}
-            >               <div className='pb-3'>
+                className={`bg-[#008339] max-w-[220px]  min-w-[220px]  h-full px-4 mt-[22px] text-white py-5 z-[150] hidden lg:block ${maxSidebarHeight}`}
+            >
+                <div className='pb-3'>
                     <h1 className='text-xl font-bold pb-3 cursor-pointer text-center'>News</h1>
                     <p className='text-[15px] text-center mb-2.5 cursor-pointer border border-transparent hover:border-white'>Latest News</p>
                     <p className='text-[15px] text-center mb-2.5 cursor-pointer border border-transparent hover:border-white'>Reviews</p>

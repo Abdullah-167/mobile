@@ -20,7 +20,7 @@ const HeroSlide = () => {
                 {data.map((item, index) => {
                     return (
                         <h2 key={index}
-                            className={`absolute top-5 py-40 text-center w-full flex justify-center items-center text-4xl font-bold max-w-[757px] transition-all duration-700 ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'}`}
+                            className={`absolute top-5 py-40 text-center w-full flex justify-center z-[200] items-center text-4xl font-bold max-w-[757px] transition-all duration-700 ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'}`}
                             style={{
                                 backgroundColor: item.bg,
                                 color: item.color

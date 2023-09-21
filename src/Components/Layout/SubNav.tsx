@@ -5,303 +5,131 @@ import { IoMdArrowDropdown } from "react-icons/io";
 import Container from "./Container";
 
 const MiniNav = () => {
-    const [dropDown, setDropDown] = useState(false);
-    const [dropDown2, setDropDown2] = useState(false);
-    const [dropDown3, setDropDown3] = useState(false);
 
-    const counrty = [
+    const [activeIndex, setActiveIndex] = useState(null);
+
+    const links = [
         {
-            text: 'Traduzione in Inglese UK',
-            link: ''
+            mainLink: 'News'
         },
         {
-            text: 'Traduzione in Inglese US',
-            link: ''
+            mainLink: 'Search by Brand',
+            innerLinks: [
+                {
+                    link1: 'Hello',
+                    link2: 'Hello',
+                    link3: 'Hello',
+                    link4: 'Hello',
+                }
+            ]
         },
         {
-            text: 'Traduzioni in Spagnolo',
-            link: ''
+            mainLink: 'Search by Price',
+            innerLinks: [
+                {
+                    link1: 'Hello',
+                    link2: 'Hello',
+                    link3: 'Hello',
+                    link4: 'Hello',
+                }
+            ]
         },
         {
-            text: 'Traduzioni in Francese',
-            link: ''
+            mainLink: 'Search by Screen',
+            innerLinks: [
+                {
+                    link1: 'Hello',
+                    link2: 'Hello',
+                    link3: 'Hello',
+                    link4: 'Hello',
+                }
+            ]
         },
         {
-            text: 'Traduzioni in Cinese',
-            link: ''
+            mainLink: 'Search by Network',
+            innerLinks: [
+                {
+                    link1: 'Hello',
+                    link2: 'Hello',
+                    link3: 'Hello',
+                    link4: 'Hello',
+                }
+            ]
         },
         {
-            text: 'Traduzioni in Russo',
-            link: ''
+            mainLink: 'By OS',
+            innerLinks: [
+                {
+                    link1: 'Hello',
+                    link2: 'Hello',
+                    link3: 'Hello',
+                    link4: 'Hello',
+                }
+            ]
+        },
+        {
+            mainLink: 'BBy Type',
+            innerLinks: [
+                {
+                    link1: 'Hello',
+                    link2: 'Hello',
+                    link3: 'Hello',
+                    link4: 'Hello',
+                }
+            ]
+        },
+        {
+            mainLink: 'Contact Us'
         },
     ]
-
-
-    const data = [
-        {
-            text: 'Traduzioni industriali e tecnologiche',
-            link: ''
-        },
-        {
-            text: 'Traduzioni mediche e scientifiche',
-            link: ''
-        },
-        {
-            text: 'traduzioni-finanziarie-e-assicurative',
-            link: ''
-        },
-        {
-            text: 'Traduzioni settore pubblico e amministrativo',
-            link: ''
-        },
-        {
-            text: 'Traduzioni legali',
-            link: ''
-        },
-        {
-            text: 'Traduzioni settore moda',
-            link: ''
-        },
-    ]
-
 
     return (
-        <section className="mini-nav-main">
-            <div className="mx-auto text-sm text-primary font-semibold justify-center  border-b-[3px] border-b-primary py-[10px]">
+        <section className="z-[1000]">
+            <div className="mx-auto text-sm text-primary font-semibold justify-center border-b-[3px] border-b-primary py-[7px]">
                 <Container>
-                    <ul className="hidden lg:flex items-center gap-5 justify-center px-5">
-                        <Link href={""}>
-                            <li className="hidden xl:flex text-sm">News</li>{" "}
-                        </Link>
-                        <li>
-                            <div
-                                className="relative"
-                                // @ts-ignore
-                              
-                            >
-                                <Link
-                                    href={
-                                        ""
-                                    }
-                                >
-                                    <button
-                                      
-                                        className="flex gap-x-1 text-sm justify-center items-center    "
+                    <ul className="flex items-center gap-5 justify-center px-5">
+                        <li className="flex gap-4 items-center">
+                            {links.map((item, index) => {
+                                return (
+                                    <div
+                                        className="relative" key={index}
+                                        onMouseLeave={() => setActiveIndex(null)}
                                     >
-                                        <span>Search By Brand</span>
-                                        <span
-                                            className={`transition-all duration-200 text-2xl ${dropDown ? "rotate-180" : " "
-                                                }`}
+                                        <Link
+                                            href={""}
+                                            className="flex"
                                         >
-                                            <MdArrowDropDown />
-                                        </span>
-                                    </button>
-                                </Link>
-                                <ul className={`absolute z-[1000] text-sm -left-6 right-0 py-2   shadow-xl ${dropDown ? "block" : "hidden"
-                                    }`}>
-                                    {counrty.map((item, Index) => {
-
-                                        return (
-
-                                            <Link className="px-2" href={item.link} key={Index}>
-                                                <span className={" flex flex-col  gap-4 py-2 px-7 text-sm w-full"}>{item.text}</span>
-                                            </Link>
-
-                                        )
-                                    })}
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <div
-                                className="relative"
-                                // @ts-ignore
-                                onMouseLeave={() => setDropDown3(false)}
-                            >
-                                <Link
-                                    href={
-                                        ""
-                                    }
-                                >
-                                    <button
-                                        onMouseOver={() => setDropDown3(true)}
-                                        className="flex gap-x-1 text-sm justify-center items-center    "
-                                    >
-                                        <span>Search By Price</span>
-                                        <span
-                                            className={`transition-all duration-200 text-2xl ${dropDown3 ? "rotate-180" : " "
-                                                }`}
-                                        >
-                                            <MdArrowDropDown />
-                                        </span>
-                                    </button>
-                                </Link>
-                                <ul className={`absolute z-[1000]  -left-6 right-0 py-2  shadow-xl ${dropDown3 ? "block" : "hidden"
-                                    }`}>
-                                    {data.map((item, Index) => {
-
-                                        return (
-                                            <Link href={item.link} key={Index}>
-                                                <span className={" flex flex-col  gap-4 py-2 px-7 text-sm w-full"}>{item.text}</span>
-                                            </Link>
-                                        )
-                                    })}
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <div
-                                className="relative"
-                                // @ts-ignore
-                                onMouseLeave={() => setDropDown3(false)}
-                            >
-                                <Link
-                                    href={
-                                        ""
-                                    }
-                                >
-                                    <button
-                                        onMouseOver={() => setDropDown3(true)}
-                                        className="flex gap-x-1 text-sm justify-center items-center    "
-                                    >
-                                        <span>Search By Screen</span>
-                                        <span
-                                            className={`transition-all duration-200 text-2xl ${dropDown3 ? "rotate-180" : " "
-                                                }`}
-                                        >
-                                            <MdArrowDropDown />
-                                        </span>
-                                    </button>
-                                </Link>
-                                <ul className={`absolute z-[1000]  -left-6 right-0 py-2  shadow-xl ${dropDown3 ? "block" : "hidden"
-                                    }`}>
-                                    {data.map((item, Index) => {
-
-                                        return (
-                                            <Link href={item.link} key={Index}>
-                                                <span className={" flex flex-col  gap-4 py-2 px-7 text-sm w-full"}>{item.text}</span>
-                                            </Link>
-                                        )
-                                    })}
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <div
-                                className="relative"
-                                // @ts-ignore
-                                onMouseLeave={() => setDropDown3(false)}
-                            >
-                                <Link
-                                    href={
-                                        ""
-                                    }
-                                >
-                                    <button
-                                        onMouseOver={() => setDropDown3(true)}
-                                        className="flex gap-x-1 text-sm justify-center items-center    "
-                                    >
-                                        <span>Search By Network</span>
-                                        <span
-                                            className={`transition-all duration-200 text-2xl ${dropDown3 ? "rotate-180" : " "
-                                                }`}
-                                        >
-                                            <MdArrowDropDown />
-                                        </span>
-                                    </button>
-                                </Link>
-                                <ul className={`absolute z-[1000]  -left-6 right-0 py-2  shadow-xl ${dropDown3 ? "block" : "hidden"
-                                    }`}>
-                                    {data.map((item, Index) => {
-
-                                        return (
-                                            <Link href={item.link} key={Index}>
-                                                <span className={" flex flex-col  gap-4 py-2 px-7 text-sm w-full"}>{item.text}</span>
-                                            </Link>
-                                        )
-                                    })}
-                                </ul>
-                            </div>
-                        </li>
-                        {/* <Link href={"/richiesta-preventivo/"}>
-            <li className="hidden xl:flex text-sm">{t("lingyouAcedamy")}</li>{" "}
-          </Link> */}
-                        <li>
-                            <div
-                                className="relative"
-                                // @ts-ignore
-                                onMouseLeave={() => setDropDown3(false)}
-                            >
-                                <Link
-                                    href={
-                                        ""
-                                    }
-                                >
-                                    <button
-                                        onMouseOver={() => setDropDown3(true)}
-                                        className="flex gap-x-1 text-sm justify-center items-center    "
-                                    >
-                                        <span>By Os</span>
-                                        <span
-                                            className={`transition-all duration-200 text-2xl ${dropDown3 ? "rotate-180" : " "
-                                                }`}
-                                        >
-                                            <MdArrowDropDown />
-                                        </span>
-                                    </button>
-                                </Link>
-                                <ul className={`absolute z-[1000]  -left-6 right-0 py-2  shadow-xl ${dropDown3 ? "block" : "hidden"
-                                    }`}>
-                                    {data.map((item, Index) => {
-
-                                        return (
-                                            <Link href={item.link} key={Index}>
-                                                <span className={" flex flex-col  gap-4 py-2 px-7 text-sm w-full"}>{item.text}</span>
-                                            </Link>
-                                        )
-                                    })}
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <div
-                                className="relative"
-                                // @ts-ignore
-                                onMouseLeave={() => setDropDown3(false)}
-                            >
-                                <Link
-                                    href={
-                                        ""
-                                    }
-                                >
-                                    <button
-                                        onMouseOver={() => setDropDown3(true)}
-                                        className="flex gap-x-1 text-sm justify-center items-center    "
-                                    >
-                                        <span>By Type</span>
-                                        <span
-                                            className={`transition-all duration-200 text-2xl ${dropDown3 ? "rotate-180" : " "
-                                                }`}
-                                        >
-                                            <MdArrowDropDown />
-                                        </span>
-                                    </button>
-                                </Link>
-                                <ul className={`absolute z-[1000]  -left-6 right-0 py-2  shadow-xl ${dropDown3 ? "block" : "hidden"
-                                    }`}>
-                                    {data.map((item, Index) => {
-
-                                        return (
-                                            <Link href={item.link} key={Index}>
-                                                <span className={" flex flex-col  gap-4 py-2 px-7 text-sm w-full"}>{item.text}</span>
-                                            </Link>
-                                        )
-                                    })}
-                                </ul>
-                            </div>
-                        </li>
-                        <li className="cursor-pointer">
-                            Contact Us
+                                            <button
+                                                className="flex gap-x-1 text-sm justify-center items-center    "
+                                                onMouseOver={() => setActiveIndex(index)}
+                                            >
+                                                <span>{item.mainLink}</span>
+                                                <span
+                                                    className={`transition-all duration-200 text-2xl ${activeIndex === index ? "rotate-180" : " "
+                                                        }  ${index < 1 || index > 6 ? 'hidden' : ''} `}
+                                                >
+                                                    <MdArrowDropDown />
+                                                </span>
+                                            </button>
+                                        </Link>
+                                        <ul className={`absolute top-6 bg-white transition-all duration-500 rounded border z-[1000] text-sm -left-6 right-0  ${activeIndex === index ? "  opacity-100" : " opacity-0"
+                                            }`}>
+                                            <div className={` ${activeIndex ? '' : 'hidden'}`}>
+                                                {item.innerLinks?.map((innerItem, idx) => {
+                                                    return (
+                                                        <div className="" key={idx}>
+                                                            <p className=" text-center hover:bg-gray-100 text-[#212529] font-medium py-1.5 cursor-pointer">{innerItem.link1}</p>
+                                                            <p className=" text-center hover:bg-gray-100 text-[#212529] font-medium py-1.5 cursor-pointer">{innerItem.link2}</p>
+                                                            <p className=" text-center hover:bg-gray-100 text-[#212529] font-medium py-1.5 cursor-pointer">{innerItem.link3}</p>
+                                                            <p className=" text-center hover:bg-gray-100 text-[#212529] font-medium py-1.5 cursor-pointer">{innerItem.link4}</p>
+                                                        </div>
+                                                    )
+                                                })}
+                                            </div>
+                                        </ul>
+                                    </div>
+                                )
+                            })}
                         </li>
                     </ul>
                 </Container>
@@ -309,6 +137,5 @@ const MiniNav = () => {
         </section>
     );
 };
-
 export default MiniNav;
 

@@ -15,7 +15,7 @@ const Under10 = () => {
                 slides: { perView: 3, spacing: 5 },
             },
             "(min-width: 1024px)": {
-                slides: { perView: 4, spacing: 10 },
+                slides: { perView: 4, spacing: 15 },
             },
         },
         slides: {
@@ -46,7 +46,7 @@ w-4 h-4 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xml
             <div ref={sliderRef} className="keen-slider ">
                 {data.map((item, index) => {
                     return (
-                        <div key={index} className="shadow-md keen-slider__slide cursor-pointer rounded-md my-1 pt-2 border border-transparent hover:border-primary duration-100">
+                        <div key={index} className="shadow-md keen-slider__slide cursor-pointer rounded my-1 pt-2 border border-transparent hover:border-primary duration-100">
                             <Image className=" flex justify-center mx-auto pb-2" src={item.img} alt={"slider-images"} width={70} height={70} />
                             <p className=" text-sm text-center  pb-1">{item.model}</p>
                             <div className="text-xs flex gap-1 justify-center items-center ">
@@ -174,7 +174,7 @@ function Arrow(props: any) {
     return (
         <svg
             onClick={props.onClick}
-            className={`max-w-[40px] bg-gray-500 bg-opacity-50 rounded-full p-3 cursor-pointer absolute ${props.left ? "arrow--left top-[170px] -left-4 z-[1000]" : "arrow--right top-[170px] -right-4 z-[1000]"
+            className={`max-w-[40px] bg-gray-500 bg-opacity-50 rounded-full p-3 cursor-pointer absolute ${props.left ? "arrow--left top-[150px] sm:top-[170px] -left-4 z-[1000]" : "arrow--right top-[150px] sm:top-[170px] -right-4 z-[1000]"
                 } ${disabeld}`}
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"

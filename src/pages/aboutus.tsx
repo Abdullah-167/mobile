@@ -1,4 +1,5 @@
 import Ads from '@/Components/Common/Ads'
+import Container from '@/Components/Layout/Container'
 import RightSide from '@/Components/Views/Home/RightSide'
 import SideBar from '@/Components/Views/Home/SideBar'
 import React from 'react'
@@ -6,38 +7,38 @@ import React from 'react'
 const aboutus = () => {
     return (
         <main>
-            <div>
-            </div>
             <div className='flex justify-between w-full'>
                 <div className='flex w-full'>
                     <SideBar />
-                    <div className='flex-grow'>
-                        <div className='max-w-[700px] mx-auto'>
-                            <h1 className=' text-center text-5xl text-primary font-semibold pt-10 pb-10'>About Us</h1>
-                            <p className='text-lg pb-6'>Welcome to Buymobile.com.pk, your trusted source for all things related to mobile phones in Pakistan.</p>
-                            <div>
-                                {data.map((item, index) => {
-                                    return (
-                                        <div className='pb-5'>
-                                            <h2 className='text-xl font-semibold pb-3'>{item.heading}</h2>
-                                            {item.para}
-                                            {item.para2}
-                                            {item.para3}
-                                        </div>
-                                    )
-                                })}
+                    <Container>
+                        <div className='flex-grow'>
+                            <div className='max-w-[700px] mx-auto'>
+                                <h1 className=' text-center text-5xl text-primary font-semibold pt-10 pb-10'>About Us</h1>
+                                <p className='text-lg pb-6'>Welcome to Buymobile.com.pk, your trusted source for all things related to mobile phones in Pakistan.</p>
+                                <div>
+                                    {data.map((item, index) => {
+                                        return (
+                                            <div className='pb-5'>
+                                                <h2 className='text-xl font-semibold pb-3'>{item.heading}</h2>
+                                                {item.para}
+                                                {item.para2}
+                                                {item.para3}
+                                            </div>
+                                        )
+                                    })}
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </Container>
                 </div>
-                <div>
+                <div className='lg:block hidden'>
                     <RightSide />
                     <Ads />
                     <Ads />
                     <Ads />
                 </div>
             </div>
-        </main>
+        </main >
     )
 }
 

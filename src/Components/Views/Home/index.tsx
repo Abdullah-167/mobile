@@ -21,29 +21,29 @@ import RightSide from './RightSide'
 const Home = () => {
     return (
         <main>
-            <div className='md:flex w-full justify-between gap-6 max-w-[1400px] mx-auto'>
+            <div className='md:flex w-full justify-between gap-6 max-w-[1400px] mx-auto relative overflow-hidden'>
                 <div>
-                    <SideBar />
+                 <SideBar />
                 </div>
-                <div className='max-w-[900px] lg:max-w-[757px] mx-auto lg:mx-0 w-full'>
-                    <Container>
-                        <HeroSlide />
-                        <div className=''>
-                            <Ads />
-                        </div>
-                        <Pricing />
-                        <ComingSoon />
-                        <Under50 />
-                        <Under40 />
-                        <Under35 />
-                        <Under30 />
-                        <Under25 />
-                        <Under20 />
-                        <Under15 />
-                        <Under10 />
-                    </Container>
+                <div className='max-w-[900px] lg:max-w-[800px] px-5 mx-auto lg:mx-0 w-full'>
+                    <HeroSlide />
+                    <div className=''>
+                        <Ads />
+                    </div>
+                    <Pricing />
+                    <ComingSoon />
+                    <Under50 />
+                    <Under40 />
+                    <Under35 />
+                    <Under30 />
+                    <Under25 />
+                    <Under20 />
+                    <Under15 />
+                    <Under10 />
                 </div>
-                <RightSide />
+                <div className='hidden lg:block'>
+                    <RightSide />
+                </div>
             </div>
             <FeaturedBrand />
             <LatestNews />
