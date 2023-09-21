@@ -57,7 +57,7 @@ const MainPage = () => {
                                 <div className='px-3'>
                                     <p className='text-xl pb-2'>{item.modelName}</p>
                                     <div className='flex items-center gap-4 justify-between pb-2'>
-                                        <img className='w-[500px] 2xl:w-[500px]' src={item.modelImg} alt={''} width={111} height={100} />
+                                        <Image className='w-[500px] 2xl:w-[500px]' src={item.modelImg} alt={''} width={111} height={100} />
                                         <div className=' px-3 py-1'>
                                             <p className='bg-gray-100 cursor-pointer px-1 pb-1 mb-[1px]'>{item.reviews}</p>
                                             <p className='bg-gray-100 cursor-pointer px-1 pb-1 mb-[1px]'>{item.specs}</p>

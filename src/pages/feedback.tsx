@@ -30,7 +30,7 @@ const feedback = () => {
                                     })}
                                 </div>
                                 <div className='bg-gray-100 px-5 py-7 mb-10'>
-                                    <p className='text-sm pb-7'>Need to reach us? No problem. Just fill out the form below and we'll make sure your message reaches the right person.</p>
+                                    <p className='text-sm pb-7'>{`Need to reach us? No problem. Just fill out the form below and we'll make sure your message reaches the right person.`}</p>
                                     <div>
                                         {formData.map((item, index) => {
                                             return (
@@ -75,7 +75,7 @@ const data = [
             <p className='pb-2'>  <span className=' font-semibold pb-2'>Report Issues: </span> If you encounter technical issues or errors while using our website, please describe the problem in detail so that we can investigate and resolve it promptly. </p>
         ),
         para3: (
-            <p className='pb-2'>  <span className=' font-semibold pb-2'>Content Contributions:</span> If you have user-generated content, such as mobile phone reviews or articles, that you'd like to contribute to our platform, please indicate your interest in the form. We'll provide guidelines on how to submit your content. </p>
+            <p className='pb-2'>  <span className=' font-semibold pb-2'>Content Contributions:</span> {`If you have user-generated content, such as mobile phone reviews or articles, that you'd like to contribute to our platform, please indicate your interest in the form. We'll provide guidelines on how to submit your content.`} </p>
         ),
     },
 

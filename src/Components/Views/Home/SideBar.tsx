@@ -43,7 +43,7 @@ const SideBar = () => {
                     <h2 className='text-xl font-bold text-white pb-3 text-center'>Search By Brand</h2>
                     {byBrand.map((item, index) => {
                         return (
-                            <div className='flex flex-col'>
+                            <div className='flex flex-col' key={index}>
                                 <p className='text-[15px] text-center mb-2.5 cursor-pointer border border-transparent hover:border-white' key={index}>{item.text}</p>
                             </div>
                         )

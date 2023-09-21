@@ -35,7 +35,7 @@ const Hero = () => {
                 <div className='w-full'>
                     {data.map((item, index) => {
                         return (
-                            <div className='grid lg:grid-cols-4 gap-3 w-full'>
+                            <div className='grid lg:grid-cols-4 gap-3 w-full' key={index}>
                                 <div className='relative shadow-md col-span-3 max-h-[490px] overflow-hidden cursor-pointer' key={index}>
                                     <Image className=' transition-all duration-500 hover:scale-105 w-full lg:max-h-[490px] object-cover' src={item.bigImage} alt={'card-image'} width={1000} height={1000} />
                                     <div className=' absolute bottom-7 left-4 md:left-7  text-white '>

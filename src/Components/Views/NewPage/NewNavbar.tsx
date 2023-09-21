@@ -6,7 +6,6 @@ import { FaCross, FaHamburger } from 'react-icons/fa';
 import { RxCross1 } from 'react-icons/rx';
 import { FiArrowUpRight } from 'react-icons/fi';
 import { IoMdArrowDropdown } from 'react-icons/io';
-import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
 
 const NewNavbar = () => {

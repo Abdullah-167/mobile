@@ -14,7 +14,7 @@ const NewsBlogs = () => {
                                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                                     {item.innerData.map((newItem, idx) => {
                                         return (
-                                            <div className='blog-heading overflow-hidden'>
+                                            <div className='blog-heading overflow-hidden' key={index}>
                                                 <Image className=' cursor-pointer transition-all duration-500 hover:scale-105 max-h-[302px] pb-3 object-cover' src={newItem.bigImage} alt={'card-image'} width={1000} height={1000} />
                                                 <p className=' font-semibold pb-1'>{newItem.heading}</p>
                                                 <span className=' text-sm text-gray-500'>{newItem.author} - {newItem.date}</span>

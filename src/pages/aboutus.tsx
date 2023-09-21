@@ -18,7 +18,7 @@ const aboutus = () => {
                                 <div>
                                     {data.map((item, index) => {
                                         return (
-                                            <div className='pb-5'>
+                                            <div className='pb-5' key={index}>
                                                 <h2 className='text-xl font-semibold pb-3'>{item.heading}</h2>
                                                 {item.para}
                                                 {item.para2}
@@ -56,8 +56,8 @@ const data = [
         para: (
             <p className='pb-2'>  <span className=' font-semibold pb-2'>Comprehensive Information: </span> We offer a wealth of information about the latest smartphones, their features, specifications, and prices. Our detailed product reviews and comparisons are designed to assist you in finding the perfect mobile phone that suits your needs and budget. </p>
         ),
-        para2: (<p className='pb-2'>  <span className=' font-semibold pb-2'>Latest Updates: </span>Stay in the know with our regularly updated content. We keep you informed about new product releases, software updates, and industry trends so that you're always one step ahead in the fast-paced world of mobile technology. </p>),
-        para3: (<p className='pb-2'>  <span className=' font-semibold pb-2'>Community Engagement:</span> Buymobile.com.pk is not just a website; it's a community of tech enthusiasts, buyers, and sellers. Join our forums, read user reviews, and engage with others who share your passion for mobile devices.</p>),
+        para2: (<p className='pb-2'>  <span className=' font-semibold pb-2'>Latest Updates: </span>{`Stay in the know with our regularly updated content. We keep you informed about new product releases, software updates, and industry trends so that you're always one step ahead in the fast-paced world of mobile technology.`} </p>),
+        para3: (<p className='pb-2'>  <span className=' font-semibold pb-2'>Community Engagement:</span> {`Buymobile.com.pk is not just a website; it's a community of tech enthusiasts, buyers, and sellers. Join our forums, read user reviews, and engage with others who share your passion for mobile devices.`}</p>),
     },
     {
         heading: 'Why Choose Us?',
@@ -73,7 +73,7 @@ const data = [
         heading: 'Contact Us',
         para: (
             <p className='pb-2'>
-                <span className=' font-semibold'> Have questions or feedback? </span>We'd love to hear from you. Feel free to contact us for inquiries, suggestions, or partnerships. Your input helps us continually improve and serve you better
+                <span className=' font-semibold'> Have questions or feedback? </span>{`We'd love to hear from you. Feel free to contact us for inquiries, suggestions, or partnerships. Your input helps us continually improve and serve you better`}
             </p>)
         ,
 

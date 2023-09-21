@@ -44,7 +44,7 @@ const Form = () => {
                 </div>
                 <p className='text-sm max-w-[600px] mx-auto pb-10'> <span className=' font-semibold underline'> Please Note: </span>  buymobile.com.pk only provides information about mobile phones. We do not sell mobile phones.</p>
                 <div className='bg-gray-100 px-5 py-7 mb-10'>
-                    <p className='text-sm pb-7'>Need to reach us? No problem. Just fill out the form below and we'll make sure your message reaches the right person.</p>
+                    <p className='text-sm pb-7'>{`Need to reach us? No problem. Just fill out the form below and we'll make sure your message reaches the right person.`}</p>
                     <div>
                         {formData.map((item, index) => {
                             return (

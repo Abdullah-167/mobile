@@ -62,7 +62,7 @@ const data = [
     },
     {
         heading: 'Advertising Opportunities',
-        para: (<p className='pb-2'>  <span className=' font-semibold pb-2'>Display Ads: </span>Place visually appealing banner ads on our website's pages. Choose from various sizes and positions to maximize visibility. </p>),
+        para: (<p className='pb-2'>  <span className=' font-semibold pb-2'>Display Ads: </span>{`Place visually appealing banner ads on our website's pages. Choose from various sizes and positions to maximize visibility.`} </p>),
         para2: (<p className='pb-2'>
             <span className=' font-semibold'>  Sponsored Content: </span>Collaborate with us to create informative and engaging sponsored articles that highlight your products or services.
         </p>),
@@ -70,7 +70,7 @@ const data = [
             <span className=' font-semibold'> Newsletter Advertising: </span> Reach our subscribers with targeted messages in our newsletter.
         </p>),
         para4: (<p className='pb-2'>
-            <span className=' font-semibold'> Social Media Promotion:</span>  Leverage our social media presence to increase your brand's reach and engagement.
+            <span className=' font-semibold'> Social Media Promotion:</span> {` Leverage our social media presence to increase your brand's reach and engagement.`}
         </p>),
     },
     {

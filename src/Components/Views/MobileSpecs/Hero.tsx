@@ -104,7 +104,7 @@ export default function App() {
                         <div className="flex gap-3">
                             {socialicons.map((item, index) => {
                                 return (
-                                    <Link href={item.link} target="_blank">
+                                    <Link href={item.link} target="_blank" key={index}>
                                         <div className="flex gap-2 items-center border py-0.5 px-2 cursor-pointer"
                                             key={index}>
                                             <span

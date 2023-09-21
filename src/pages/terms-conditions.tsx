@@ -69,7 +69,7 @@ const data = [
         heading: 'Limitation of Liability',
         para: (
             <p className='pb-2'>
-                <span className=' font-semibold'> </span>Buymobile.com.pk is provided "as is," and we make no warranties, express or implied, regarding the website's availability, functionality, or accuracy. We shall not be liable for any damages, including but not limited to direct, indirect, incidental, or consequential damages, arising from the use or inability to use our website.
+                <span className=' font-semibold'> </span>{`Buymobile.com.pk is provided "as is," and we make no warranties, express or implied, regarding the website's availability, functionality, or accuracy. We shall not be liable for any damages, including but not limited to direct, indirect, incidental, or consequential damages, arising from the use or inability to use our website.`}
             </p>)
         ,
     },

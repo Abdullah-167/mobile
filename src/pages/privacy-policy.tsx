@@ -17,7 +17,7 @@ const privacyPolicy = () => {
                             <div>
                                 {data.map((item, index) => {
                                     return (
-                                        <div className='pb-5'>
+                                        <div className='pb-5' key={index}>
                                             <h2 className='text-xl font-semibold pb-3'>{item.heading}</h2>
                                             {item.para}
                                             {item.para2}

@@ -20,7 +20,7 @@ const MobilePricingSlider = () => {
 
   return (
     <section className='shadow-md py-5 px-5 my-10'>
-      <h2 className='text-xl sm:text-3xl font-bold pb-3'>Let's Find a Mobile For You!</h2>
+      <h2 className='text-xl sm:text-3xl font-bold pb-3'>{`Let's Find a Mobile For You!`}</h2>
       <div className='flex justify-between md:flex-nowrap flex-wrap '>
         <div>
           <p className='text-lg sm:text-xl font-semibold pb-5'>By Price</p>

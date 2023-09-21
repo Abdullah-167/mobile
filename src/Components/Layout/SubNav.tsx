@@ -89,7 +89,7 @@ const MiniNav = () => {
                 <Container>
                     <ul className="flex items-center gap-5 justify-center px-5">
                         <li className="flex gap-4 items-center">
-                            {links.map((item, index) => {
+                            {links.map((item : any, index : any) => {
                                 return (
                                     <div
                                         className="relative" key={index}
@@ -115,7 +115,7 @@ const MiniNav = () => {
                                         <ul className={`absolute top-6 bg-white transition-all duration-500 rounded border z-[1000] text-sm -left-6 right-0  ${activeIndex === index ? "  opacity-100" : " opacity-0"
                                             }`}>
                                             <div className={` ${activeIndex ? '' : 'hidden'}`}>
-                                                {item.innerLinks?.map((innerItem, idx) => {
+                                                {item.innerLinks?.map((innerItem : any, idx : any) => {
                                                     return (
                                                         <div className="" key={idx}>
                                                             <p className=" text-center hover:bg-gray-100 text-[#212529] font-medium py-1.5 cursor-pointer">{innerItem.link1}</p>

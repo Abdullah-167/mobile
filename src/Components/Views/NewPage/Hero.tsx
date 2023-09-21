@@ -70,7 +70,7 @@ const Hero = () => {
                         <div className="">
                             {data.map((item, index) => {
                                 return (
-                                    <div
+                                    <div key={index}
                                         className={`absolute top-80 max-w-[250px] px-3 pb-3 rounded-md ${isChecked ? 'bg-black' : 'bg-white'
                                             }`}
 
