@@ -30,6 +30,8 @@ const MiniNav = () => {
                     link5: 'Infinix Mobile',
                     link6: 'Google',
                     btn: 'View All',
+                    btnIcon: <BsArrowRight />,
+                    iconBtnTrue: true
                 }
             ]
         },
@@ -50,6 +52,8 @@ const MiniNav = () => {
                     link5: '30,000 - 35,000',
                     link6: '25,000 - 30,000',
                     btn: 'View All',
+                    btnIcon: <BsArrowRight />,
+                    iconBtnTrue: true
                 }
             ]
         },
@@ -69,6 +73,8 @@ const MiniNav = () => {
                     link4: '3.0 inch - 4.0 inch',
                     link5: 'Less Then 3 Inches',
                     btn: 'View All',
+                    btnIcon: <BsArrowRight />,
+                    iconBtnTrue: true,
                 }
             ]
         },
@@ -188,10 +194,12 @@ const MiniNav = () => {
                                                             {innerItem.link8true && (
                                                                 <p className=" pl-4 hover:bg-gray-100 text-[#212529] font-medium py-1.5 cursor-pointer">{innerItem?.link8}</p>
                                                             )}
-                                                            <div className="flex gap-2 cursor-pointer pl-4 items-center pb-5 text-black">
-                                                                <span className=" ">{innerItem.btn}</span>
-                                                                <span className="text-lg"><BsArrowRight /></span>
-                                                            </div>
+                                                            {innerItem.iconBtnTrue && (
+                                                                <div className="flex gap-2 cursor-pointer pl-4 items-center pb-5 text-black">
+                                                                    <span className=" ">{innerItem.btn}</span>
+                                                                    <span className="text-lg">{innerItem.btnIcon}</span>
+                                                                </div>
+                                                            )}
                                                         </div>
                                                     )
                                                 })}
