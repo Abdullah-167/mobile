@@ -5,7 +5,7 @@ import Image from "next/image"
 import { useState } from "react"
 import { AiFillAndroid } from 'react-icons/ai';
 
-const BestByPrice = () => {
+const UnderRange = () => {
 
     const [currentSlide, setCurrentSlide] = useState(0)
     const [loaded, setLoaded] = useState(false)
@@ -33,7 +33,6 @@ const BestByPrice = () => {
 
     return (
         <section className="max-w-[1000px] mx-auto relative py-8 px-5 ">
-            <h2 className="text-3xl font-semibold text-center pb-10">Best Mobiles by Price</h2>
             <div ref={sliderRef} className="keen-slider relative">
                 {data.map((item, index) => {
                     return (
@@ -42,20 +41,19 @@ const BestByPrice = () => {
                                 backgroundColor: item.bgColor
                             }}
                         >
-                            <div className="flex justify-center gap-4 py-8">
+                            <div className="flex justify-center gap-4 pt-4 pl-6 pb-3">
                                 <Image className="" src={item.img} alt={"slider-images"} width={30} height={30} />
                                 <div className=" ">
                                     <span className=" text-white text-lg font-semibold  pb-1.5">{item.text}</span>
-                                    <p className=" text-white text-lg font-semibold  pb-1.5 text-center">{item.price}</p>
                                 </div>
                             </div>
+                            <p className=" text-white text-lg font-semibold pl-9 pb-3">{item.price}</p>
                             <button className="bg-[#E9E9E9] text-sm py-1 text-center w-full">
                                 {item.btn}
                             </button>
                         </div>
                     )
                 })}
-
             </div>
             {loaded && instanceRef.current && (
                 <>
@@ -84,34 +82,34 @@ const BestByPrice = () => {
     )
 }
 
-export default BestByPrice;
+export default UnderRange;
 
 
 
 const data = [
     {
         img: '/minimob.svg',
-        text: 'Best Mobile Under',
+        text: 'Infinix Mobile Range',
         androidIcon: <AiFillAndroid />,
-        price: 'Rs. 10,000',
+        price: 'Rs. 15,000 to 20,000 ',
         btn: 'View Details',
-        bgColor: '#17594A'
+        bgColor: '#6ECCAF'
     },
     {
         img: '/minimob.svg',
-        text: 'Best Mobile Under',
+        text: 'Vivo Mobile Range',
         androidIcon: <AiFillAndroid />,
-        price: 'Rs. 15,000',
+        price: 'Rs. 20,000 to 30,000 ',
         btn: 'View Details',
-        bgColor: '#0B666A'
+        bgColor: '#74C157'
     },
     {
         img: '/minimob.svg',
-        text: 'Best Mobile Under',
+        text: 'Tecno Mobile Range',
         androidIcon: <AiFillAndroid />,
-        price: 'Rs. 20,000',
+        price: 'Rs. 10,000 to 15,000 ',
         btn: 'View Details',
-        bgColor: '#138C48'
+        bgColor: '#61F857'
     },
     {
         img: '/minimob.svg',
@@ -119,7 +117,7 @@ const data = [
         androidIcon: <AiFillAndroid />,
         price: 'Rs. 25,000',
         btn: 'View Details',
-        bgColor: '#17594A'
+        bgColor: '#6ECCAF'
     },
     {
         img: '/minimob.svg',
@@ -127,7 +125,7 @@ const data = [
         androidIcon: <AiFillAndroid />,
         price: 'Rs. 10,000',
         btn: 'View Details',
-        bgColor: '#0B666A'
+        bgColor: '#74C157'
     },
     {
         img: '/minimob.svg',
@@ -135,7 +133,7 @@ const data = [
         androidIcon: <AiFillAndroid />,
         price: 'Rs. 30,000',
         btn: 'View Details',
-        bgColor: '#138C48'
+        bgColor: '#61F857'
     },
     {
         img: '/minimob.svg',
@@ -143,7 +141,7 @@ const data = [
         androidIcon: <AiFillAndroid />,
         price: 'Rs. 35,000',
         btn: 'View Details',
-        bgColor: '#17594A',
+        bgColor: '#6ECCAF',
     },
     {
         img: '/minimob.svg',
@@ -151,7 +149,7 @@ const data = [
         androidIcon: <AiFillAndroid />,
         price: 'Rs. 40,000',
         btn: 'View Details',
-        bgColor: '#0B666A'
+        bgColor: '#74C157'
     },
     {
         img: '/minimob.svg',
@@ -159,7 +157,7 @@ const data = [
         androidIcon: <AiFillAndroid />,
         price: 'Rs. 45,000',
         btn: 'View Details',
-        bgColor: '#138C48'
+        bgColor: '#61F857'
     },
 ]
 
@@ -170,7 +168,7 @@ function Arrow(props: any) {
     return (
         <svg
             onClick={props.onClick}
-            className={`max-w-[40px] bg-gray-500 bg-opacity-50 sm:flex hidden rounded-full p-3 cursor-pointer absolute ${props.left ? "arrow--left top-[170px] left-1 z-[1000]" : "arrow--right top-[170px]  right-1 z-[1000]"
+            className={`max-w-[40px] bg-gray-500 bg-opacity-50 sm:flex hidden rounded-full p-3 cursor-pointer absolute ${props.left ? "arrow--left top-[100px] left-1 z-[1000]" : "arrow--right top-[100px]  right-1 z-[1000]"
                 } ${disabeld}`}
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"

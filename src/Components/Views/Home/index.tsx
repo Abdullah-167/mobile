@@ -17,13 +17,15 @@ import FeaturedBrand from './FeaturedBrand'
 import LatestNews from './LatestNews'
 import MobileCompa from './MobileCompa'
 import RightSide from './RightSide'
+import BestByPrice from './BestByPrice'
+import UnderRange from './UnderRange'
 
 const Home = () => {
     return (
         <main>
             <div className='md:flex w-full justify-between gap-6 max-w-[1400px] mx-auto relative overflow-hidden'>
                 <div>
-                 <SideBar />
+                    <SideBar />
                 </div>
                 <div className='max-w-[900px] lg:max-w-[800px] px-5 mx-auto lg:mx-0 w-full'>
                     <HeroSlide />
@@ -48,6 +50,8 @@ const Home = () => {
             <FeaturedBrand />
             <LatestNews />
             <MobileCompa />
+            <BestByPrice />
+            <UnderRange />
         </main>
     )
 }
