@@ -21,8 +21,8 @@ const Footer = () => {
                 <div className='flex flex-wrap gap-8 px-5 pb-5 max-w-[700px]'>
                     {secLinks.map((item, index) => {
                         return (
-                            <Link href={item.url} passHref key={index}> <a className=' text-primary font-normal cursor-pointer'
-                            >{item.link}</a>
+                            <Link href={item.url} passHref key={index}> <p className=' text-primary font-normal cursor-pointer'
+                            >{item.link}</p>
                             </Link>
                         )
                     })}
