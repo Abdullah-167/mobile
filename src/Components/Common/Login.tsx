@@ -41,8 +41,8 @@ const Login = ({ onClose }: any) => {
 
     return (
         <div className="flex items-center justify-center">
-            <div className="max-w-[600px] bg-white rounded-lg shadow-md px-10 py-5 relative">
-                <div className='text-xl rounded-full border border-black p-2 max-w-[39px] top-3 absolute left-[370px] cursor-pointer'
+            <div className="max-w-[600px] bg-white rounded-lg shadow-md px-10 py-5 relative mx-5">
+                <div className='text-xl rounded-full border border-black p-2 max-w-[39px] top-3 absolute left-[290px] md:left-[370px] cursor-pointer'
                     onClick={onClose}
                 ><RxCross1 /></div>
                 {/* Logo */}
@@ -79,12 +79,12 @@ const Login = ({ onClose }: any) => {
                         </div>
                     </div>
                     <h1 className='text-center text-sm font-semibold'>Log In With Social</h1>
-                    <div className="mt-4 flex justify-between pb-5">
-                        <button className="bg-blue-600 text-white px-3 py-2.5 text-xs rounded-md flex items-center">
+                    <div className="mt-4 flex flex-wrap justify-center sm:justify-between pb-5">
+                        <button className="bg-blue-600 text-white w-full px-3 py-2.5 text-xs rounded-md flex items-center mb-3 sm:mb-0">
                             <FaFacebook className="mr-2" />
                             Login with Facebook
                         </button>
-                        <button className="bg-red-500 text-white px-3 py-2.5 text-xs rounded-md flex items-center">
+                        <button className="bg-red-500 text-white w-full px-3 py-2.5 text-xs rounded-md flex items-center">
                             <FaGoogle className="mr-2" />
                             Login with Google
                         </button>

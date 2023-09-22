@@ -39,7 +39,7 @@ const Navbar = () => {
         <nav className='bg-primary py-4'>
             <Container>
                 {handleForm && (
-                    <div className={`absolute bg-opacity-50 pt-5 inset-0 z-[1000] bg-white`}>
+                    <div className={`fixed bg-opacity-50 inset-0 pt-5 max-h-screen z-[1000] bg-white`}>
                         <Login onClose={handleCloseLogin} />
                     </div>
                 )}

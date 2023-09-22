@@ -18,7 +18,7 @@ import { RxCross1 } from 'react-icons/rx'
 
 const MobCat = () => {
 
-    const [isSidebarVisible, setSidebarVisible] = useState(true);
+    const [isSidebarVisible, setSidebarVisible] = useState(false);
 
     const toggleSidebar = () => {
         setSidebarVisible(!isSidebarVisible);
