@@ -30,7 +30,7 @@ const Mobile = ({ toggleSidebar }: any) => {
                 </div>
             </div>
             <div className='bg-white flex  md:flex-nowrap flex-wrap justify-between border py-3 px-2 mb-9'>
-                <div className='flex ga-2 md:pb-0 pb-3'>
+                <div className='flex flex-wrap ga-2 md:pb-0 pb-3'>
                     <p className='px-4 cursor-pointer'>Prices</p>
                     <p className='px-4 cursor-pointer'>Latest</p>
                     <p className='px-4 cursor-pointer'>Coming Soon</p>
