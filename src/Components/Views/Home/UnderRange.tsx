@@ -133,7 +133,7 @@ const data = [
         androidIcon: <AiFillAndroid />,
         price: 'Rs. 30,000',
         btn: 'View Details',
-        bgColor: '#61F857'
+        bgColor: '#61F857',
     },
     {
         img: '/minimob.svg',
