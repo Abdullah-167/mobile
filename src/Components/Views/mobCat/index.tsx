@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import CatSideBar from '@/Components/Views/mobCat/CatSidebar'
 import Ads from '@/Components/Common/Ads'
 import FeaturedBrand from '@/Components/Views/Home/FeaturedBrand'
@@ -11,21 +11,44 @@ import Mobile from './Mobile'
 import Soon from './Soon'
 import Popular from './Popular'
 import WhichMobExpan from './WhichMobExpan'
+import { BiCross } from 'react-icons/bi'
+import { FaCross } from 'react-icons/fa'
+import { RxCross1 } from 'react-icons/rx'
 
 
 const MobCat = () => {
+
+    const [isSidebarVisible, setSidebarVisible] = useState(true);
+
+    const toggleSidebar = () => {
+        setSidebarVisible(!isSidebarVisible);
+    };
+
+
+    useEffect(() => {
+        if (isSidebarVisible) {
+            document.body.classList.add("modal-open");
+        } else {
+            document.body.classList.remove("modal-open");
+        }
+    }, [isSidebarVisible]);
+
     return (
         <main>
             <Container>
                 <Ads />
                 <MobSummary />
             </Container>
-            <div className='md:flex w-full max-w-[1400px] mx-auto'>
-                <div>
+            <div className='md:flex w-full max-w-[1400px] mx-auto h-full'>
+                <div className={`lg:hidden block  bg-white bg-opacity-20 max-h-screen min-h-screen absolute h-full overflow-y-scroll z-[1000] transition-all duration-500 ${isSidebarVisible ? ' translate-x-0 ' : '-translate-x-[400px] '}`}>
+                    <span onClick={toggleSidebar} className='text-xl absolute cursor-pointer top-10 left-[210px] rounded-full p-1 border border-black'><RxCross1 /></span>
+                    {isSidebarVisible && <CatSideBar />}
+                </div>
+                <div className=' hidden lg:block'>
                     <CatSideBar />
                 </div>
                 <div className=' lg:mx-0 w-full  py-5'>
-                    <Mobile />
+                    <Mobile toggleSidebar={toggleSidebar} />
                     <Soon />
                     <Popular />
                     <WhichMobExpan />

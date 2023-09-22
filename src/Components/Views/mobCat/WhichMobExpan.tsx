@@ -6,13 +6,13 @@ const WhichMobExpan = () => {
     return (
         <section>
             <Container>
-                <div className='flex pb-10 justify-around items-center gap-3'>
-                    <div>
+                <div className='flex pb-10 justify-around items-center gap-3 overflow-hidden'>
+                    <div className='md:block hidden'> 
                         <Image className='pb-1 max-h-[9px] min-h-[9px]' src={'/line1.png'} alt={''} width={100} height={100} />
                         <Image className='min-h-[10px]' src={'/line1.png'} alt={''} width={100} height={100} />
                     </div>
-                    <p className='text-xl font-semibold whitespace-nowrap'>Samsung Mobile Phones Price in Pakistan 2023</p>
-                    <div>
+                    <p className='text-xl font-semibold md:whitespace-nowrap'>Samsung Mobile Phones Price in Pakistan 2023</p>
+                    <div className='md:block hidden'>
                         <Image className='pb-1 max-h-[9px]' src={'/line1.png'} alt={''} width={1000} height={1000} />
                         <Image className='min-h-[10px]' src={'/line1.png'} alt={''} width={1000} height={1000} />
                     </div>
@@ -26,7 +26,7 @@ const WhichMobExpan = () => {
                                         <div className=' ' key={headingIndex}>
                                             <table className='w-full'>
                                                 <thead className=''>
-                                                    <tr className=' text-primary text-lg font-semibold flex justify-between text-center pb-5'>
+                                                    <tr className=' text-primary text-lg font-semibold md:text-base text-xs flex justify-between text-center pb-5'>
                                                         <td>{heading.headingOne}</td>
                                                         <td className='pl-10'>{heading.headingTwo}</td>
                                                         <td className='pl-20'>{heading.headingThree}</td>
@@ -35,7 +35,7 @@ const WhichMobExpan = () => {
                                                 </thead>
                                                 <tbody className=''>
                                                     {heading.subHeading.map((item, index) => (
-                                                        <tr className='border-b border-b-[#C1C1C1] flex justify-between pb-1 mb-2'
+                                                        <tr className='border-b border-b-[#C1C1C1] md:text-base text-xs flex justify-between pb-1 mb-2'
                                                             key={index}>
                                                             <td className=' cursor-pointer'>{item.mobile}</td>
                                                             <td className=' cursor-pointer'>{item.price}</td>

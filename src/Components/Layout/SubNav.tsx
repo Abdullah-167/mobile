@@ -136,7 +136,7 @@ const MiniNav = () => {
     ]
 
     return (
-        <section className="z-[1000]">
+        <section className="sm:block hidden z-[1000]">
             <div className="mx-auto text-sm text-primary font-semibold justify-center border-b-[3px] border-b-primary py-[7px]">
                 <Container>
                     <ul className="flex items-center gap-5 justify-center px-5">

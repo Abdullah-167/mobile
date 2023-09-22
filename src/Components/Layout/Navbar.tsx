@@ -53,7 +53,7 @@ const Navbar = () => {
                     <div className='pr-32'>
                         <Link href={'/'}>  <Image className='cursor-pointer' src={'/logo.svg'} alt={''} width={200} height={200} /> </Link>
                     </div>
-                    <div className='flex gap-4'>
+                    <div className='sm:flex hidden gap-4'>
                         <div
                             className={`relative transition-all duration-500 overflow-hidden rounded-full ${input ? 'w-full' : 'w-10'}`}
                             onClick={handleInpt}
