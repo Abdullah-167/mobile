@@ -11,16 +11,19 @@ const Footer = () => {
                 <div className='flex flex-wrap gap-8 mx-5 border-b-[0.985px] pb-9 border-b-[#C1C1C1] mb-9'>
                     {links.map((item, index) => {
                         return (
-                            <p className=' text-primary font-normal cursor-pointer'
-                                key={index} >{item.link}</p>
+                            <Link href={item.url}>
+                                <p className=' text-primary font-normal cursor-pointer'
+                                    key={index} >{item.link}</p>
+                            </Link>
                         )
                     })}
                 </div>
                 <div className='flex flex-wrap gap-8 px-5 pb-5 max-w-[700px]'>
                     {secLinks.map((item, index) => {
                         return (
-                            <p className=' text-primary font-normal cursor-pointer'
+                            <Link href={item.url}> <p className=' text-primary font-normal cursor-pointer'
                                 key={index} >{item.link}</p>
+                            </Link>
                         )
                     })}
                 </div>
@@ -49,54 +52,57 @@ export default Footer
 
 const links = [
     {
-        link: 'Help'
+        url: '/contact',
+        link: 'Contact'
+
     },
     {
-        link: 'Shop'
-    },
-    {
-        link: 'App'
-    },
-    {
-        link: 'Contct'
-    },
-    {
+        url: '/news',
         link: 'Blog'
+
     },
     {
+        url: 'contact',
         link: 'FAQ’s'
+
     },
     {
+        url: '/',
         link: 'Prices'
+
+    },
+    {
+        url: '/app',
+        link: 'App'
+
     },
 ]
 
 const secLinks = [
     {
+        url: '/aboutus',
         link: 'About us',
-        url:'aboutus'
     },
     {
+        url: '/terms-conditions',
         link: 'Term & Condition',
-        url:'terms-conditions'
     },
     {
-        link: 'Product Request'
-    },
-    {
+        url: '/feedback',
         link: 'Feedback'
+
     },
     {
+        url: '/advertise-with-us',
         link: 'Advertise'
+
     },
     {
+        url: '/privacy-policy',
         link: 'Privacy Policy',
-        url:'privacy-policy'
     },
     {
-        link: 'Cookies'
-    },
-    {
+        url: '/disclaimer',
         link: 'Disclaimer'
     },
 ]
