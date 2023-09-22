@@ -87,7 +87,7 @@ const Mobile = ({ toggleSidebar }: any) => {
                 {rows.map((row, rowIndex) => (
                     <React.Fragment key={rowIndex}>
                         {row.map((item, itemIndex) => (
-                            <div key={itemIndex} className=" relative  bg-white cursor-pointer rounded py-3 border hover:border-primary transition-all duration-500 min-h-[220px]">
+                            <div key={itemIndex} className=" relative  bg-white cursor-pointer rounded py-3 border hover:border-primary transition-all duration-500 min-h-[250px] md:min-h-[220px]">
                                 <Image className="flex justify-center mx-auto pb-1" src={item.img} alt={"slider-images"} width={100} height={100} />
                                 <p className="text-center font-medium leading-5">{item.model}</p>
                                 <div className="flex px-3 justify-between items-center absolute bottom-2 inset-x-0">
