@@ -21,7 +21,7 @@ const Similar = () => {
             },
         },
         slides: {
-            perView: 1,
+            perView: 1.5,
             spacing: 10,
         },
         slideChanged(slider) {
@@ -174,7 +174,7 @@ function Arrow(props: any) {
     return (
         <div
             onClick={props.onClick}
-            className={`max-w-[160px] text-[#B6B6B6]  rounded-full p-3 cursor-pointer absolute ${props.left ? "arrow--left top-[70px] left-4 z-[1000]" : "arrow--right top-[70px] -right-4 z-[1000]"
+            className={`max-w-[160px] md:flex hidden text-[#B6B6B6]  rounded-full p-3 cursor-pointer absolute ${props.left ? "arrow--left top-[70px] left-4 z-[1000]" : "arrow--right top-[70px] -right-4 z-[1000]"
                 } ${disabeld}`}
         >
             {props.left && (

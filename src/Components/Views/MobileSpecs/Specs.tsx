@@ -265,7 +265,7 @@ const Specs: React.FC = () => {
                     })}
                 </div>
                 <div className='bg-gray-100 px-5 py-10 my-10 rounded'>
-                    <h2 className='text-3xl font-semibold pb-3'>Samsung Galaxy Z Fold 3 price in Pakistan</h2>
+                    <h2 className='text-xl sm:text-3xl font-semibold pb-3'>Samsung Galaxy Z Fold 3 price in Pakistan</h2>
                     <p>Samsung Galaxy Z Fold 3 price in Pakistan is Rs. 314,999. Official dealers and warranty providers regulate the retail price of Samsung mobile products in official warranty.</p>
                     <ul className='pb-8'>
                         <li className='list-disc ml-5'>Price of Samsung Galaxy Z Fold 3 in Pakistan is Rs. 314,999.</li>
@@ -277,8 +277,8 @@ const Specs: React.FC = () => {
                     {prosData.map((pro, index) => (
                         <div key={index} className='pb-7'>
                             <div className='flex gap-2 text-primary'>
-                                <span className='text-3xl pt-1'>{pro.icon}</span>
-                                <h2 className='text-3xl font-semibold pb-3'>{pro.heading}</h2>
+                                <span className='text-xl sm:text-3xl pt-1'>{pro.icon}</span>
+                                <h2 className='text-xl sm:text-3xl font-semibold pb-3'>{pro.heading}</h2>
                             </div>
                             <ul>
                                 {pro.text.map((item, idx) => (
@@ -303,11 +303,11 @@ const Specs: React.FC = () => {
                     ))}
                 </div>
                 <div className='flex pb-10 justify-around items-center gap-3'>
-                    <div>
+                    <div className='sm:'>
                         <Image className='pb-1 max-h-[9px] min-h-[9px]' src={'/line1.png'} alt={''} width={100} height={100} />
                         <Image className='min-h-[10px]' src={'/line1.png'} alt={''} width={100} height={100} />
                     </div>
-                    <p className='text-xl font-semibold whitespace-nowrap'>Samsung Galaxy Z Fold 3 Detailed Specifications</p>
+                    <p className='text-xs sm:text-xl font-semibold whitespace-nowrap'>Samsung Galaxy Z Fold 3 Detailed Specifications</p>
                     <div>
                         <Image className='pb-1 max-h-[9px]' src={'/line1.png'} alt={''} width={1000} height={1000} />
                         <Image className='min-h-[10px]' src={'/line1.png'} alt={''} width={1000} height={1000} />

@@ -9,7 +9,7 @@ const ResSpecs = ({ specs }: any) => {
                     <div key={index} className="bg- px-5 py-3 sm:py-5  rounded">
                         <h2 className="text-2xl font-semibold pb-2 mb-3 text-primary border-b border-b-primary">{spec.mainheading}</h2>
                         {spec.specs.map((specItem: any, specIndex: any) => (
-                            <div key={specIndex} className="flex gap-2">
+                            <div key={specIndex} className="flex gap-2 pb-3">
                                 <p className="font-semibold min-w-[120px]">{specItem}:</p>
                                 <p>{spec.specsAns[specIndex]}</p>
                             </div>

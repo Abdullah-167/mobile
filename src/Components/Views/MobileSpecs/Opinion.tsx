@@ -44,7 +44,7 @@ const Opinion = () => {
     };
     setComments([...comments, newComment]);
   }
-  
+
   function getCurrentDate(): string {
     const currentDate: Date = new Date();
     const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -55,12 +55,12 @@ const Opinion = () => {
     <section>
       <Container>
         <div className='flex mb-10 border-b-2 justify-around items-center gap-3'>
-          <div className=''>
+          <div className='md:block hidden'>
             <Image className='pb-1 max-h-[9px] min-h-[9px]' src={'/line1.png'} alt={''} width={100} height={100} />
             <Image className='min-h-[10px]' src={'/line1.png'} alt={''} width={100} height={100} />
           </div>
-          <p className='text-xl font-semibold whitespace-nowrap'>SAMSUNG GALAXY Z FOLD3 5G - USER REVIEWS AND OPINIONS </p>
-          <div>
+          <p className='text-xl font-semibold sm:whitespace-nowrap'>SAMSUNG GALAXY Z FOLD3 5G - USER REVIEWS AND OPINIONS </p>
+          <div className='mdLblock hidden'>
             <Image className='pb-1 max-h-[9px]' src={'/line1.png'} alt={''} width={1000} height={1000} />
             <Image className='min-h-[10px]' src={'/line1.png'} alt={''} width={1000} height={1000} />
           </div>
@@ -92,15 +92,15 @@ const Opinion = () => {
                                 <Image className='min-h-[10px]' src={newItem.img} alt={'user-img'} width={30} height={30} />
                                 <span>{newItem.userName}</span>
                               </div>
-                              <p className='flex gap-2 items-center'>{newItem.clockIcon}{newItem.date}</p>
+                              <p className='flex text-xs sm:text-base gap-2 items-center'>{newItem.clockIcon}{newItem.date}</p>
                             </div>
-                            <p className='pl-10 pb-2'>{newItem.comment}</p>
+                            <p className='pl-3 text-sm sm:text-base sm:pl-10 pb-2'>{newItem.comment}</p>
                             <span className='ml-10 py-1 px-3 font-semibold text-sm cursor-pointer bg-opacity-30 bg-[#A9D9A2] rounded-full text-black'
                               onClick={() => handleReply(newItem.id)}
                             >{newItem.reply}</span>
                             {openedTab === newItem.id && (
                               <div>
-                                <input className='block border-2 border-gray-200 outline-none px-3 py-1 w-full ml-10 mt-5 max-w-[1030px] ' placeholder='Enter Reply Here' type="text" />
+                                <input className='block border-2 border-gray-200 outline-none px-3 py-1 w-full ml-3 sm:ml-10 mt-5 max-w-[1030px] ' placeholder='Enter Reply Here' type="text" />
                               </div>
                             )}
                           </div>
@@ -135,15 +135,16 @@ const Opinion = () => {
             ))}
           </div>
         </div>
-        <div className='flex justify-between items-center bg-gray-200 pb-3 pt-6 px-3'>
-          <div className='flex gap-2 '>
+        <div className='flex sm:flex-nowrap flex-wrap justify-between items-center bg-gray-200 pb-3 pt-6 px-3'>
+          <div className='flex sm:flex-nowrap flex-wrap gap-2 sm:pb-0 pb-4 '>
             <span className='border-2 border-gray-300 bg-white cursor-pointer text-sm rounded px-4 py-1 font-semibold'>Read All Opinons</span>
             <button
               className='border-2 border-gray-300 bg-white cursor-pointer text-sm rounded px-4 py-1 font-semibold'
               onClick={addComment}
             >
               Post Your Opinion
-            </button>          </div>
+            </button>
+          </div>
           <p>Total User Opinions: <span className=' font-bold pl-3'>367</span></p>
         </div>
       </Container>
