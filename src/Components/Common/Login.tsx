@@ -79,8 +79,8 @@ const Login = ({ onClose }: any) => {
                         </div>
                     </div>
                     <h1 className='text-center text-sm font-semibold'>Log In With Social</h1>
-                    <div className="mt-4 flex flex-wrap justify-center sm:justify-between pb-5">
-                        <button className="bg-blue-600 text-white w-full px-3 py-2.5 text-xs rounded-md flex items-center mb-3 sm:mb-0">
+                    <div className="mt-4 flex sm:flex-nowrap gap-4 flex-wrap justify-center sm:justify-between pb-5">
+                        <button className="bg-blue-600 text-white w-full px-3 py-2.5 text-xs rounded-md flex items-center mb-4 sm:mb-0">
                             <FaFacebook className="mr-2" />
                             Login with Facebook
                         </button>
