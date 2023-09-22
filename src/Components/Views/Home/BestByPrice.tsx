@@ -146,7 +146,7 @@ const data = [
         androidIcon: <AiFillAndroid />,
         price: 'Rs. 10,000',
         btn: 'View Details',
-        bgColor: '#17594A'
+        bgColor: '#17594A',
     },
     {
         img: '/mobile1.png',
