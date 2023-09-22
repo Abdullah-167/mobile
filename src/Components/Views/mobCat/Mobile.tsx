@@ -7,9 +7,9 @@ import { VscListFilter } from 'react-icons/vsc';
 
 const Mobile = ({ toggleSidebar }: any) => {
 
-    const [selectedCategory, setSelectedCategory] = useState('Prices'); // Initialize with the default category
+    const [selectedCategory, setSelectedCategory] = useState('Prices'); 
 
-    const itemsPerRow = 5; // Number of items per row
+    const itemsPerRow = 5; 
 
     const rows = [];
     const rowsTwo = [];
