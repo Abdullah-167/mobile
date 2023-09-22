@@ -29,7 +29,7 @@ const termsconditions = () => {
                         </div>
                     </div>
                 </div>
-                <div>
+                <div className='lg:block hidden'>
                     <RightSide />
                     <Ads />
                     <Ads />
