@@ -41,7 +41,10 @@ const Navbar = ({ toggleSidebar }: any) => {
                 )}
                 <div className='flex justify-between relative gap-5 items-center'>
                     <div className='flex gap-4'>
-                        <span className='text-2xl sm:text-4xl text-white cursor-pointer' onClick={toggleSidebar}>
+                        <span className='lg:hidden block text-2xl sm:text-4xl text-white cursor-pointer' onClick={toggleSidebar}>
+                            <TfiMenu />
+                        </span>
+                        <span className='hidden lg:block text-2xl sm:text-4xl text-white cursor-pointer'>
                             <TfiMenu />
                         </span>
                         <Image className='cursor-pointer sm:w-full w-6' src={'/profile.svg'} onClick={handleLogIn} alt={''} width={30} height={30} />

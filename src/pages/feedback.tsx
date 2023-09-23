@@ -5,57 +5,80 @@ import Navbar from '@/Components/Layout/Navbar'
 import MiniNav from '@/Components/Layout/SubNav'
 import RightSide from '@/Components/Views/Home/RightSide'
 import SideBar from '@/Components/Views/Home/SideBar'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { RxCross1 } from 'react-icons/rx'
 
 const feedback = () => {
+
+    const [isSidebarVisible, setSidebarVisible] = useState(false);
+
+    const toggleSidebar = () => {
+        setSidebarVisible(!isSidebarVisible);
+    };
+
+    useEffect(() => {
+        if (isSidebarVisible) {
+            document.body.classList.add("modal-open");
+        } else {
+            document.body.classList.remove("modal-open");
+        }
+    }, [isSidebarVisible]);
+
+
     return (
         <main>
-            <Navbar />
+            <Navbar toggleSidebar={toggleSidebar} />
             <MiniNav />
-            <div>
-            </div>
-            <div className='flex justify-between w-full'>
+            <div className='md:flex w-full justify-between gap-6 max-w-[1400px] mx-auto relative overflow-hidden'>
+                <div className={`z-[1000] transition-all lg:hidden block duration-500 max-h-screen overflow-y-scroll ${isSidebarVisible ? 'lg:relative fixed h-full top-0 translate-x-0' : ' -translate-x-[400px]'}`}>
+                    {isSidebarVisible && <SideBar />}
+                    <div className='text-xl lg:hidden block rounded-full text-white border border-white p-2 max-w-[39px] z-[1100] top-3 absolute left-[170px] cursor-pointer'
+                        onClick={toggleSidebar}
+                    >
+                        <RxCross1 />
+                    </div>
+                </div>
                 <div className='flex w-full'>
-                    <SideBar />
-                    <Container>
-                        <div className='flex-grow'>
-                            <div className='max-w-[700px] mx-auto'>
-                                <h1 className=' text-center text-3xl sm:text-5xl text-primary font-semibold pt-10 pb-10'>Feedback </h1>
-                                <p className='text-lg pb-6'>We value your feedback at Buymobile.com.pk and believe that your input can help us improve our services. Please take a moment to share your thoughts, suggestions, or concerns with us. Your feedback is essential in our continuous effort to enhance your experience on our website.</p>
+                    <div className={`lg:block hidden`}>
+                        <SideBar />
+                    </div>
+                    <div className='flex-grow px-5'>
+                        <div className='max-w-[700px] mx-auto'>
+                            <h1 className=' text-center text-3xl sm:text-5xl text-primary font-semibold pt-10 pb-10'>Feedback </h1>
+                            <p className='text-lg pb-6'>We value your feedback at Buymobile.com.pk and believe that your input can help us improve our services. Please take a moment to share your thoughts, suggestions, or concerns with us. Your feedback is essential in our continuous effort to enhance your experience on our website.</p>
+                            <div>
+                                {data.map((item, index) => {
+                                    return (
+                                        <div className='pb-5' key={index}>
+                                            <h2 className='text-xl font-semibold pb-3'>{item.heading}</h2>
+                                            {item.para}
+                                            {item.para2}
+                                            {item.para3}
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                            <div className='bg-gray-100 px-5 py-7 mb-10'>
+                                <p className='text-sm pb-7'>{`Need to reach us? No problem. Just fill out the form below and we'll make sure your message reaches the right person.`}</p>
                                 <div>
-                                    {data.map((item, index) => {
+                                    {formData.map((item, index) => {
                                         return (
-                                            <div className='pb-5' key={index}>
-                                                <h2 className='text-xl font-semibold pb-3'>{item.heading}</h2>
-                                                {item.para}
-                                                {item.para2}
-                                                {item.para3}
+                                            <div className={`flex sm:flex-nowrap flex-wrap pb-3 ${index > 2 ? '' : 'items-center'}`}
+                                                key={index}
+                                            >
+                                                <label className='min-w-[100px]'>{item.text}</label>
+                                                <div className='flex-grow'>{item.input}</div>
                                             </div>
                                         )
                                     })}
                                 </div>
-                                <div className='bg-gray-100 px-5 py-7 mb-10'>
-                                    <p className='text-sm pb-7'>{`Need to reach us? No problem. Just fill out the form below and we'll make sure your message reaches the right person.`}</p>
-                                    <div>
-                                        {formData.map((item, index) => {
-                                            return (
-                                                <div className={`flex sm:flex-nowrap flex-wrap pb-3 ${index > 2 ? '' : 'items-center'}`}
-                                                    key={index}
-                                                >
-                                                    <label className='min-w-[100px]'>{item.text}</label>
-                                                    <div className='flex-grow'>{item.input}</div>
-                                                </div>
-                                            )
-                                        })}
-                                    </div>
-                                    <button className=' bg-primary hover:bg-transparent hover:text-primary border-2 border-transparent hover:border-primary text-white px-5 py-1.5 transition-all duration-300 flex justify-center rounded-md mx-auto max-w-[120px]'>{`Submit >`}</button>
-                                </div>
-                                <p className='pb-2'>  <span className=' font-semibold pb-2'> Privacy Notice:</span> Your privacy is important to us. We will only use the information you provide to respond to your feedback and improve our services. For more details, please refer to our Privacy Policy. </p>
-                                <p className='pb-2 text-lg sm:text-2xl font-semibold'>  <span className=' font-semibold pb-2'></span> Thank You for Your Feedback</p>
-                                <p className='pb-2'>  <span className=' font-semibold pb-2'></span>We appreciate you taking the time to provide feedback and contribute to the Buymobile.com.pk community. Your valuable insights help us make our website a better resource for all mobile phone enthusiasts in Pakistan.</p>
+                                <button className=' bg-primary hover:bg-transparent hover:text-primary border-2 border-transparent hover:border-primary text-white px-5 py-1.5 transition-all duration-300 flex justify-center rounded-md mx-auto max-w-[120px]'>{`Submit >`}</button>
                             </div>
+                            <p className='pb-2'>  <span className=' font-semibold pb-2'> Privacy Notice:</span> Your privacy is important to us. We will only use the information you provide to respond to your feedback and improve our services. For more details, please refer to our Privacy Policy. </p>
+                            <p className='pb-2 text-lg sm:text-2xl font-semibold'>  <span className=' font-semibold pb-2'></span> Thank You for Your Feedback</p>
+                            <p className='pb-2'>  <span className=' font-semibold pb-2'></span>We appreciate you taking the time to provide feedback and contribute to the Buymobile.com.pk community. Your valuable insights help us make our website a better resource for all mobile phone enthusiasts in Pakistan.</p>
                         </div>
-                    </Container>
+                    </div>
                 </div>
                 <div className='lg:block hidden'>
                     <RightSide />
@@ -65,7 +88,7 @@ const feedback = () => {
                 </div>
             </div>
             <Footer />
-        </main>
+        </main >
     )
 }
 

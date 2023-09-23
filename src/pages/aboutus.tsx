@@ -5,16 +5,43 @@ import Navbar from '@/Components/Layout/Navbar'
 import MiniNav from '@/Components/Layout/SubNav'
 import RightSide from '@/Components/Views/Home/RightSide'
 import SideBar from '@/Components/Views/Home/SideBar'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { RxCross1 } from 'react-icons/rx'
 
 const aboutus = () => {
+
+    const [isSidebarVisible, setSidebarVisible] = useState(false);
+
+    const toggleSidebar = () => {
+        setSidebarVisible(!isSidebarVisible);
+    };
+
+    useEffect(() => {
+        if (isSidebarVisible) {
+            document.body.classList.add("modal-open");
+        } else {
+            document.body.classList.remove("modal-open");
+        }
+    }, [isSidebarVisible]);
+
+
     return (
         <main>
-            <Navbar />
+            <Navbar toggleSidebar={toggleSidebar} />
             <MiniNav />
-            <div className='flex justify-between w-full'>
+            <div className='md:flex w-full justify-between gap-6 max-w-[1400px] mx-auto relative overflow-hidden'>
+                <div className={`z-[1000] transition-all lg:hidden block duration-500 max-h-screen overflow-y-scroll ${isSidebarVisible ? 'lg:relative fixed h-full top-0 translate-x-0' : ' -translate-x-[400px]'}`}>
+                    {isSidebarVisible && <SideBar />}
+                    <div className='text-xl lg:hidden block rounded-full text-white border border-white p-2 max-w-[39px] z-[1100] top-3 absolute left-[170px] cursor-pointer'
+                        onClick={toggleSidebar}
+                    >
+                        <RxCross1 />
+                    </div>
+                </div>
                 <div className='flex w-full'>
-                    <SideBar />
+                    <div className={`lg:block hidden`}>
+                        <SideBar />
+                    </div>
                     <Container>
                         <div className='flex-grow'>
                             <div className='max-w-[700px] mx-auto'>
