@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import SideBar from './SideBar'
 import HeroSlide from './HeroSlide'
 import Container from '../../Layout/Container'
@@ -31,6 +31,15 @@ const Home = () => {
     const toggleSidebar = () => {
         setSidebarVisible(!isSidebarVisible);
     };
+
+    useEffect(() => {
+        if (isSidebarVisible) {
+            document.body.classList.add("modal-open");
+        } else {
+            document.body.classList.remove("modal-open");
+        }
+    }, [isSidebarVisible]);
+
 
 
     return (
