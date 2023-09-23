@@ -40,18 +40,16 @@ const Navbar = ({ toggleSidebar }: any) => {
                     </div>
                 )}
                 <div className='flex justify-between relative gap-5 items-center'>
-                    <div className='flex gap-4 pr-[150px]'>
+                    <div className='flex gap-4'>
                         <span className='text-4xl text-white cursor-pointer' onClick={toggleSidebar}>
                             <TfiMenu />
                         </span>
                         <Image className='cursor-pointer' src={'/profile.svg'} onClick={handleLogIn} alt={''} width={30} height={30} />
                     </div>
-                    <div className=''> {/* Added "relative" to make absolute positioning work */}
-                        <Link href={'/'}>
-                            <Image className='cursor-pointer absolute left-1/2 transform -translate-x-1/2' src={'/logo.svg'} alt={''} width={200} height={200} />
-                        </Link>
-                    </div>
-                    <div className='sm:flex hidden gap-4 min-w-'>
+                    <Link href={'/'}>
+                        <Image className='cursor-pointer' src={'/newlogo.svg'} alt={''} width={200} height={200} />
+                    </Link>
+                    <div className='sm:flex hidden gap-4'>
                         <div className='flex items-center space-x-4'>
                             <div
                                 className={`relative flex items-center transition-all duration-500 overflow-hidden rounded-full ${input ? 'w-48' : 'w-10'

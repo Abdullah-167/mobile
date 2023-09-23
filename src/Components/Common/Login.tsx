@@ -16,8 +16,6 @@ const Login = ({ onClose }: any) => {
         setIsLogin(!isLogin);
     };
 
-
-
     const handleChange = (e: any) => {
         const { name, value } = e.target;
         setFormData({
@@ -41,8 +39,8 @@ const Login = ({ onClose }: any) => {
 
     return (
         <div className="flex items-center justify-center">
-            <div className="max-w-[600px] bg-white rounded-lg shadow-md px-10 py-5 relative mx-5">
-                <div className='text-xl rounded-full border border-black p-2 max-w-[39px] top-3 absolute left-[290px] md:left-[370px] cursor-pointer'
+            <div className="max-w-[480px] w-full bg-white rounded-lg shadow-md px-10 py-5 relative mx-5">
+                <div className='text-xl rounded-full border border-black p-2 max-w-[39px] top-3 absolute left-[360px] sm:left-[410px] cursor-pointer'
                     onClick={onClose}
                 ><RxCross1 />
                 </div>
@@ -57,7 +55,7 @@ const Login = ({ onClose }: any) => {
                     />
                 </div>
                 <div className="mt-6">
-                    <div className="flex justify-between mb-4 relative border-b-2 pb-0.5">
+                    <div className="flex justify-between mb-4 relative border-b-2 pb-0.5 max-w-[400px]">
                         <button
                             onClick={handleToggle}
                             className={`px-4 py-2 font-semibold focus:outline-none ${isLogin ? 'text-primary' : 'text-gray-500'
@@ -73,21 +71,23 @@ const Login = ({ onClose }: any) => {
                             Sign Up
                         </button>
                         <div
-                            className={`absolute top-[41px] transition-all duration-500 ${isLogin ? ' w-20' : '  translate-x-[265px] w-[83px]'
+                            className={`absolute top-[41px] transition-all duration-500 ${isLogin ? ' w-20' : ' translate-x-[264px] sm:translate-x-[310px] w-[88px]'
                                 }`}
                         >
                             <div className={` bg-primary h-1 rounded-md `}></div>
                         </div>
                     </div>
-                    <h1 className='text-center text-sm font-semibold'>Log In With Social</h1>
+                    <h1 className='text-center text-sm font-semibold'> {isLogin ? ' Log In With Social' : 'Sign Up With Social'}</h1>
                     <div className="mt-4 flex sm:flex-nowrap gap-4 flex-wrap justify-center sm:justify-between pb-5">
                         <button className="bg-blue-600 text-white w-full px-3 py-2.5 text-xs rounded-md flex items-center mb-4 sm:mb-0">
                             <FaFacebook className="mr-2" />
-                            Login with Facebook
+                            {isLogin ? ' Continue with Facebook' : 'Continue with Facebook'}
                         </button>
                         <button className="bg-red-500 text-white w-full px-3 py-2.5 text-xs rounded-md flex items-center">
                             <FaGoogle className="mr-2" />
-                            Login with Google
+
+                            {isLogin ? ' Continue with Google' : 'Continue with Google'}
+
                         </button>
                     </div>
                     <h1 className='text-center text-sm font-semibold'>OR</h1>
