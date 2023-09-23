@@ -40,7 +40,7 @@ const Navbar = ({ toggleSidebar }: any) => {
                     </div>
                 )}
                 <div className='flex justify-between relative gap-5 items-center'>
-                    <div className='flex gap-4'>
+                    <div className='flex gap-4 items-center'>
                         <span className='lg:hidden block text-2xl sm:text-4xl text-white cursor-pointer' onClick={toggleSidebar}>
                             <TfiMenu />
                         </span>
