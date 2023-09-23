@@ -1,12 +1,13 @@
-import News from '@/Components/Views/News'
+import NewsPage from '@/Components/Views/News'
+import NewsBlogs from '@/Components/Views/News/NewsBlogs'
 import React from 'react'
 
-const news = () => {
+const News = () => {
     return (
         <main>
-            <News />
+            <NewsPage />
         </main>
     )
 }
 
-export default news
+export default News

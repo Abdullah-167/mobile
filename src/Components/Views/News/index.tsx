@@ -7,7 +7,7 @@ import Navbar from '@/Components/Layout/Navbar'
 import MiniNav from '@/Components/Layout/SubNav'
 import Footer from '@/Components/Layout/Footer'
 
-const News = () => {
+const NewsPage = () => {
     return (
         <div>
             <Navbar />
@@ -22,4 +22,4 @@ const News = () => {
     )
 }
 
-export default News
+export default NewsPage

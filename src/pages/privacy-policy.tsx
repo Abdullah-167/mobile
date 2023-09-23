@@ -7,7 +7,7 @@ import SideBar from '@/Components/Views/Home/SideBar'
 import React, { useEffect, useState } from 'react'
 import { RxCross1 } from 'react-icons/rx'
 
-const privacyPolicy = () => {
+const PrivacyPolicy = () => {
 
     const [isSidebarVisible, setSidebarVisible] = useState(false);
 
@@ -70,7 +70,7 @@ const privacyPolicy = () => {
     )
 }
 
-export default privacyPolicy;
+export default PrivacyPolicy;
 
 
 

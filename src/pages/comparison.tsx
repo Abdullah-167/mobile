@@ -2,7 +2,7 @@ import Layout from '@/Components/Layout/Layout'
 import Comparison from '@/Components/Views/Comparison'
 import React from 'react'
 
-const comparison = () => {
+const Comparisono = () => {
     return (
         <main>
             <Comparison />
@@ -10,4 +10,4 @@ const comparison = () => {
     )
 }
 
-export default comparison
+export default Comparisono

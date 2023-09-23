@@ -2,7 +2,7 @@ import React from 'react'
 import MobCat from '@/Components/Views/mobCat'
 
 
-const Home = () => {
+const MobCate = () => {
     return (
         <main>
             <MobCat />
@@ -10,6 +10,6 @@ const Home = () => {
     )
 }
 
-export default Home
+export default MobCate
 
 

@@ -1,7 +1,7 @@
 import MobileSpecs from '@/Components/Views/MobileSpecs'
 import React from 'react'
 
-const mobspecs = () => {
+const MobSpecs = () => {
     return (
         <main>
             <MobileSpecs />
@@ -9,4 +9,4 @@ const mobspecs = () => {
     )
 }
 
-export default mobspecs;
+export default MobSpecs;

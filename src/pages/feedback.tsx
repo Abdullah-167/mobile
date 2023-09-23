@@ -8,7 +8,7 @@ import SideBar from '@/Components/Views/Home/SideBar'
 import React, { useEffect, useState } from 'react'
 import { RxCross1 } from 'react-icons/rx'
 
-const feedback = () => {
+const Feedback = () => {
 
     const [isSidebarVisible, setSidebarVisible] = useState(false);
 
@@ -92,7 +92,7 @@ const feedback = () => {
     )
 }
 
-export default feedback;
+export default Feedback;
 
 const data = [
     {

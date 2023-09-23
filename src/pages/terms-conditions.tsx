@@ -7,7 +7,7 @@ import SideBar from '@/Components/Views/Home/SideBar'
 import React, { useEffect, useState } from 'react'
 import { RxCross1 } from 'react-icons/rx'
 
-const termsconditions = () => {
+const Termsconditions = () => {
     const [isSidebarVisible, setSidebarVisible] = useState(false);
 
     const toggleSidebar = () => {
@@ -40,7 +40,7 @@ const termsconditions = () => {
                 <div className={`lg:block hidden`}>
                     <SideBar />
                 </div>
-                <div className='flex-grow  px-5'>
+                <div className='flex-grow '>
                     <div className='max-w-[700px] mx-auto'>
                         <h1 className=' text-center text-3xl sm:text-5xl text-primary font-semibold pt-10 pb-10'>Terms & Conditions</h1>
                         <div>
@@ -69,7 +69,7 @@ const termsconditions = () => {
     )
 }
 
-export default termsconditions;
+export default Termsconditions;
 
 
 
