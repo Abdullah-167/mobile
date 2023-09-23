@@ -20,7 +20,7 @@ const ComingSoon = () => {
             },
         },
         slides: {
-            perView: 1,
+            perView: 2,
             spacing: 10,
         },
         slideChanged(slider) {
