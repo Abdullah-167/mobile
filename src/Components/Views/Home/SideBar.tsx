@@ -32,7 +32,7 @@ const SideBar = () => {
     return (
         <aside className='z-[1000] relative'>
             <div
-                className={`bg-[#008339] max-w-[220px] min-w-[220px]  h-full px-4 lg:mt-[22px] text-white py-5 lg:pt-0 pt-10 z-[150] ${maxSidebarHeight}`}
+                className={`bg-[#008339] max-w-[220px] min-w-[220px]  h-full px-4 lg:mt-[22px] text-white py-5  pt-10 z-[150] ${maxSidebarHeight}`}
             >
                 <div className='pb-3'>
                     <h1 className='text-xl font-bold pb-3 cursor-pointer text-center'>News</h1>
