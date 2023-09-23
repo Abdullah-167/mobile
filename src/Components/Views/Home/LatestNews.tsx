@@ -143,7 +143,7 @@ function Arrow(props: any) {
     return (
         <svg
             onClick={props.onClick}
-            className={`max-w-[40px] bg-gray-500 bg-opacity-50 rounded-full p-3 sm:flex hidden cursor-pointer absolute ${props.left ? "arrow--left -top-[160px] sm:-top-[140px] lg:-top-[125px] -left-4 z-[1000]" : "arrow--right -top-[160px] sm:-top-[140px] lg:-top-[125px] -right-4 z-[1000]"
+            className={`max-w-[40px] z-[200] bg-gray-500 bg-opacity-50 rounded-full p-3 sm:flex hidden cursor-pointer absolute ${props.left ? "arrow--left -top-[160px] sm:-top-[140px] lg:-top-[125px] -left-4 " : "arrow--right -top-[160px] sm:-top-[140px] lg:-top-[125px] -right-4 "
                 } ${disabeld}`}
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"

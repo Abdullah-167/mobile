@@ -7,7 +7,7 @@ import Link from 'next/link';
 import Login from '../Common/Login';
 import { RxCross1 } from 'react-icons/rx';
 
-const Navbar = () => {
+const Navbar = ({ toggleSidebar }: any) => {
 
     const [input, setInput] = useState(false);
     const [handleForm, setHandleForm] = useState<boolean>(false);
@@ -45,7 +45,7 @@ const Navbar = () => {
                 )}
                 <div className='flex justify-between gap-5 items-center'>
                     <div className='flex gap-4 pr-[150px]'>
-                        <span className='text-4xl text-white cursor-pointer'>
+                        <span className='text-4xl text-white cursor-pointer' onClick={toggleSidebar}>
                             <TfiMenu />
                         </span>
                         <Image className='cursor-pointer' src={'/profile.svg'} onClick={handleLogIn} alt={''} width={30} height={30} />

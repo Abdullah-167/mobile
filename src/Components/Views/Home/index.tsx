@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import SideBar from './SideBar'
 import HeroSlide from './HeroSlide'
 import Container from '../../Layout/Container'
@@ -19,12 +19,34 @@ import MobileCompa from './MobileCompa'
 import RightSide from './RightSide'
 import BestByPrice from './BestByPrice'
 import UnderRange from './UnderRange'
+import Navbar from '@/Components/Layout/Navbar'
+import MiniNav from '@/Components/Layout/SubNav'
+import Footer from '@/Components/Layout/Footer'
+import { RxCross1 } from 'react-icons/rx'
 
 const Home = () => {
+
+    const [isSidebarVisible, setSidebarVisible] = useState(false);
+
+    const toggleSidebar = () => {
+        setSidebarVisible(!isSidebarVisible);
+    };
+
+
     return (
         <main>
+            <Navbar toggleSidebar={toggleSidebar} />
+            <MiniNav />
             <div className='md:flex w-full justify-between gap-6 max-w-[1400px] mx-auto relative overflow-hidden'>
-                <div>
+                <div className={`z-[1000] transition-all lg:hidden block duration-500 max-h-screen overflow-y-scroll ${isSidebarVisible ? 'lg:relative fixed h-full top-0 translate-x-0' : ' -translate-x-[400px]'}`}>
+                    {isSidebarVisible && <SideBar />}
+                    <div className='text-xl lg:hidden block rounded-full text-white border border-white p-2 max-w-[39px] z-[1100] top-3 absolute left-[170px] cursor-pointer'
+                        onClick={toggleSidebar}
+                    >
+                        <RxCross1 />
+                    </div>
+                </div>
+                <div className={`lg:block hidden`}>
                     <SideBar />
                 </div>
                 <div className='max-w-[900px] lg:max-w-[800px] px-5 mx-auto lg:mx-0 w-full'>
@@ -52,6 +74,7 @@ const Home = () => {
             <MobileCompa />
             <BestByPrice />
             <UnderRange />
+            <Footer />
         </main>
     )
 }

@@ -136,7 +136,7 @@ const MiniNav = () => {
     ]
 
     return (
-        <section className="sm:block hidden z-[1000]">
+        <section className="lg:block hidden z-[1000]">
             <div className="mx-auto text-sm text-primary font-semibold justify-center border-b-[3px] border-b-primary py-[7px]">
                 <Container>
                     <ul className="flex items-center gap-5 justify-center px-5">
@@ -164,7 +164,7 @@ const MiniNav = () => {
                                                 </span>
                                             </button>
                                         </Link>
-                                        <ul className={`absolute top-6 min-w-[160px] bg-white transition-all duration-500 rounded border z-[1000] text-sm -left-6 right-0  ${activeIndex === index ? "  opacity-100" : " opacity-0"
+                                        <ul className={`absolute top-6 min-w-[160px] bg-white transition-all duration-500 rounded border z-[1100] text-sm -left-6 right-0  ${activeIndex === index ? "  opacity-100" : " opacity-0"
                                             }`}>
                                             <div className={` ${activeIndex ? '' : 'hidden'}`}>
                                                 {item.innerLinks?.map((innerItem: any, idx: any) => {

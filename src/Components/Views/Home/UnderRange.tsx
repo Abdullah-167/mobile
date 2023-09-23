@@ -162,13 +162,12 @@ const data = [
 ]
 
 
-
 function Arrow(props: any) {
     const disabeld = props.disabled ? " arrow--disabled" : ""
     return (
         <svg
             onClick={props.onClick}
-            className={`max-w-[40px] bg-gray-500 bg-opacity-50 sm:flex hidden rounded-full p-3 cursor-pointer absolute ${props.left ? "arrow--left top-[100px] left-1 z-[1000]" : "arrow--right top-[100px]  right-1 z-[1000]"
+            className={`max-w-[40px] z-[200] bg-gray-500 bg-opacity-50 sm:flex hidden rounded-full p-3 cursor-pointer absolute ${props.left ? "arrow--left top-[100px] left-1" : "arrow--right top-[100px]  right-1"
                 } ${disabeld}`}
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"

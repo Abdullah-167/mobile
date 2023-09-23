@@ -44,7 +44,8 @@ const Login = ({ onClose }: any) => {
             <div className="max-w-[600px] bg-white rounded-lg shadow-md px-10 py-5 relative mx-5">
                 <div className='text-xl rounded-full border border-black p-2 max-w-[39px] top-3 absolute left-[290px] md:left-[370px] cursor-pointer'
                     onClick={onClose}
-                ><RxCross1 /></div>
+                ><RxCross1 />
+                </div>
                 {/* Logo */}
                 <div className="flex justify-center">
                     <Image
