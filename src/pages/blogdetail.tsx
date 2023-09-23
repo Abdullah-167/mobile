@@ -4,7 +4,7 @@ import MiniNav from '@/Components/Layout/SubNav'
 import BlogData from '@/Components/Views/BlogDetail/BlogData'
 import React from 'react'
 
-const blogdetail = () => {
+const Blogdetail = () => {
     return (
         <main>
             <Navbar />
@@ -15,4 +15,4 @@ const blogdetail = () => {
     )
 }
 
-export default blogdetail
+export default Blogdetail

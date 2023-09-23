@@ -8,7 +8,7 @@ import SideBar from '@/Components/Views/Home/SideBar'
 import React, { useEffect, useState } from 'react'
 import { RxCross1 } from 'react-icons/rx'
 
-const advertise = () => {
+const Advertise = () => {
     const [isSidebarVisible, setSidebarVisible] = useState(false);
 
     const toggleSidebar = () => {
@@ -75,7 +75,7 @@ const advertise = () => {
     )
 }
 
-export default advertise;
+export default Advertise;
 
 
 
