@@ -51,25 +51,27 @@ const Navbar = ({ toggleSidebar }: any) => {
                     </Link>
                     <div className='sm:flex hidden gap-4'>
                         <div className='flex items-center space-x-4'>
-                            <div
-                                className={`relative flex items-center transition-all duration-500 overflow-hidden rounded-full ${input ? 'w-48' : 'w-10'
-                                    }`}
-                            >
-                                <input
-                                    className={`outline-none rounded-full px-4 w-full h-full`}
-                                    type='text'
-                                    name=''
-                                    id=''
-                                    placeholder='Search...'
-                                />
-                                <Image
-                                    className='absolute right-3 top-1 cursor-pointer'
-                                    src={'/magnify.svg'}
-                                    alt={''}
-                                    width={15}
-                                    height={15}
-                                    onClick={handleInput}
-                                />
+                            <div className=' absolute right-10'>
+                                <div
+                                    className={`relative flex items-center transition-all duration-500 overflow-hidden rounded-full ${input ? 'w-48' : 'w-10'
+                                        }`}
+                                >
+                                    <input
+                                        className={`outline-none rounded-full px-4 w-full h-full`}
+                                        type='text'
+                                        name=''
+                                        id=''
+                                        placeholder='Search...'
+                                    />
+                                    <Image
+                                        className='absolute right-3 top-1 cursor-pointer'
+                                        src={'/magnify.svg'}
+                                        alt={''}
+                                        width={15}
+                                        height={15}
+                                        onClick={handleInput}
+                                    />
+                                </div>
                             </div>
                             <Image
                                 className='cursor-pointer'
