@@ -10,6 +10,7 @@ import NewFooter from './NewFooter';
 const NewPage = () => {
     return (
         <section>
+            
             <NewNavbar />
             <Hero />
             <Unlock />

@@ -14,6 +14,9 @@ import WhichMobExpan from './WhichMobExpan'
 import { BiCross } from 'react-icons/bi'
 import { FaCross } from 'react-icons/fa'
 import { RxCross1 } from 'react-icons/rx'
+import Navbar from '@/Components/Layout/Navbar'
+import MiniNav from '@/Components/Layout/SubNav'
+import Footer from '@/Components/Layout/Footer'
 
 
 const MobCat = () => {
@@ -35,6 +38,8 @@ const MobCat = () => {
 
     return (
         <main>
+            <Navbar />
+            <MiniNav />
             <Container>
                 <Ads />
                 <MobSummary />
@@ -57,6 +62,7 @@ const MobCat = () => {
                     </div>
                 </div>
             </div>
+            <Footer />
         </main>
     )
 }

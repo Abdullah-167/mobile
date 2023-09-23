@@ -1,5 +1,8 @@
 import Ads from '@/Components/Common/Ads'
 import Container from '@/Components/Layout/Container'
+import Footer from '@/Components/Layout/Footer'
+import Navbar from '@/Components/Layout/Navbar'
+import MiniNav from '@/Components/Layout/SubNav'
 import Contact from '@/Components/Views/Contact'
 import RightSide from '@/Components/Views/Home/RightSide'
 import SideBar from '@/Components/Views/Home/SideBar'
@@ -8,6 +11,8 @@ import React from 'react'
 const disclaimer = () => {
     return (
         <main>
+            <Navbar />
+            <MiniNav />
             <div>
             </div>
             <div className='flex justify-between w-full'>
@@ -38,6 +43,7 @@ const disclaimer = () => {
                     <Ads />
                 </div>
             </div>
+            <Footer />
         </main>
     )
 }

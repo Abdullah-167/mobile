@@ -5,28 +5,36 @@ import RightSide from '../Home/RightSide'
 import Faq from '@/Components/Common/Faq'
 import Ads from '@/Components/Common/Ads'
 import Container from '@/Components/Layout/Container'
+import Navbar from '@/Components/Layout/Navbar'
+import MiniNav from '@/Components/Layout/SubNav'
+import Footer from '@/Components/Layout/Footer'
 
 const Contact = () => {
 
     return (
-        <div className='flex justify-between w-full'>
-            <div className='flex w-full'>
-                <SideBar />
-                <Container>
-                    <div className='flex-grow'>
-                        <Form />
-                        <div className='max-w-[600px] mx-auto'>
-                            <Faq faq={faq} />
+        <div>
+            <Navbar />
+            <MiniNav />
+            <div className='flex justify-between w-full'>
+                <div className='flex w-full'>
+                    <SideBar />
+                    <Container>
+                        <div className='flex-grow'>
+                            <Form />
+                            <div className='max-w-[600px] mx-auto'>
+                                <Faq faq={faq} />
+                            </div>
                         </div>
-                    </div>
-                </Container>
+                    </Container>
+                </div>
+                <div className='lg:block hidden'>
+                    <RightSide />
+                    <Ads />
+                    <Ads />
+                    <Ads />
+                </div>
             </div>
-            <div className='lg:block hidden'>
-                <RightSide />
-                <Ads />
-                <Ads />
-                <Ads />
-            </div>
+            <Footer />
         </div>
     )
 }

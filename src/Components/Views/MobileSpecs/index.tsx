@@ -7,10 +7,15 @@ import ResSpecs from './ResSpecs'
 import Opinion from './Opinion'
 import Similar from './Similar'
 import Latest from './Latest'
+import Navbar from '@/Components/Layout/Navbar'
+import Footer from '@/Components/Layout/Footer'
+import MiniNav from '@/Components/Layout/SubNav'
 
 const MobileSpecs = () => {
   return (
     <div>
+      <Navbar />
+      <MiniNav />
       <Container>
         <Ads />
         <Hero />
@@ -23,6 +28,7 @@ const MobileSpecs = () => {
         <Ads />
         <Latest />
       </Container>
+      <Footer />
     </div>
   )
 }
