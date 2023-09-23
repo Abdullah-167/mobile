@@ -40,7 +40,7 @@ const Login = ({ onClose }: any) => {
     return (
         <div className="flex items-center justify-center">
             <div className="max-w-[480px] w-full bg-white rounded-lg shadow-md px-10 py-5 relative mx-5">
-                <div className='text-xl rounded-full border border-black p-2 max-w-[39px] top-3 absolute left-[360px] sm:left-[410px] cursor-pointer'
+                <div className='text-xl rounded-full border border-black p-2 max-w-[39px] top-3 absolute right-4 sm:right-7 cursor-pointer'
                     onClick={onClose}
                 ><RxCross1 />
                 </div>
@@ -58,20 +58,20 @@ const Login = ({ onClose }: any) => {
                     <div className="flex justify-between mb-4 relative border-b-2 pb-0.5 max-w-[400px]">
                         <button
                             onClick={handleToggle}
-                            className={`px-4 py-2 font-semibold focus:outline-none ${isLogin ? 'text-primary' : 'text-gray-500'
+                            className={`px-4 py-2 font-semibold focus:outline-none  ${isLogin ? 'text-primary border-t-primary border-t-2 ' : 'text-gray-500 border-t-transparent border-t-2 '
                                 }`}
                         >
                             Login
                         </button>
                         <button
                             onClick={handleToggle}
-                            className={`px-4 py-2 font-semibold focus:outline-none ${isLogin ? 'text-gray-500' : 'text-primary'
+                            className={`px-4 py-2 font-semibold focus:outline-none border-t-2  ${isLogin ? 'text-gray-500 border-t-transparent border-t-2 ' : ' text-primary border-t-primary border-t-2 '
                                 }`}
                         >
                             Sign Up
                         </button>
                         <div
-                            className={`absolute top-[41px] transition-all duration-500 ${isLogin ? ' w-20' : ' translate-x-[264px] sm:translate-x-[310px] w-[88px]'
+                            className={`sm:block hidden absolute top-[41px] transition-all duration-500 ${isLogin ? ' w-20' : ' translate-x-[200px] sm:translate-x-[310px] w-[88px]'
                                 }`}
                         >
                             <div className={` bg-primary h-1 rounded-md `}></div>
@@ -79,11 +79,11 @@ const Login = ({ onClose }: any) => {
                     </div>
                     <h1 className='text-center text-sm font-semibold'> {isLogin ? ' Log In With Social' : 'Sign Up With Social'}</h1>
                     <div className="mt-4 flex sm:flex-nowrap gap-4 flex-wrap justify-center sm:justify-between pb-5">
-                        <button className="bg-blue-600 text-white w-full px-3 py-2.5 text-xs rounded-md flex items-center mb-4 sm:mb-0">
+                        <button className="bg-blue-600 text-white w-full px-3 py-2.5 text-xs rounded-md flex justify-center items-center  sm:mb-0">
                             <FaFacebook className="mr-2" />
                             {isLogin ? ' Continue with Facebook' : 'Continue with Facebook'}
                         </button>
-                        <button className="bg-red-500 text-white w-full px-3 py-2.5 text-xs rounded-md flex items-center">
+                        <button className="bg-red-500 text-white w-full px-3 py-2.5 text-xs rounded-md flex justify-center items-center">
                             <FaGoogle className="mr-2" />
 
                             {isLogin ? ' Continue with Google' : 'Continue with Google'}
