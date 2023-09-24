@@ -5,11 +5,11 @@ import { AiFillAndroid } from 'react-icons/ai';
 import { VscListFilter } from 'react-icons/vsc';
 
 
-const Mobile = ({ toggleSidebar }: any) => {
+const Mobile = ({ toggleSidebar2 }: any) => {
 
-    const [selectedCategory, setSelectedCategory] = useState('Prices'); 
+    const [selectedCategory, setSelectedCategory] = useState('Prices');
 
-    const itemsPerRow = 5; 
+    const itemsPerRow = 5;
 
     const rows = [];
     const rowsTwo = [];
@@ -49,19 +49,25 @@ const Mobile = ({ toggleSidebar }: any) => {
                     <Image className='min-h-[10px]' src={'/line1.png'} alt={''} width={1000} height={1000} />
                 </div>
             </div>
-            <div className='bg-white flex  md:flex-nowrap flex-wrap justify-between border-b mb-9'>
-                <div className='flex flex-wrap ga-2 md:pb-0 pb-3'>
+            <div className='bg-white flex  md:flex-nowrap flex-wrap justify-between border-b mb-6 md:mb-9'>
+                <div className='flex sm:text-base text-xs ga-2 md:pb-0 pb-3'>
                     <p className={`px-4 cursor-pointer  ${selectedCategory === 'Prices' ? 'text-primary border-t-2 border-x-2 border-t-primary border-x-primary rounded-t' : 'border-t-2 border-t-transparent border-x-2 border-x-transparent'}`} onClick={() => setSelectedCategory('Prices')}>Prices</p>
                     <p className={`px-4 cursor-pointer  ${selectedCategory === 'Latest' ? 'text-primary border-t-2 border-x-2 border-t-primary border-x-primary rounded-t' : 'border-t-2 border-t-transparent border-x-2 border-x-transparent'}`} onClick={() => setSelectedCategory('Latest')}>Latest</p>
                     <p className={`px-4 cursor-pointer  ${selectedCategory === 'Coming Soon' ? 'text-primary border-t-2 border-x-2 border-t-primary border-x-primary rounded-t' : 'border-t-2 border-t-transparent border-x-2 border-x-transparent'}`} onClick={() => setSelectedCategory('Coming Soon')}>Coming Soon</p>
                 </div>
                 <span
-                    className='border-2 border-primary mx-3 px-2 lg:hidden rounded cursor-pointer font-medium flex gap-2 items-center'
-                    onClick={toggleSidebar}
+                    className='md:flex hidden border-2 border-primary sm:text-base text-xs mx-3 px-2 lg:hidden rounded cursor-pointer font-medium gap-2 items-center'
+                    onClick={toggleSidebar2}
                 >
                     Filter All <span className='text-lg'> <VscListFilter /> </span>
                 </span>
             </div>
+            <span
+                className='flex md:hidden border-2 justify-center mb-8 border-primary sm:text-base text-xs mx-3 px-2 lg:hidden rounded cursor-pointer font-medium gap-2 items-center'
+                onClick={toggleSidebar2}
+            >
+                Filter All <span className='text-lg'> <VscListFilter /> </span>
+            </span>
             {selectedCategory === 'Prices' && (
                 <div>
                     <div className=" hidden lg:grid grid-cols-5 gap-5">
