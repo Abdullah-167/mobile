@@ -5,7 +5,7 @@ import { GoArrowRight } from 'react-icons/go';
 import Link from 'next/link';
 
 const MobilePricingSlider = () => {
-  
+
   const [pricingRange, setPricingRange] = useState([0, 100000]);
 
   const handlePriceChange = (values: any) => {
@@ -71,8 +71,8 @@ const MobilePricingSlider = () => {
           </div>
         </div>
 
-        <div className=' md:border-x-[2px] border-x-[#AFACAC] px-6 pt-10 md:pt-0'>
-          <p className='text-xl font-semibold pb-5'>Price Around</p>
+        <div className=' md:border-x-[2px] border-x-[#AFACAC] md:px-6 pt-10 md:pt-0'>
+          <p className='text-xl font-semibold pb-5'>By Brand</p>
           <div className='text-sm '>
             {byBrand.map((item, index) => {
               return (
@@ -84,7 +84,7 @@ const MobilePricingSlider = () => {
         </div>
 
         <div className='pt-10 md:pt-0  md:pl-3'>
-          <p className='text-xl font-semibold pb-5'>Price Around</p>
+          <p className='text-xl font-semibold pb-5'>By Price</p>
           <div className='text-sm '>
             {prices.map((item, index) => {
               return (
