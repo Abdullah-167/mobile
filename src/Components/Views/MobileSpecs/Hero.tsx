@@ -50,6 +50,10 @@ function ThumbnailPlugin(
 export default function App() {
     const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
         initial: 0,
+        slides: {
+            perView: 1.5,
+            spacing: 5,
+        },
     })
     const [thumbnailRef] = useKeenSlider<HTMLDivElement>(
         {
@@ -80,8 +84,8 @@ export default function App() {
                 </div>
             </div>
             <h1 className='text-primary text-3xl font-semibold'>Samsung Galaxy Z Fold 3</h1>
-            <div className="flex flex-wrap lg:flex-nowrap pt-8 pb-14">
-                <div>
+            <div className="flex flex-wrap  lg:flex-nowrap pt-8 pb-14">
+                <div className="max-w-[600px] mx-auto">
                     <div ref={sliderRef} className="keen-slider max-w-[300px] lg:max-w-[600px] mx-auto">
                         {imageArray.map((imageUrl, index) => (
                             <div key={index} className="keen-slider__slide flex justify-center">
