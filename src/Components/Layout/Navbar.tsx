@@ -11,6 +11,7 @@ const Navbar = ({ toggleSidebar }: any) => {
     const [input, setInput] = useState(false);
     const [handleForm, setHandleForm] = useState<boolean>(false);
 
+
     const handleLogIn = () => {
         setHandleForm(!handleForm);
     };
@@ -32,7 +33,7 @@ const Navbar = ({ toggleSidebar }: any) => {
     }, [handleForm]);
 
     return (
-        <nav className='bg-primary py-4'>
+        <nav className='bg-primary py-4 fixed w-full top-0 mb-10 z-[15000]'>
             <Container>
                 {handleForm && (
                     <div className={`fixed bg-opacity-50 inset-0 pt-5 max-h-screen z-[1500] bg-white`}>

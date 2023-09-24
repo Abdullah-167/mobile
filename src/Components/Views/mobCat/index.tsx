@@ -17,6 +17,9 @@ import { RxCross1 } from 'react-icons/rx'
 import Navbar from '@/Components/Layout/Navbar'
 import MiniNav from '@/Components/Layout/SubNav'
 import Footer from '@/Components/Layout/Footer'
+import ProgressBtn from '@/Components/Layout/ProgressBtn'   
+  import ProgressBar from '@/Components/Layout/ProgrssBar'
+
 
 
 const MobCat = () => {
@@ -62,6 +65,7 @@ const MobCat = () => {
                     </div>
                 </div>
             </div>
+            <ProgressBtn />
             <Footer />
         </main>
     )

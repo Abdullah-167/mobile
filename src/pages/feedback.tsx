@@ -2,6 +2,9 @@ import Ads from '@/Components/Common/Ads'
 import Container from '@/Components/Layout/Container'
 import Footer from '@/Components/Layout/Footer'
 import Navbar from '@/Components/Layout/Navbar'
+import ProgressBtn from '@/Components/Layout/ProgressBtn'   
+  import ProgressBar from '@/Components/Layout/ProgrssBar'
+
 import MiniNav from '@/Components/Layout/SubNav'
 import RightSide from '@/Components/Views/Home/RightSide'
 import SideBar from '@/Components/Views/Home/SideBar'
@@ -27,8 +30,15 @@ const Feedback = () => {
 
     return (
         <main>
-            <Navbar toggleSidebar={toggleSidebar} />
-            <MiniNav />
+               <div>
+                <Navbar toggleSidebar={toggleSidebar} />
+                
+                <div className='mt-[72px]'>
+                    <div className='lg:lg:block hidden'>
+                        <MiniNav />
+                    </div>
+                </div>
+            </div>
             <div className='md:flex w-full justify-between gap-6 max-w-[1400px] mx-auto relative overflow-hidden'>
                 <div className={`z-[1000] transition-all lg:hidden block duration-500 max-h-screen overflow-y-scroll ${isSidebarVisible ? 'lg:relative fixed h-full top-0 translate-x-0' : ' -translate-x-[400px]'}`}>
                     {isSidebarVisible && <SideBar />}
@@ -87,6 +97,7 @@ const Feedback = () => {
                     <Ads />
                 </div>
             </div>
+            <ProgressBtn />
             <Footer />
         </main >
     )

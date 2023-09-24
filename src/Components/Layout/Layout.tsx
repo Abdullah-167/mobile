@@ -11,7 +11,8 @@ const Layout = ({ children }: any) => {
             <Navbar />
             <MiniNav />
             {children}
-            <Footer />
+        <ProgressBtn />    
+<Footer />
         </main>
     )
 }

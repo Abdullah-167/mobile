@@ -5,6 +5,7 @@ import Container from '@/Components/Layout/Container';
 import Navbar from '@/Components/Layout/Navbar';
 import MiniNav from '@/Components/Layout/SubNav';
 import Footer from '@/Components/Layout/Footer';
+import ProgressBtn from '@/Components/Layout/ProgressBtn';
 
 const Comparison = () => {
     return (
@@ -15,6 +16,7 @@ const Comparison = () => {
                 <Ads />
                 <MainPage />
             </Container>
+            <ProgressBtn />
             <Footer />
         </div>
     )

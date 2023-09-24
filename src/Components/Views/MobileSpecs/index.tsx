@@ -10,6 +10,9 @@ import Latest from './Latest'
 import Navbar from '@/Components/Layout/Navbar'
 import Footer from '@/Components/Layout/Footer'
 import MiniNav from '@/Components/Layout/SubNav'
+import ProgressBtn from '@/Components/Layout/ProgressBtn'   
+  import ProgressBar from '@/Components/Layout/ProgrssBar'
+
 
 const MobileSpecs = () => {
   return (
@@ -28,6 +31,7 @@ const MobileSpecs = () => {
         <Ads />
         <Latest />
       </Container>
+      <ProgressBtn />
       <Footer />
     </div>
   )
