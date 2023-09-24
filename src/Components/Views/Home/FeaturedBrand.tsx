@@ -16,11 +16,11 @@ const FeaturedBrand = () => {
                         <Image className='min-h-[3px] max-h-[3px]' src={'/line1.png'} alt={''} width={1000} height={1000} />
                     </div>
                 </div>
-                <div className='grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-4 place-items-center max-w-[1000px] mx-auto'>
+                <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 place-items-center max-w-[1000px] mx-auto px-5'>
                     {brands.map((item, index) => {
                         return (
                             <div className=' flex justify-center items-center' key={index}>
-                                <div className='border-[1.2px] border-[#C1C1C1] rounded hover:border-[#004F22] min-h-[200px] max-h-[200px]  px-16 py-5  transition-all duration-500 cursor-pointer'>
+                                <div className='border-[1.2px] border-[#C1C1C1] rounded hover:border-[#004F22] min-h-[200px] max-h-[200px] px-8 sm:px-16 py-5  transition-all duration-500 cursor-pointer'>
                                     <Image className='min-w-[100px] min-h-[140px]' src={item.img} alt={''} width={100} height={100} />
                                     <p className='text-center'>{item.text}</p>
                                 </div>
