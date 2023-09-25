@@ -60,7 +60,7 @@ const Opinion = () => {
             <Image className='min-h-[10px]' src={'/line1.png'} alt={''} width={100} height={100} />
           </div>
           <p className='text-xl font-semibold sm:whitespace-nowrap'>SAMSUNG GALAXY Z FOLD3 5G - USER REVIEWS AND OPINIONS </p>
-          <div className='mdLblock hidden'>
+          <div className='md:block hidden'>
             <Image className='pb-1 max-h-[9px]' src={'/line1.png'} alt={''} width={1000} height={1000} />
             <Image className='min-h-[10px]' src={'/line1.png'} alt={''} width={1000} height={1000} />
           </div>

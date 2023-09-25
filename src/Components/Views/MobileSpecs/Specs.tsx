@@ -237,6 +237,10 @@ const Specs: React.FC = () => {
 
     const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
         initial: 0,
+        slides: {
+            perView: 1.5,
+            spacing: 1,
+        },
     })
     const [thumbnailRef] = useKeenSlider<HTMLDivElement>(
         {
@@ -255,12 +259,13 @@ const Specs: React.FC = () => {
                 <div className='flex  gap-2 items-center bg-white border border-[#C1C1C1] py-2 px-3 lg:px-20 justify-between rounded'>
                     {data.map((item, index) => {
                         return (
-                            <div className='flex gap-2 items-center cursor-pointer'
+                            <Link href={index === 1 ? '/comparison' : '/'}>  <div className='flex gap-2 items-center cursor-pointer'
                                 key={index}
                             >
                                 <Image src={item.img} alt='images' width={20} height={20} />
                                 <p>{item.text}</p>
                             </div>
+                            </Link>
                         )
                     })}
                 </div>
@@ -313,7 +318,7 @@ const Specs: React.FC = () => {
                         <Image className='min-h-[10px]' src={'/line1.png'} alt={''} width={1000} height={1000} />
                     </div>
                 </div>
-                <div className=' relative'>
+                <div className=' '>
                     <div className=' hidden lg:block'>
                         {specs.map((spec, index) => (
                             <div key={index} className=" rounded flex bg-[#E5F9DB] ">
@@ -326,7 +331,7 @@ const Specs: React.FC = () => {
                                             <span className='text-sm cursor-pointer'>{spec.screenShot[0].text}</span>
                                             <div className="flex gap-2">
                                                 {spec.screenShot[0].Images.map((image, imageIndex) => (
-                                                    <Image key={imageIndex} src={image} alt="screenshot" width={50} height={50} />
+                                                    <Image className=' cursor-pointer' key={imageIndex} src={image} alt="screenshot" width={50} height={50} />
                                                 ))}
                                             </div>
                                         </div>
@@ -344,26 +349,28 @@ const Specs: React.FC = () => {
                         ))}
                     </div>
                     {tab && (
-                        <div className="flex flex-wrap lg:flex-nowrap pt-8 pb-14 justify-center items-center absolute inset-0 bg-white max-w-[800px] max-h-[500px] mx-auto top-32">
-                            <div>
-                                <div ref={sliderRef} className="keen-slider max-w-[300px] lg:max-w-[600px] mx-auto">
-                                    {imageArray.map((imageUrl, index) => (
-                                        <div key={index} className="keen-slider__slide flex justify-center">
-                                            <Image width={300} height={300} src={imageUrl} alt={`Image ${index}`} />
-                                        </div>
-                                    ))}
+                        <div className=' fixed inset-0 w-full h-full bg-white bg-opacity-80 top-20'>
+                            <div className="flex flex-wrap lg:flex-nowrap pt-8 pb-14 justify-center items-center mx-auto   max-w-[800px] max-h-[500px] ">
+                                <div>
+                                    <div ref={sliderRef} className="keen-slider max-w-[300px] lg:max-w-[600px] mx-auto">
+                                        {imageArray.map((imageUrl, index) => (
+                                            <div key={index} className="keen-slider__slide flex justify-center">
+                                                <Image width={300} height={300} src={imageUrl} alt={`Image ${index}`} />
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <div ref={thumbnailRef} className="keen-slider thumbnail max-w-[300px] lg:max-w-[400px] justify-center mx-auto">
+                                        {imageArray.map((imageUrl, index) => (
+                                            <div key={index} className="keen-slider__slide ">
+                                                <Image className=" object-contain flex justify-center mx-auto items-center pt-1" src={imageUrl} width={30} height={30} alt={`Image ${index}`} />
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
-                                <div ref={thumbnailRef} className="keen-slider thumbnail max-w-[300px] lg:max-w-[400px] justify-center mx-auto">
-                                    {imageArray.map((imageUrl, index) => (
-                                        <div key={index} className="keen-slider__slide ">
-                                            <Image className=" object-contain flex justify-center mx-auto items-center pt-1" src={imageUrl} width={30} height={30} alt={`Image ${index}`} />
-                                        </div>
-                                    ))}
-                                </div>
+                                <span className='text-4xl cursor-pointer p-3 absolute top-0 right-0'
+                                    onClick={handleModale}
+                                ><RxCross2 /></span>
                             </div>
-                            <span className='text-4xl cursor-pointer p-3 absolute top-0 right-0'
-                                onClick={handleModale}
-                            ><RxCross2 /></span>
                         </div>
                     )}
                 </div>

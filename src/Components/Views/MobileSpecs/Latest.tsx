@@ -21,7 +21,7 @@ const Latest = () => {
                     <Image className='min-h-[10px]' src={'/line1.png'} alt={''} width={1000} height={1000} />
                 </div>
             </div>
-            <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 max-w-[1000px] mx-auto relative">
+            <div className=" grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-8 max-w-[1000px] mx-auto relative">
                 {data.map((item, index) => {
                     return (
                         <div key={index} className=" relative  bg-white cursor-pointer rounded py-3 border hover:border-primary transition-all duration-500 min-h-[220px]">
