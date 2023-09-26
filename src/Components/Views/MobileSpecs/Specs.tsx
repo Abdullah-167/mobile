@@ -259,12 +259,11 @@ const Specs: React.FC = () => {
                 <div className='flex  gap-2 items-center bg-white border border-[#C1C1C1] py-2 px-3 lg:px-20 justify-between rounded'>
                     {data.map((item, index) => {
                         return (
-                            <Link href={index === 1 ? '/comparison' : '/'}>  <div className='flex gap-2 items-center cursor-pointer'
-                                key={index}
-                            >
-                                <Image src={item.img} alt='images' width={20} height={20} />
-                                <p>{item.text}</p>
-                            </div>
+                            <Link key={index} href={index === 1 ? '/comparison' : '/'}>
+                                <div className='flex gap-2 items-center cursor-pointer'  >
+                                    <Image src={item.img} alt='images' width={20} height={20} />
+                                    <p>{item.text}</p>
+                                </div>
                             </Link>
                         )
                     })}
