@@ -88,7 +88,7 @@ const MobCat = () => {
                     <Soon />
                     <Popular />
                     <WhichMobExpan />
-                    <div className='px-10'>
+                    <div className=''>
                         <FeaturedBrand />
                     </div>
                 </div>
