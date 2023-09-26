@@ -47,14 +47,15 @@ w-4 h-4 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xml
             <div ref={sliderRef} className="keen-slider">
                 {data.map((item, index) => {
                     return (
-                        <div key={index} className=" 
-shadow-md keen-slider__slide cursor-pointer rounded-md max-h-[200px] my-3">
-                            <Image className=" flex justify-center mx-auto pb-1" src={item.img} alt={"slider-images"} width={100} height={100} />
-                            <p className="text-center font-medium pb-1">{item.model}</p>
-                            <div className=" text-xs flex gap-1 justify-center items-center pb-4 px-2">
-                                <span className=" text-primary font-semibold">{item.price}</span>
-                                <span className="">{item.expected}</span>
-                                <span className="pl-2">{item.androidIcon}</span>
+                        <div key={index} className="shadow-md keen-slider__slide cursor-pointer rounded my-1 pt-2 border border-transparent hover:border-primary duration-100">
+                            <Image className="flex justify-center mx-auto pb-2" src={item.img} alt={"slider-images"} width={70} height={70} />
+                             <p className="text-sm text-center pb-1">
+                                {item.model.length > 18 ? item.model.slice(0 , 18) + '...' : item.model}
+                            </p>
+                            <div className="text-xs flex  justify-between items-center px-4 pb-2">
+                                <span className=" text-primary font-semibold ">{item.price}</span>
+                                <span>{item.expected}</span>
+                                <span className="">{item.androidIcon}</span>
                             </div>
                             <button className="bg-[#E9E9E9] text-sm py-1.5 text-center w-full">
                                 {item.btn}
@@ -106,7 +107,7 @@ const data = [
     },
     {
         img: '/mobile1.png',
-        model: 'Best Overall',
+        model: 'Samsung Galaxy A10 ss asdasdd',
         androidIcon: <AiFillAndroid />,
         price: 'Rs. 72,500',
         btn: 'View Details',

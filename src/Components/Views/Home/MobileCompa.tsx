@@ -40,7 +40,7 @@ const MobileCompa = () => {
                 <div ref={sliderRef} className="keen-slider">
                     {data.map((item, index) => {
                         return (
-                            <div key={index} className="latest-newsCards keen-slider__slide cursor-pointer border border-[#949191] p-1">
+                            <div key={index} className="latest-newsCards keen-slider__slide cursor-pointer transition-all duration-500 border hover:border-primary border-[#949191] p-1">
                                 <Image className=" flex justify-center mx-auto pb-2 max-h-[150px] min-h-[150px] object-contain" src={item.img} alt={"comparison-mobile-images"} width={1000} height={1000} />
                                 <div className="flex text-sm font-semibold text-[#292929] gap-2 justify-around">
                                     <p>{item.mobOneName}</p>

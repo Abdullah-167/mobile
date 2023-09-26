@@ -37,7 +37,7 @@ const BestByPrice = () => {
             <div ref={sliderRef} className="keen-slider relative">
                 {data.map((item, index) => {
                     return (
-                        <div key={index} className="keen-slider__slide cursor-pointer rounded my-1 pt-2 border border-transparent hover:border-primary duration-100"
+                        <div key={index} className="keen-slider__slide cursor-pointer rounded my-1 pt-2 transition-all duration-500 border hover:border-primary border-[#949191]"
                             style={{
                                 backgroundColor: item.bgColor
                             }}

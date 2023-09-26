@@ -9,7 +9,6 @@ const index = () => {
   return (
     <main>
       <Home />
-      <NewNavbar />
     </main>
   )
 }

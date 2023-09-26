@@ -48,8 +48,10 @@ w-4 h-4 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xml
                     return (
                         <div key={index} className="shadow-md keen-slider__slide cursor-pointer rounded my-1 pt-2 border border-transparent hover:border-primary duration-100">
                             <Image className=" flex justify-center mx-auto pb-2" src={item.img} alt={"slider-images"} width={70} height={70} />
-                            <p className=" text-sm text-center  pb-1">{item.model}</p>
-                           <div className="text-xs flex gap-1 justify-between items-center px-4 pb-2">
+                            <p className="text-sm text-center pb-1">
+                                {item.model.length > 18 ? item.model.slice(0, 18) + '...' : item.model}
+                            </p>
+                            <div className="text-xs flex gap-1 justify-between items-center px-4 pb-2">
                                 <span className=" text-primary font-semibold ">{item.price}</span>
                                 <span className="pl-2">{item.androidIcon}</span>
                             </div>

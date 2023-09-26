@@ -47,7 +47,7 @@ const LatestNews = () => {
                 <div ref={sliderRef} className="keen-slider">
                     {data.map((item, index) => {
                         return (
-                            <div key={index} className="latest-newsCards max-h-[220px] mx-2  keen-slider__slide cursor-pointer border border-[#949191] p-1">
+                            <div key={index} className="latest-newsCards max-h-[220px] mx-2  keen-slider__slide cursor-pointer transition-all duration-500 border hover:border-primary border-[#949191] p-1">
                                 <Image className=" flex justify-center mx-auto pb-2" src={item.img} alt={"slider-images"} width={1000} height={1000} />
                                 <p className="text-xs text-[#707070] pb-1">{item.author}</p>
                                 <p className="text-[13px] leading-[16px] pb-0.5">{item.description}</p>
