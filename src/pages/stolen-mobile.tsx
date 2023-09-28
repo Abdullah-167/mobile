@@ -76,7 +76,7 @@ const StolenMobile = () => {
                                     <Image className='min-h-[10px]' src={'/line1.png'} alt={''} width={1000} height={1000} />
                                 </div>
                                 <p className='t'>The IMEI is an identification code for your mobile phone and is typically located beneath the battery or
-                                    on the warranty card. You can also receive your phone&#39;s <span className='font-semibold'> IMEI by simply dialing *#06# on the device. </span></p>
+                                    on the warranty card. You can also receive your phone&#39;s <span className='font-semibold'> IMEI by simply dialing{` *#06# `}on the device. </span></p>
                             </div>
                         </div>
                     </Container>
