@@ -48,16 +48,25 @@ function ThumbnailPlugin(
 }
 
 export default function App() {
-    const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
+    const [currentSlide, setCurrentSlide] = useState(0)
+    const [loaded, setLoaded] = useState(false)
+    const [sliderRef, instanceRef] = useKeenSlider({
         breakpoints: {
             "(min-width: 640px)": {
-                slides: { perView: 1, spacing: 0 },
+                slides: { perView: 1, spacing: 5 },
             },
         },
         slides: {
             perView: 1.5,
-            spacing: 5,
+            spacing: 10,
         },
+        slideChanged(slider) {
+            setCurrentSlide(slider.track.details.rel)
+        },
+        created() {
+            setLoaded(true)
+        },
+
     })
     const [thumbnailRef] = useKeenSlider<HTMLDivElement>(
         {
@@ -69,7 +78,6 @@ export default function App() {
         },
         [ThumbnailPlugin(instanceRef)]
     )
-
 
     const [rating, setRating] = useState(0);
 
@@ -96,9 +104,9 @@ export default function App() {
                 </div>
             </div>
             <h1 className='text-primary text-3xl font-semibold'>Samsung Galaxy Z Fold 3</h1>
-            <div className="flex flex-wrap  lg:flex-nowrap pt-8 pb-14">
-                <div className="max-w-[600px] mx-auto sm:mx-0">
-                    <div ref={sliderRef} className="keen-slider max-w-[300px] lg:max-w-[600px] mx-auto">
+            <div className="flex flex-wrap justify-evenly lg:flex-nowrap pt-8 pb-14">
+                <div className="relative max-w-[800px] mx-auto sm:mx-0">
+                    <div ref={sliderRef} className="keen-slider max-w-[300px] lg:max-w-[300px] mx-auto">
                         {imageArray.map((imageUrl, index) => (
                             <div key={index} className="keen-slider__slide flex justify-center">
                                 <Image width={300} height={300} src={imageUrl} alt={`Image ${index}`} />
@@ -112,6 +120,30 @@ export default function App() {
                             </div>
                         ))}
                     </div>
+                    {loaded && instanceRef.current && (
+                        <div className=''>
+                            <span className="absolute -left-7 top-40  z-[2000]">
+                                <Arrow
+                                    left
+                                    onClick={(e: any) =>
+                                        e.stopPropagation() || instanceRef.current?.prev()
+                                    }
+                                    disabled={currentSlide === 0}
+                                />
+                            </span>
+                            <span className="absolute -right-7 top-40  z-[2000]">
+                                <Arrow
+                                    onClick={(e: any) =>
+                                        e.stopPropagation() || instanceRef.current?.next()
+                                    }
+                                    disabled={
+                                        currentSlide ===
+                                        instanceRef.current.track.details.slides.length - 1
+                                    }
+                                />
+                            </span>
+                        </div>
+                    )}
                 </div>
                 <div>
                     <div className=" hidden lg:block border border-primary max-w-[500px] px-4 py-4 mb-10">
@@ -223,3 +255,22 @@ const stars = [
         star: <AiOutlineStar />
     },
 ]
+
+
+function Arrow(props: any) {
+    const disabeld = props.disabled ? " arrow--disabled" : ""
+    return (
+        <div
+            onClick={props.onClick}
+            className={` rounded-full p-3 cursor-pointer  ${props.left ? "arrow--left " : "arrow--right "
+                } ${disabeld}`}
+        >
+            {props.left && (
+                <Image src={'/arrowleft.svg'} alt="" width={30} height={30} />
+            )}
+            {!props.left && (
+                <Image src={'/arrowright.svg'} alt="" width={30} height={30} />
+            )}
+        </div>
+    )
+}

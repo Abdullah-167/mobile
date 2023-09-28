@@ -10,10 +10,6 @@ import {
 import "keen-slider/keen-slider.min.css"
 import Link from 'next/link';
 
-interface DataItem {
-    img: string;
-    text: string;
-}
 
 interface ProsConsData {
     icon: JSX.Element;
@@ -31,18 +27,24 @@ interface SpecsData {
     specsAns: string[];
 }
 
-const data: DataItem[] = [
+const data = [
     {
         img: '/opinion.svg',
         text: 'OPINIONS',
+        isLink: false
     },
     {
         img: '/compare.svg',
         text: 'Compare',
+        link: '/comparison',
+        isLink: true
+
     },
     {
         img: '/picture.svg',
         text: 'Picture',
+        isLink: false
+
     },
 ]
 
@@ -235,19 +237,36 @@ const Specs: React.FC = () => {
         setTab(!tab)
     }
 
-    const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
-        initial: 0,
+
+    const [currentSlide, setCurrentSlide] = useState(0)
+    const [loaded, setLoaded] = useState(false)
+    const [sliderRef, instanceRef] = useKeenSlider({
+        breakpoints: {
+            "(min-width: 640px)": {
+                slides: { perView: 1, spacing: 5 },
+            },
+        },
         slides: {
             perView: 1.5,
-            spacing: 1,
+            spacing: 10,
         },
+        slideChanged(slider) {
+            setCurrentSlide(slider.track.details.rel)
+        },
+        created() {
+            setLoaded(true)
+        },
+
     })
+
+
+
     const [thumbnailRef] = useKeenSlider<HTMLDivElement>(
         {
             initial: 0,
             slides: {
-                perView: 5,
-                spacing: 5,
+                perView: 4,
+                spacing: 4,
             },
         },
         [ThumbnailPlugin(instanceRef)]
@@ -259,12 +278,19 @@ const Specs: React.FC = () => {
                 <div className='flex  gap-2 items-center bg-white border border-[#C1C1C1] py-2 px-3 lg:px-20 justify-between rounded'>
                     {data.map((item, index) => {
                         return (
-                            <Link key={index} href={index === 1 ? '/comparison' : '/'}>
-                                <div className='flex gap-2 items-center cursor-pointer'  >
+                            item.isLink && item.link ? (
+                                <Link key={index} href={item.link}>
+                                    <div className='flex gap-2 items-center cursor-pointer hover:bg-[#a9d9a2] px-2 py-1 bg-opacity-10 rounded'>
+                                        <Image src={item.img} alt='images' width={20} height={20} />
+                                        <p>{item.text}</p>
+                                    </div>
+                                </Link>
+                            ) : (
+                                <div key={index} className='flex gap-2 items-center cursor-pointer hover:bg-[#a9d9a2] px-2 py-1 bg-opacity-10 rounded'>
                                     <Image src={item.img} alt='images' width={20} height={20} />
                                     <p>{item.text}</p>
                                 </div>
-                            </Link>
+                            )
                         )
                     })}
                 </div>
@@ -320,8 +346,8 @@ const Specs: React.FC = () => {
                 <div className=' '>
                     <div className=' hidden lg:block'>
                         {specs.map((spec, index) => (
-                            <div key={index} className=" rounded flex bg-[#E5F9DB] ">
-                                <div className='px-2 min-w-[230px] specs-heading-bg border-b border-b-[#019943] pb-2'>
+                            <div key={index} className=" rounded flex w-full  bg-[#E5F9DB] ">
+                                <div className='px-2 min-w-[230px] specs-heading-bg border-b border-b-[#019943] pb-2 flex-grow'>
                                     <h2 className="text-xl font-semibold pt-2">{spec.mainheading}</h2>
                                     {spec.screenShot && (
                                         <div className=""
@@ -336,7 +362,7 @@ const Specs: React.FC = () => {
                                         </div>
                                     )}
                                 </div>
-                                <div>
+                                <div className='flex-grow w-full'>
                                     {spec.specs.map((specItem, specIndex) => (
                                         <div key={specIndex} className="flex items-center ">
                                             <p className="font-semibold text-[#676767] min-w-[160px] border py-1 px-2 border-primary">{specItem}</p>
@@ -347,36 +373,78 @@ const Specs: React.FC = () => {
                             </div>
                         ))}
                     </div>
-                    {tab && (
-                        <div className=' fixed inset-0 w-full h-full bg-white bg-opacity-80 top-20'>
-                            <div className="flex flex-wrap lg:flex-nowrap pt-8 pb-14 justify-center items-center mx-auto   max-w-[800px] max-h-[500px] ">
-                                <div>
-                                    <div ref={sliderRef} className="keen-slider max-w-[300px] lg:max-w-[600px] mx-auto">
-                                        {imageArray.map((imageUrl, index) => (
-                                            <div key={index} className="keen-slider__slide flex justify-center">
-                                                <Image width={300} height={300} src={imageUrl} alt={`Image ${index}`} />
-                                            </div>
-                                        ))}
+                    <div>
+                        {tab && (
+                            <div className=' fixed inset-0 w-full h-full bg-white bg-opacity-90 top-[72px] max-w-[1150px] mx-auto modal-shadow'>
+                                <div className="flex  relative flex-wrap lg:flex-nowrap pt-8 pb-14 justify-center items-center mx-auto   max-w-[800px] max-h-[500px] ">
+                                    <div>
+                                        <div ref={sliderRef} className="keen-slider max-w-[300px] mx-auto">
+                                            {imageArray.map((imageUrl, index) => (
+                                                <div key={index} className="keen-slider__slide flex justify-center">
+                                                    <Image width={300} height={300} src={imageUrl} alt={`Image ${index}`} />
+                                                </div>
+                                            ))}
+                                        </div>
+                                        <div ref={thumbnailRef} className="keen-slider thumbnail max-w-[300px] lg:max-w-[400px] justify-center mx-auto">
+                                            {imageArray.map((imageUrl, index) => (
+                                                <div key={index} className="keen-slider__slide new-thumb">
+                                                    <Image className=" object-contain flex justify-center mx-auto items-center pt-1" src={imageUrl} width={35} height={35} alt={`Image ${index}`} />
+                                                </div>
+                                            ))}
+                                        </div>
                                     </div>
-                                    <div ref={thumbnailRef} className="keen-slider thumbnail max-w-[300px] lg:max-w-[400px] justify-center mx-auto">
-                                        {imageArray.map((imageUrl, index) => (
-                                            <div key={index} className="keen-slider__slide ">
-                                                <Image className=" object-contain flex justify-center mx-auto items-center pt-1" src={imageUrl} width={30} height={30} alt={`Image ${index}`} />
-                                            </div>
-                                        ))}
-                                    </div>
+                                    <span className='text-4xl cursor-pointer p-3 absolute top-0 right-0'
+                                        onClick={handleModale}
+                                    ><RxCross2 /></span>
+                                    {loaded && instanceRef.current && (
+                                        <div className=''>
+                                            <span className=" absolute left-40 top-52">
+                                                <Arrow
+                                                    left
+                                                    onClick={(e: any) =>
+                                                        e.stopPropagation() || instanceRef.current?.prev()
+                                                    }
+                                                 
+                                                />
+                                            </span>
+                                            <span className=" absolute right-40 top-52">
+                                                <Arrow
+                                                    onClick={(e: any) =>
+                                                        e.stopPropagation() || instanceRef.current?.next()
+                                                    }
+                                                    disabled={
+                                                        currentSlide ===
+                                                        instanceRef.current.track.details.slides.length - 1
+                                                    }
+                                                />
+                                            </span>
+                                        </div>
+                                    )}
                                 </div>
-                                <span className='text-4xl cursor-pointer p-3 absolute top-0 right-0'
-                                    onClick={handleModale}
-                                ><RxCross2 /></span>
                             </div>
-                        </div>
-                    )}
+                        )}
+                    </div>
                 </div>
             </div>
+
         </section>
     )
 }
 
 export default Specs;
 
+function Arrow(props: any) {
+    return (
+        <div
+            onClick={props.onClick}
+            className={`flex  text-[#B6B6B6]  rounded-full p-3 cursor-pointer `}
+        >
+            {props.left && (
+                <Image src={'/arrowleft.svg'} alt="" width={30} height={30} />
+            )}
+            {!props.left && (
+                <Image src={'/arrowright.svg'} alt="" width={30} height={30} />
+            )}
+        </div>
+    )
+}
