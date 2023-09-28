@@ -6,7 +6,7 @@ import {
 } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 import Image from "next/image"
-import { AiFillFacebook, AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai"
+import { AiFillFacebook, AiFillStar, AiOutlineArrowLeft, AiOutlineArrowRight, AiOutlineStar } from "react-icons/ai"
 import { FaFacebook, FaInstagram, FaTiktok, FaWhatsappSquare, FaYoutube } from "react-icons/fa"
 import { FiLink2 } from "react-icons/fi"
 import Link from "next/link"
@@ -49,7 +49,11 @@ function ThumbnailPlugin(
 
 export default function App() {
     const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
-        initial: 0,
+        breakpoints: {
+            "(min-width: 640px)": {
+                slides: { perView: 1, spacing: 0 },
+            },
+        },
         slides: {
             perView: 1.5,
             spacing: 5,
@@ -65,6 +69,14 @@ export default function App() {
         },
         [ThumbnailPlugin(instanceRef)]
     )
+
+
+    const [rating, setRating] = useState(0);
+
+    const handleStarClick = (index: any) => {
+        setRating(index + 1);
+    };
+
 
     return (
         <header>
@@ -85,7 +97,7 @@ export default function App() {
             </div>
             <h1 className='text-primary text-3xl font-semibold'>Samsung Galaxy Z Fold 3</h1>
             <div className="flex flex-wrap  lg:flex-nowrap pt-8 pb-14">
-                <div className="max-w-[600px] mx-auto">
+                <div className="max-w-[600px] mx-auto sm:mx-0">
                     <div ref={sliderRef} className="keen-slider max-w-[300px] lg:max-w-[600px] mx-auto">
                         {imageArray.map((imageUrl, index) => (
                             <div key={index} className="keen-slider__slide flex justify-center">
@@ -102,7 +114,7 @@ export default function App() {
                     </div>
                 </div>
                 <div>
-                    <div className=" hidden lg:block border border-primary max-w-[470px] px-4 py-4 mb-10">
+                    <div className=" hidden lg:block border border-primary max-w-[500px] px-4 py-4 mb-10">
                         <Image src={"/mainlogo.svg"} alt={"logo"} width={300} height={300} />
                         <p className="pb-20 text-[#676767] pl-2">1,059,108 Followers</p>
                         <div className="flex gap-3">
@@ -125,7 +137,17 @@ export default function App() {
                         </div>
                     </div>
                     <div className="text-[#676767] pt-10 lg:pt-0">
-                        <Image className=" cursor-pointer pb-3" src={"/rating.svg"} alt={"logo"} width={100} height={100} />
+                        <div className='flex gap-1'>
+                            {stars.map((item, index) => (
+                                <span
+                                    key={index}
+                                    className='text-[#fee86d] text-2xl cursor-pointer'
+                                    onClick={() => handleStarClick(index)}
+                                >
+                                    {index < rating ? <AiFillStar /> : <AiOutlineStar />}
+                                </span>
+                            ))}
+                        </div>
                         <p className=" text-lg font-semibold">Price</p>
                         <p>USD $1098</p>
                         <p>Rs 314,999</p>
@@ -182,3 +204,22 @@ const socialicons = [
     },
 ]
 
+
+
+const stars = [
+    {
+        star: <AiOutlineStar />
+    },
+    {
+        star: <AiOutlineStar />
+    },
+    {
+        star: <AiOutlineStar />
+    },
+    {
+        star: <AiOutlineStar />
+    },
+    {
+        star: <AiOutlineStar />
+    },
+]

@@ -28,6 +28,9 @@ const SideBar = () => {
     else if (router.pathname === '/feedback') {
         maxSidebarHeight = 'max-h-[1400px] overflow-y-scroll';
     }
+    else if (router.pathname === '/stolen-mobile') {
+        maxSidebarHeight = 'max-h-[1300px] overflow-y-scroll';
+    }
 
     return (
         <aside className='z-[1000] relative'>
