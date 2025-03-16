@@ -43,18 +43,17 @@ const FilterComponent = ({ onFilter }: any) => {
     setCamera(event.target.value);
   };
 
+  // Apply the selected filters
   const handleFilterApply = () => {
     const filters = { priceRange, make, displaySize, ram, battery, os, camera };
     setSelectedFilters(filters);
-    onFilter(filters);
+    onFilter(filters); // Apply filters
   };
 
+  // Remove filter and update state
   const handleFilterRemove = (filter: string) => {
-    setSelectedFilters((prevFilters: SelectedFilters) => {
-      const updatedFilters = { ...prevFilters };
-      delete updatedFilters[filter];
-      return updatedFilters;
-    });
+    const updatedFilters = { ...selectedFilters };
+    delete updatedFilters[filter]; // Remove selected filter from state
 
     // Reset the corresponding filter field to empty (or default)
     if (filter === "priceRange") setPriceRange("");
@@ -65,8 +64,8 @@ const FilterComponent = ({ onFilter }: any) => {
     if (filter === "os") setOs("");
     if (filter === "camera") setCamera("");
 
-    // After removing the filter, call the onFilter function with the updated filters
-    onFilter({ ...selectedFilters }); // Pass the current state, or an empty object if nothing is selected
+    setSelectedFilters(updatedFilters);
+    onFilter(updatedFilters); // Reapply filters
   };
 
   return (
@@ -95,6 +94,7 @@ const FilterComponent = ({ onFilter }: any) => {
           )}
         </div>
       )}
+
       {/* Filter UI Components */}
       <div>
         <label className="block font-medium">Price Range</label>
@@ -119,18 +119,10 @@ const FilterComponent = ({ onFilter }: any) => {
           value={make}
           onChange={handleMakeChange}
         >
-          {" "}
-          <option value="">All Makes</option>{" "}
-          <option value="samsung">Samsung</option>{" "}
-          <option value="iphone">iPhone</option>{" "}
-          <option value="vivo">Vivo</option>{" "}
-          <option value="xiaomi">Xiaomi</option>{" "}
-          <option value="oppo">Oppo</option>{" "}
-          <option value="oneplus">OnePlus</option>{" "}
-          <option value="asus">Asus</option>{" "}
-          <option value="huawei">Huawei</option>{" "}
-          <option value="motorola">Motorola</option>{" "}
-          <option value="realme">Realme</option>{" "}
+          <option value="">All Makes</option>
+          <option value="samsung">Samsung</option>
+          <option value="iphone">iPhone</option>
+          <option value="xiaomi">Xiaomi</option>
         </select>
       </div>
 
