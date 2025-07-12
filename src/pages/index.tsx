@@ -9,7 +9,7 @@ import React from "react";
 const index = () => {
   return (
     <main>
-      <MobileData />
+      <Home />
     </main>
   );
 };
